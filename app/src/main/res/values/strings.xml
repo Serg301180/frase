@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Frase</string>
+    <string name="widget_desc">Испанская фраза с разбором</string>
+    <string name="siguiente">Следующая фраза</string>
+</resources>

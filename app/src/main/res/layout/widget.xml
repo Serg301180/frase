@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_bg"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/ficha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="9sp"
+        android:letterSpacing="0.15"
+        android:textColor="#5E6A63"
+        android:fontFamily="monospace"
+        android:text="ficha" />
+
+    <TextView
+        android:id="@+id/es"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="21sp"
+        android:textColor="#1E2422"
+        android:fontFamily="serif"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="Soy ingeniero." />
+
+    <TextView
+        android:id="@+id/roles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:textSize="9sp"
+        android:letterSpacing="0.06"
+        android:textColor="#A63A24"
+        android:fontFamily="monospace"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="SER" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#2A4C6B" />
+
+    <TextView
+        android:id="@+id/ru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp"
+        android:textColor="#2A4C6B"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="Я инженер." />
+
+    <TextView
+        android:id="@+id/say"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textSize="11sp"
+        android:textColor="#5E6A63"
+        android:fontFamily="monospace"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="сой инхеньéро" />
+
+</LinearLayout>

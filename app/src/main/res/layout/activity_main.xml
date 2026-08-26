@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDE2DC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/ficha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textSize="11sp"
+            android:letterSpacing="0.16"
+            android:textColor="#5E6A63"
+            android:fontFamily="monospace"
+            android:text="ficha" />
+
+        <TextView
+            android:id="@+id/es"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:textSize="34sp"
+            android:textColor="#1E2422"
+            android:fontFamily="serif"
+            android:text="Soy ingeniero." />
+
+        <TextView
+            android:id="@+id/roles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="11sp"
+            android:letterSpacing="0.06"
+            android:textColor="#A63A24"
+            android:fontFamily="monospace"
+            android:text="SER" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="26dp"
+            android:background="#2A4C6B" />
+
+        <TextView
+            android:id="@+id/ru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="19sp"
+            android:textColor="#2A4C6B"
+            android:text="Я инженер." />
+
+        <TextView
+            android:id="@+id/say"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="13sp"
+            android:textColor="#5E6A63"
+            android:fontFamily="monospace"
+            android:text="сой инхеньéро" />
+
+        <TextView
+            android:id="@+id/nota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:padding="14dp"
+            android:background="#E8ECE6"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.25"
+            android:textColor="#1E2422"
+            android:text="примечание" />
+
+        <Button
+            android:id="@+id/btnSiguiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/siguiente"
+            android:textAllCaps="true"
+            android:letterSpacing="0.06" />
+
+    </LinearLayout>
+</ScrollView>
