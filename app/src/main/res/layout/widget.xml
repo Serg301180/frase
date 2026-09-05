@@ -42,11 +42,12 @@
         android:ellipsize="end"
         android:text="SER" />
 
-    <View
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
-        android:background="#2A4C6B" />
+        android:background="#2A4C6B"
+        android:text="" />
 
     <TextView
         android:id="@+id/ru"

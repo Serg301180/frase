@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Frase</title>
+<style>
+:root{
+  --sheet:#DDE2DC; --hi:#E8ECE6; --grid:#C7D0C6; --gridb:#B4C0B3;
+  --graf:#1E2422; --lap:#5E6A63; --carga:#A63A24; --tinta:#2A4C6B;
+  --ok:#2E6B4F;
+  --mono:ui-monospace,"Roboto Mono",monospace;
+  --cond:"Roboto Condensed","Arial Narrow",system-ui,sans-serif;
+  --ser:Georgia,"Noto Serif",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  background:var(--sheet);
+  background-image:
+    repeating-linear-gradient(0deg,transparent 0 19px,var(--grid) 19px 20px),
+    repeating-linear-gradient(90deg,transparent 0 19px,var(--grid) 19px 20px),
+    repeating-linear-gradient(0deg,transparent 0 99px,var(--gridb) 99px 100px),
+    repeating-linear-gradient(90deg,transparent 0 99px,var(--gridb) 99px 100px);
+  color:var(--graf); font-family:var(--cond);
+  display:flex; flex-direction:column;
+  padding-top:env(safe-area-inset-top);
+}
+
+/* вкладки */
+nav{display:flex;border-bottom:1.5px solid var(--graf);flex:none}
+nav button{
+  flex:1;background:transparent;border:0;padding:14px 2px 12px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--lap);cursor:pointer;
+  border-bottom:3px solid transparent;margin-bottom:-1.5px;
+}
+th{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--lap);text-align:left;
+  padding:0 4px 7px;border-bottom:1.5px solid var(--graf);font-weight:400;
+}
+td.c{font-family:var(--ser);font-weight:700;color:var(--carga);text-align:left}
+td.n{font-size:14px;color:var(--graf)}
+.verb .sub{font-family:var(--mono);font-size:10px;color:var(--carga);letter-spacing:.08em}
+.gh{font-family:var(--ser);font-size:19px;line-height:1.25;color:var(--graf);flex:1;text-align:left}
+nav button.on{color:var(--graf);border-bottom-color:var(--carga);font-weight:700}
+
+main{flex:1;overflow-y:auto;overflow-x:hidden;padding:0 16px calc(28px + env(safe-area-inset-bottom))}
+section{display:none;animation:in .22s ease-out}
+section.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.eyebrow{
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:var(--lap);text-transform:uppercase;padding:16px 0 0;
+  display:flex;justify-content:space-between
+}
+.eyebrow b{color:var(--graf)}
+
+/* ---------- карточка ---------- */
+.vista{
+  width:84px;height:84px;margin:14px auto 4px;display:grid;place-items:center;
+  font-size:44px;background:var(--hi);border:1.5px solid var(--graf);position:relative
+}
+.vista::after{
+  content:"вид";position:absolute;bottom:-9px;right:-1px;background:var(--sheet);
+  padding:0 4px;font-family:var(--mono);font-size:9px;color:var(--lap)
+}
+.words{display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px;margin-top:24px}
+.tok{display:flex;flex-direction:column;align-items:center;max-width:150px}
+.tok .w{font-family:var(--ser);font-size:clamp(24px,7.6vw,34px);line-height:1.15;padding-bottom:3px}
+.tok.k .w{color:var(--carga);font-weight:700}
+.tok .lead{width:1px;background:var(--lap)}
+.tok:nth-child(odd) .lead{height:20px}
+.tok:nth-child(even) .lead{height:36px}
+.tok .role{
+  font-family:var(--mono);font-size:9px;line-height:1.35;color:var(--lap);
+  text-align:center;text-transform:uppercase;border-top:1px solid var(--lap);
+  padding-top:4px;max-width:130px
+}
+.tok.k .role{color:var(--carga);border-top-color:var(--carga)}
+
+.dim{margin-top:28px;display:flex;align-items:center;gap:6px;color:var(--tinta);font-family:var(--mono);font-size:9px}
+.dim .bar{flex:1;height:1px;background:var(--tinta)}
+.dim .cap{width:1px;height:9px;background:var(--tinta)}
+.ru{text-align:center;padding-top:9px;font-size:18px;color:var(--tinta);min-height:28px}
+.ru.hid{visibility:hidden}
+.say{text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--lap);margin-top:5px}
+.nota{border-left:2.5px solid var(--carga);background:rgba(232,236,230,.75);padding:10px 12px;margin-top:20px}
+.nota span{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--carga);text-transform:uppercase;display:block;margin-bottom:3px}
+.nota p{font-size:14.5px;line-height:1.45}
+
+/* кнопки */
+.row{display:flex;gap:10px;margin-top:22px}
+button.b{
+  flex:1;font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;padding:14px 8px;border:1.5px solid var(--graf);
+  background:var(--hi);color:var(--graf);cursor:pointer
+}
+button.b:active{background:var(--graf);color:var(--hi)}
+button.b.pri{background:var(--graf);color:var(--hi)}
+button.b.pri:active{background:var(--carga);border-color:var(--carga)}
+button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
+
+/* ---------- глаголы ---------- */
+.verb{border:1.5px solid var(--graf);background:var(--hi);margin-top:14px}
+.verb>.top{width:100%;display:flex;align-items:baseline;gap:10px;padding:14px;background:transparent;border:0;cursor:pointer;text-align:left}
+.verb .inf{font-family:var(--ser);font-size:24px;color:var(--graf)}
+.verb .tr{font-size:14px;color:var(--lap);flex:1}
+.verb .arrow{font-family:var(--mono);font-size:14px;color:var(--carga)}
+.verb .body{display:none;padding:0 14px 16px;border-top:1px solid var(--grid)}
+.verb.open .body{display:block}
+.verb.now{border-color:var(--carga);border-width:2px}
+.tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--carga);border:1px solid var(--carga);padding:2px 5px}
+
+table{width:100%;border-collapse:collapse;margin-top:12px}
+td{padding:7px 4px;border-bottom:1px solid var(--grid);font-size:15px;vertical-align:baseline}
+td.q{color:var(--lap);width:32%;font-size:13.5px}
+td.f{font-family:var(--ser);font-weight:700;color:var(--carga);width:32%}
+td.p{font-family:var(--mono);font-size:11.5px;color:var(--lap)}
+.corto{font-size:14.5px;line-height:1.5;margin-top:13px;color:var(--graf)}
+.more{margin-top:14px;width:100%;background:transparent;border:0;border-top:1px dashed var(--lap);padding-top:11px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta);cursor:pointer;text-align:left}
+.largo{display:none;margin-top:6px}
+.verb.full .largo{display:block}
+.blk{margin-top:16px}
+.blk h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--carga);text-transform:uppercase;margin-bottom:7px}
+.blk li{list-style:none;font-family:var(--ser);font-size:15.5px;line-height:1.65;border-left:2px solid var(--grid);padding-left:10px}
+.blk .cm{font-size:14px;line-height:1.5;color:var(--lap);font-family:var(--cond);margin-top:8px}
+
+/* ---------- конструктор ---------- */
+.lvl{display:flex;gap:0;margin-top:16px;border:1.5px solid var(--graf)}
+.lvl button{flex:1;background:transparent;border:0;padding:11px 4px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--lap);cursor:pointer}
+.lvl button+button{border-left:1.5px solid var(--graf)}
+.lvl button.on{background:var(--graf);color:var(--hi)}
+
+.task{margin-top:24px;font-size:20px;color:var(--tinta);text-align:center;line-height:1.35}
+.slots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px;min-height:52px}
+.slot{
+  min-width:60px;padding:10px 12px;border-bottom:2px solid var(--lap);
+  font-family:var(--ser);font-size:20px;text-align:center;background:transparent;
+  border-top:0;border-left:0;border-right:0;color:var(--graf);cursor:pointer
+}
+.slot.empty{color:transparent;background:rgba(255,255,255,.28)}
+.slot.fix{border-bottom-color:var(--grid);color:var(--lap);cursor:default}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:26px}
+.chip{
+  font-family:var(--ser);font-size:18px;padding:9px 14px;
+  border:1.5px solid var(--graf);background:var(--hi);color:var(--graf);cursor:pointer
+}
+.chip:active{background:var(--graf);color:var(--hi)}
+.chip.used{opacity:.25;pointer-events:none}
+input.free{
+  width:100%;margin-top:22px;padding:14px 12px;border:1.5px solid var(--graf);
+  background:var(--hi);font-family:var(--ser);font-size:20px;color:var(--graf);text-align:center
+}
+input.free:focus{outline:none;border-color:var(--carga)}
+.res{margin-top:18px;padding:12px;font-size:15px;line-height:1.45;display:none}
+.res.show{display:block}
+.res.good{background:rgba(46,107,79,.12);border-left:3px solid var(--ok);color:var(--ok)}
+.res.bad{background:rgba(166,58,36,.1);border-left:3px solid var(--carga);color:var(--carga)}
+.res b{font-family:var(--ser);font-size:17px}
+.score{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--lap);text-align:center;margin-top:18px;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<nav>
+  <button data-go="ficha" class="on">Фраза</button>
+  <button data-go="gram">Правила</button>
+  <button data-go="verbos">Глаголы</button>
+  <button data-go="taller">Собрать</button>
+</nav>
+
+<main>
+
+<!-- ============ ФРАЗА ============ -->
+<section id="ficha" class="on">
+  <div class="eyebrow"><span>ficha <b id="num">—</b></span><span id="tema">—</span></div>
+  <div class="vista" id="emo">🏗️</div>
+  <div class="words" id="words"></div>
+  <div class="dim"><span class="cap"></span><span class="bar"></span><span>перевод</span><span class="bar"></span><span class="cap"></span></div>
+  <div class="ru hid" id="ru"></div>
+  <div class="say" id="say"></div>
+  <div class="nota"><span>примечание</span><p id="nota"></p></div>
+  <div class="row">
+    <button class="b" id="bRu">Перевод</button>
+    <button class="b pri" id="bNext">Следующая</button>
+  </div>
+</section>
+
+<!-- ============ ПРАВИЛА ============ -->
+<section id="gram">
+  <div class="eyebrow"><span>gramática</span><span>как устроен язык</span></div>
+  <div id="gramList"></div>
+</section>
+
+<!-- ============ ГЛАГОЛЫ ============ -->
+<section id="verbos">
+  <div class="eyebrow"><span>verbos</span><span>таблицы спряжения</span></div>
+  <div id="verbList"></div>
+</section>
+
+<!-- ============ СОБРАТЬ ============ -->
+<section id="taller">
+  <div class="eyebrow"><span>taller</span><span>сборка фразы</span></div>
+  <div class="lvl">
+    <button data-lvl="1" class="on">Легко</button>
+    <button data-lvl="2">Средне</button>
+    <button data-lvl="3">Сложно</button>
+  </div>
+  <div class="task" id="task">—</div>
+  <div id="area"></div>
+  <div class="res" id="res"></div>
+  <div class="row">
+    <button class="b" id="bCheck">Проверить</button>
+    <button class="b pri" id="bSkip">Следующее</button>
+  </div>
+  <div class="score" id="score">верно 0 · всего 0</div>
+</section>
+
+</main>
+
+<script>
+/* ================= ДАННЫЕ ================= */
+
+const FRASES=[
+ {e:"🏗️",t:"ser",w:[["Soy","глагол ser · я",1],["ingeniero","кто я"]],ru:"Я инженер.",say:"сой инхеньéро",n:"Глагол обязателен. По-русски «я инженер», по-испански «я ЕСТЬ инженер»."},
+ {e:"🇺🇦",t:"ser",w:[["Soy","глагол ser · я",1],["de","предлог · из"],["Ucrania","страна"]],ru:"Я из Украины.",say:"сой де укранúя",n:"Страны с большой буквы, национальности с маленькой: soy ucraniano."},
+ {e:"📏",t:"ser",w:[["Eres","глагол ser · ты",1],["alto","признак · м. род"]],ru:"Ты высокий.",say:"э́рес áлто",n:"Местоимение tú не нужно — eres уже значит «ты есть»."},
+ {e:"👦",t:"ser",w:[["Mi hijo","кто"],["es","глагол ser · он",1],["alto","какой"]],ru:"Мой сын высокий.",say:"ми úхо эс áлто",n:"hijo — сын в любом возрасте. niño — только маленький ребёнок."},
+ {e:"👩‍🏫",t:"ser",w:[["Mi mujer","кто · ж. род"],["es","глагол ser · она",1],["profesora","какая"]],ru:"Моя жена учительница.",say:"ми мухéр эс професóра",n:"Хозяин женского рода — окончание -a идёт по всей цепочке."},
+ {e:"🏙️",t:"ser",w:[["Somos","глагол ser · мы",1],["de","предлог"],["Járkov","город"]],ru:"Мы из Харькова.",say:"сóмос де хáрков",n:"J читается как «х»: Járkov, trabajo, hijo."},
+ {e:"👨‍👩‍👦",t:"ser",w:[["Mis hijos","кто · мн. ч."],["son","глагол ser · они",1],["altos","какие · мн. ч."]],ru:"Мои дети высокие.",say:"мис úхос сон áлтос",n:"Множественное тянет -s через всё: mis · hijos · son · altos."},
+ {e:"🚫",t:"отрицание",w:[["No","отрицание"],["soy","глагол ser · я",1],["padre","кто"]],ru:"Я не отец.",say:"но сой пáдре",n:"No всегда ПЕРЕД глаголом. «Soy no padre» сказать нельзя."},
+ {e:"❓",t:"вопрос",w:[["¿Eres","глагол ser · ты",1],["ingeniero?","кто"]],ru:"Ты инженер?",say:"э́рес инхеньéро",n:"Слова не переставляются. Меняются только знаки: ¿ и ?"},
+ {e:"🏢",t:"ser",w:[["El edificio","что"],["es","глагол ser",1],["alto","какое"]],ru:"Здание высокое.",say:"эль эдифúсио эс áлто",n:"edificio пишется через C: -cio. Как precio, servicio, negocio."},
+ {e:"📐",t:"ser",w:[["El proyecto","что"],["es","глагол ser",1],["complejo","какой"]],ru:"Проект сложный.",say:"эль пройéкто эс комплéхо",n:"Признак ПОСЛЕ предмета: proyecto complejo, hormigón armado."},
+ {e:"🎂",t:"tener",w:[["Tengo","глагол tener · я",1],["45 años","дополнение"]],ru:"Мне 45 лет.",say:"тéнго куарéнта и сúнко áньос",n:"Испанец «имеет» годы. año без волны — совсем другое слово."},
+ {e:"🍕",t:"querer",w:[["Quiero","глагол querer · я",1],["una pizza","дополнение"]],ru:"Я хочу пиццу.",say:"кьéро ýна пúсса",n:"Вежливее: Quería una pizza, por favor — «я бы хотел»."},
+ {e:"🍍",t:"миссия",w:[["¿Tienen","глагол tener · вы",1],["piñas?","дополнение"]],ru:"У вас есть ананасы?",say:"тьéнен пúньяс",n:"Рабочая фраза в магазине. Меняйте только последнее слово."},
+ {e:"🤷",t:"выручалочка",w:[["No","отрицание"],["entiendo","глагол entender · я",1]],ru:"Я не понимаю.",say:"но энтьéндо",n:"Первая фраза наизусть. Вторая — más despacio, por favor."},
+ {e:"🐢",t:"выручалочка",w:[["Más despacio","медленнее"],["por favor","пожалуйста"]],ru:"Медленнее, пожалуйста.",say:"мас деспáсио пор фавóр",n:"Говорите без стеснения. Испанцы охотно сбавляют темп."},
+ {e:"💶",t:"вопрос",w:[["¿Cuánto","сколько"],["es?","глагол ser",1]],ru:"Сколько стоит?",say:"куáнто эс",n:"Короткий вариант. Полный: ¿Cuánto cuesta?"},
+ {e:"🏘️",t:"vivir",w:[["Vivo","глагол vivir · я",1],["en","предлог · в"],["Meliana","место"]],ru:"Я живу в Мельяне.",say:"бúбо эн мельáна",n:"V читается как Б. Пишем vivo, говорим «бибо»."},
+ {e:"👷",t:"стройка",w:[["Mis compañeros","кто · мн. ч."],["son","глагол ser · они",1],["ucranianos","какие"]],ru:"Мои коллеги украинцы.",say:"мис компаньéрос сон украниáнос",n:"compañero de trabajo — коллега по работе. Через ñ."},
+ {e:"🧱",t:"стройка",w:[["La planta baja","что · ж. род"],["es","глагол ser",1],["grande","какая"]],ru:"Первый этаж большой.",say:"ла плáнта бáха эс грáнде",n:"planta baja — первый этаж. Primera planta — наш второй!"},
+ {e:"👋",t:"прощание",w:[["Hasta luego","устойчивое выражение"]],ru:"До скорого.",say:"áста луэ́го",n:"Самое частое прощание в Испании. Говорят даже незнакомым."}
+];
+
+const VERBOS=[
+{inf:"ser",tr:"быть — по сути",now:1,
+ f:[["yo — я","soy","сой"],["tú — ты","eres","э́рес"],["él / ella — он, она","es","эс"],
+    ["nosotros — мы","somos","сóмос"],["vosotros — вы","sois","сойс"],["ellos — они","son","сон"]],
+ corto:"Кто вы есть по сути: профессия, национальность, родство, характер, размер, цвет. Формы неправильные — заучиваются как таблица умножения.",
+ largo:[
+  ["SOY — про меня",["Soy ingeniero. — Я инженер.","Soy de Ucrania. — Я из Украины.","No soy médico. — Я не врач."],"Местоимение yo не нужно: soy уже значит «я есть»."],
+  ["ERES — про собеседника",["¿Eres ingeniero? — Ты инженер?","Eres alto. — Ты высокий."],"Только с теми, с кем на «ты». В Испании переходят на «ты» очень быстро."],
+  ["ES — про третьего и про предметы",["Mi hijo es alto. — Мой сын высокий.","El proyecto es complejo. — Проект сложный."],"Самая частая форма. Ей описывают весь мир вокруг."],
+  ["SOMOS — про нас",["Somos ucranianos. — Мы украинцы.","Somos una familia. — Мы семья."],""],
+  ["SOIS — «вы» к группе на «ты»",["¿Sois de España? — Вы из Испании?"],"Только в Испании. В Латинской Америке вместо неё son."],
+  ["SON — про них",["Mis hijos son altos. — Мои дети высокие."],"Множественное число тянет -s через всё предложение."]
+ ]},
+
+{inf:"tener",tr:"иметь",
+ f:[["yo","tengo","тéнго"],["tú","tienes","тьéнес"],["él / ella","tiene","тьéне"],
+    ["nosotros","tenemos","тенéмос"],["vosotros","tenéis","тенéйс"],["ellos","tienen","тьéнен"]],
+ corto:"Владение и возраст. Испанец не «имеет 45 лет от роду» — он буквально ИМЕЕТ годы.",
+ largo:[
+  ["Возраст",["Tengo 45 años. — Мне 45 лет.","¿Cuántos años tienes? — Сколько тебе лет?"],"año — год, ano без волны — совсем другое слово. Волна обязательна."],
+  ["Семья и вещи",["Tengo dos hijos. — У меня двое детей.","Tengo coche. — У меня есть машина."],""],
+  ["В магазине",["¿Tienen piñas? — У вас есть ананасы?"],"Форма tienen — вежливое обращение к персоналу."]
+ ]},
+
+{inf:"estar",tr:"быть — где и в каком состоянии",
+ f:[["yo","estoy","эстóй"],["tú","estás","эстáс"],["él / ella","está","эстá"],
+    ["nosotros","estamos","эстáмос"],["vosotros","estáis","эстáйс"],["ellos","están","эстáн"]],
+ corto:"Второй глагол «быть». Место и временное состояние — в отличие от ser, который про постоянную суть.",
+ largo:[
+  ["Место",["Estoy en casa. — Я дома.","¿Dónde está el baño? — Где туалет?"],"Вопрос про туалет пригодится раньше, чем кажется."],
+  ["Состояние",["Estoy cansado. — Я устал.","El café está frío. — Кофе холодный."],""],
+  ["SER или ESTAR",["Soy alto. — Я высокий (всегда).","Estoy enfermo. — Я болен (сейчас)."],"Правило: постоянное — ser, временное — estar. Es guapo — красивый вообще. Está guapo — хорошо выглядит сегодня."]
+ ]},
+
+{inf:"querer",tr:"хотеть, любить",
+ f:[["yo","quiero","кьéро"],["tú","quieres","кьéрес"],["él / ella","quiere","кьéре"],
+    ["nosotros","queremos","керéмос"],["vosotros","queréis","керéйс"],["ellos","quieren","кьéрен"]],
+ corto:"Хотеть — и одновременно любить. Одно из самых нужных слов в языке.",
+ largo:[
+  ["Заказать",["Quiero una pizza. — Я хочу пиццу.","Quería un café, por favor. — Я бы хотел кофе."],"Вторая форма вежливее. Официант услышит воспитанного человека."],
+  ["Любить",["Te quiero. — Я тебя люблю."],"Говорят близким каждый день."]
+ ]},
+
+{inf:"vivir",tr:"жить",
+ f:[["yo","vivo","бúбо"],["tú","vives","бúбес"],["él / ella","vive","бúбе"],
+    ["nosotros","vivimos","бибúмос"],["vosotros","vivís","бибúс"],["ellos","viven","бúбен"]],
+ corto:"Правильный глагол на -ir. Выучили окончания здесь — умеете сотни таких же.",
+ largo:[
+  ["Где живёте",["Vivo en Meliana. — Я живу в Мельяне.","Vivimos en España. — Мы живём в Испании."],"V читается как Б: пишем vivo, говорим «бибо»."],
+  ["Окончания -ir",["-o я · -es ты · -e он · -imos мы · -en они"],"Эта схема повторяется у всех правильных глаголов на -ir: escribir, abrir, recibir."]
+ ]},
+
+{inf:"trabajar",tr:"работать",
+ f:[["yo","trabajo","трабáхо"],["tú","trabajas","трабáхас"],["él / ella","trabaja","трабáха"],
+    ["nosotros","trabajamos","трабахáмос"],["vosotros","trabajáis","трабахáйс"],["ellos","trabajan","трабáхан"]],
+ corto:"Правильный глагол на -ar. На -ar заканчивается примерно 80% всех испанских глаголов — это самый выгодный шаблон.",
+ largo:[
+  ["О работе",["Trabajo en construcción. — Я работаю в строительстве.","¿Dónde trabajas? — Где ты работаешь?"],"trabajo — это ещё и существительное «работа»."],
+  ["Окончания -ar",["-o я · -as ты · -a он · -amos мы · -an они"],"Тот же хвост у hablar, comprar, pagar, estudiar, llamar — тысячи глаголов."]
+ ]}
+];
+
+const EJER=[
+ {ru:"Я инженер.",es:["Soy","ingeniero"],k:0,x:["Eres","es"]},
+ {ru:"Я из Украины.",es:["Soy","de","Ucrania"],k:0,x:["es","en"]},
+ {ru:"Ты высокий.",es:["Eres","alto"],k:0,x:["Soy","alta"]},
+ {ru:"Мой сын высокий.",es:["Mi hijo","es","alto"],k:1,x:["son","soy"]},
+ {ru:"Моя жена учительница.",es:["Mi mujer","es","profesora"],k:1,x:["profesor","son"]},
+ {ru:"Мы из Харькова.",es:["Somos","de","Járkov"],k:0,x:["Soy","en"]},
+ {ru:"Мои дети высокие.",es:["Mis hijos","son","altos"],k:1,x:["es","alto"]},
+ {ru:"Я не отец.",es:["No","soy","padre"],k:1,x:["es","madre"]},
+ {ru:"Ты не инженер.",es:["No","eres","ingeniero"],k:1,x:["soy","es"]},
+ {ru:"Здание высокое.",es:["El edificio","es","alto"],k:1,x:["La","son"]},
+ {ru:"Проект сложный.",es:["El proyecto","es","complejo"],k:1,x:["compleja","son"]},
+ {ru:"Мои коллеги украинцы.",es:["Mis compañeros","son","ucranianos"],k:1,x:["es","ucraniano"]},
+ {ru:"Мне 45 лет.",es:["Tengo","45 años"],k:0,x:["Tienes","Soy"]},
+ {ru:"Я хочу пиццу.",es:["Quiero","una pizza"],k:0,x:["Quieres","el"]},
+ {ru:"Я живу в Мельяне.",es:["Vivo","en","Meliana"],k:0,x:["Vives","de"]},
+ {ru:"Мы живём в Испании.",es:["Vivimos","en","España"],k:0,x:["Vivo","de"]},
+ {ru:"Я работаю в строительстве.",es:["Trabajo","en","construcción"],k:0,x:["Trabajas","de"]},
+ {ru:"Моя дочь высокая.",es:["Mi hija","es","alta"],k:1,x:["alto","son"]},
+ {ru:"Первый этаж большой.",es:["La planta baja","es","grande"],k:1,x:["El","son"]},
+ {ru:"Я не понимаю.",es:["No","entiendo"],k:1,x:["soy","entiende"]},
+ {ru:"Я хочу есть.",es:["Quiero","comer"],k:0,x:["Puedo","como"]},
+ {ru:"Могу заплатить картой?",es:["¿Puedo","pagar","con tarjeta?"],k:0,x:["Puedes","pago"]},
+ {ru:"Мне надо работать.",es:["Tengo que","trabajar"],k:0,x:["Tengo","trabajo"]},
+ {ru:"Я куплю хлеб.",es:["Voy a","comprar","pan"],k:0,x:["Voy","compro"]},
+ {ru:"Завтра буду работать.",es:["Mañana","voy a","trabajar"],k:1,x:["vas a","trabajo"]},
+ {ru:"Можете повторить?",es:["¿Puede","repetir?"],k:0,x:["Puedo","repite"]},
+ {ru:"Мне 45 лет.",es:["Tengo","cuarenta y cinco","años"],k:0,x:["Soy","cuarenta cinco"]},
+ {ru:"Сколько стоит?",es:["¿Cuánto","es?"],k:1,x:["son","está"]},
+ {ru:"Нам надо подождать.",es:["Tenemos que","esperar"],k:0,x:["Tengo que","esperamos"]}
+];
+
+/* ================= ОБЩЕЕ ================= */
+const $=id=>document.getElementById(id);
+const mix=a=>a.map(v=>[Math.random(),v]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
+
+document.querySelectorAll("nav button").forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x===b));
+    document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===b.dataset.go));
+    document.querySelector("main").scrollTop=0;
+  };
+});
+
+/* ================= ФРАЗА ================= */
+let fi=Math.floor(Math.random()*FRASES.length), abierto=false;
+
+function pintaFicha(){
+  const c=FRASES[fi];
+  $("num").textContent=String(fi+1).padStart(2,"0")+"/"+FRASES.length;
+  $("tema").textContent=c.t;
+  $("emo").textContent=c.e;
+  const box=$("words"); box.innerHTML="";
+  c.w.forEach(([w,role,k])=>{
+    const d=document.createElement("div");
+    d.className="tok"+(k?" k":"");
+    const a=document.createElement("span"); a.className="w"; a.textContent=w;
+    const b=document.createElement("span"); b.className="lead";
+    const e=document.createElement("span"); e.className="role"; e.textContent=role;
+    d.append(a,b,e); box.appendChild(d);
+  });
+  $("ru").textContent=c.ru; $("ru").classList.add("hid");
+  $("say").textContent=c.say; $("nota").textContent=c.n;
+  abierto=false; $("bRu").textContent="Перевод";
+}
+$("bRu").onclick=()=>{abierto=!abierto;$("ru").classList.toggle("hid",!abierto);$("bRu").textContent=abierto?"Скрыть":"Перевод";};
+$("bNext").onclick=()=>{let n;do{n=Math.floor(Math.random()*FRASES.length)}while(n===fi);fi=n;pintaFicha();document.querySelector("main").scrollTop=0;};
+pintaFicha();
+
+/* ================= ГЛАГОЛЫ ================= */
+(function(){
+  const L=$("verbList");
+  VERBOS.forEach(v=>{
+    const card=document.createElement("div");
+    card.className="verb"+(v.now?" now":"");
+
+    const top=document.createElement("button"); top.className="top";
+    top.innerHTML='<span class="inf"></span><span class="tr"></span>'+
+                  (v.now?'<span class="tag">учим сейчас</span>':'')+
+                  '<span class="arrow">+</span>';
+    top.querySelector(".inf").textContent=v.inf;
+    top.querySelector(".tr").textContent=v.tr;
+
+    const body=document.createElement("div"); body.className="body";
+    const tb=document.createElement("table");
+    v.f.forEach(([q,f,p])=>{
+      const tr=document.createElement("tr");
+      const a=document.createElement("td"); a.className="q"; a.textContent=q;
+      const b=document.createElement("td"); b.className="f"; b.textContent=f;
+      const c=document.createElement("td"); c.className="p"; c.textContent=p;
+      tr.append(a,b,c); tb.appendChild(tr);
+    });
+    const corto=document.createElement("p"); corto.className="corto"; corto.textContent=v.corto;
+    const more=document.createElement("button"); more.className="more"; more.textContent="↓ Подробно, с примерами";
+    const largo=document.createElement("div"); largo.className="largo";
+
+    v.largo.forEach(([h,ex,cm])=>{
+      const blk=document.createElement("div"); blk.className="blk";
+      const t=document.createElement("h4"); t.textContent=h; blk.appendChild(t);
+      const ul=document.createElement("ul");
+      ex.forEach(s=>{const li=document.createElement("li");li.textContent=s;ul.appendChild(li);});
+      blk.appendChild(ul);
+      if(cm){const p=document.createElement("p");p.className="cm";p.textContent=cm;blk.appendChild(p);}
+      largo.appendChild(blk);
+    });
+
+    body.append(tb,corto,more,largo);
+    card.append(top,body);
+    L.appendChild(card);
+
+    top.onclick=()=>{
+      card.classList.toggle("open");
+      top.querySelector(".arrow").textContent=card.classList.contains("open")?"−":"+";
+    };
+    more.onclick=()=>{
+      card.classList.toggle("full");
+      more.textContent=card.classList.contains("full")?"↑ Свернуть подробности":"↓ Подробно, с примерами";
+    };
+  });
+})();
+
+/* ================= ПРАВИЛА ================= */
+const GRAM=[
+{h:"Глагол + инфинитив",sub:"четыре конструкции — сотни фраз",now:1,
+ b:[
+ {t:"p",v:"Самый выгодный приём на вашем уровне. Спрягаете только ПЕРВЫЙ глагол, второй остаётся в словарной форме — как в словаре, с окончанием -ar, -er, -ir."},
+ {t:"ex",v:["Quiero comer. — Хочу есть.","Puedo pagar. — Могу заплатить.","Tengo que trabajar. — Мне надо работать.","Voy a comprar. — Собираюсь купить."]},
+ {t:"note",v:"Второй глагол не спрягается вообще. Одна выученная конструкция открывает столько фраз, сколько глаголов вы знаете."},
+
+ {t:"h",v:"1. QUERER + инфинитив — хочу"},
+ {t:"ex",v:["Quiero comer. — Хочу есть.","Quiero hablar español. — Хочу говорить по-испански.","Quiero pagar con tarjeta. — Хочу заплатить картой.","¿Quieres tomar un café? — Хочешь выпить кофе?"]},
+ {t:"note",v:"Вежливее — quería: Quería preguntar algo. «Я бы хотел спросить». Так звучит воспитанный человек."},
+
+ {t:"h",v:"2. PODER + инфинитив — могу"},
+ {t:"tab",head:["Кто","Форма","Читается"],rows:[["yo","puedo","пуэ́до"],["tú","puedes","пуэ́дес"],["él / ella","puede","пуэ́де"],["nosotros","podemos","подéмос"],["ellos","pueden","пуэ́ден"]]},
+ {t:"ex",v:["¿Puedo pagar con tarjeta? — Могу заплатить картой?","¿Puede repetir, por favor? — Можете повторить?","No puedo hablar ahora. — Не могу сейчас говорить.","¿Puedo ayudar? — Могу помочь?"]},
+ {t:"note",v:"¿Puede repetir? — выучите наизусть. Это вежливее, чем no entiendo, и вам повторят медленнее."},
+
+ {t:"h",v:"3. TENER QUE + инфинитив — надо, должен"},
+ {t:"p",v:"Обязательство. Между глаголами обязательно стоит que."},
+ {t:"ex",v:["Tengo que trabajar. — Мне надо работать.","Tengo que ir al médico. — Мне надо к врачу.","¿Tienes que pagar hoy? — Тебе надо платить сегодня?","Tenemos que esperar. — Нам надо подождать."]},
+ {t:"note",v:"Без que конструкция ломается. «Tengo trabajar» сказать нельзя — только tengo QUE trabajar."},
+
+ {t:"h",v:"4. IR A + инфинитив — собираюсь, буду"},
+ {t:"p",v:"Это и есть испанское будущее время для разговора. Настоящее будущее существует, но в быту чаще говорят так."},
+ {t:"tab",head:["Кто","Форма","Читается"],rows:[["yo","voy","бой"],["tú","vas","бас"],["él / ella","va","ба"],["nosotros","vamos","бáмос"],["ellos","van","бан"]]},
+ {t:"ex",v:["Voy a comprar pan. — Я куплю хлеб.","Vamos a empezar. — Начнём.","¿Vas a trabajar mañana? — Завтра будешь работать?","Voy a estudiar español. — Буду учить испанский."]},
+ {t:"note",v:"Между ir и вторым глаголом обязательно a. И запомните ¡Vamos! — «пошли, давай». В Испании слышится постоянно."},
+
+ {t:"h",v:"Сводка"},
+ {t:"tab",head:["Конструкция","Смысл","Связка"],rows:[["quiero + инф.","хочу","нет"],["puedo + инф.","могу","нет"],["tengo que + инф.","надо","que"],["voy a + инф.","собираюсь","a"]]},
+ {t:"note",v:"Две конструкции требуют связки, две — нет. Это единственное, что нужно запомнить сверх самих глаголов."}
+ ]},
+
+{h:"Числительные",sub:"цены · время · возраст",
+ b:[
+ {t:"h",v:"0–15 — наизусть"},
+ {t:"tab",head:["№","Испанский","Читается"],rows:[["0","cero","сéро"],["1","uno","ýно"],["2","dos","дос"],["3","tres","трес"],["4","cuatro","куáтро"],["5","cinco","сúнко"],["6","seis","сейс"],["7","siete","сьéте"],["8","ocho","óчо"],["9","nueve","нуэ́бе"],["10","diez","дьес"],["11","once","óнсе"],["12","doce","дóсе"],["13","trece","трéсе"],["14","catorce","катóрсе"],["15","quince","кúнсе"]]},
+
+ {t:"h",v:"16–29 — одним словом"},
+ {t:"ex",v:["16 dieciséis · 17 diecisiete · 18 dieciocho · 19 diecinueve","20 veinte · 21 veintiuno · 22 veintidós · 25 veinticinco"]},
+ {t:"note",v:"Это склеенные «десять и шесть», «двадцать и два». С 31 склейка кончается и пишут раздельно через y."},
+
+ {t:"h",v:"Десятки"},
+ {t:"tab",head:["№","Испанский","Читается"],rows:[["30","treinta","трéйнта"],["40","cuarenta","куарéнта"],["50","cincuenta","синкуэ́нта"],["60","sesenta","сесéнта"],["70","setenta","сетéнта"],["80","ochenta","очéнта"],["90","noventa","новéнта"],["100","cien","сьен"]]},
+ {t:"ex",v:["31 treinta y uno","45 cuarenta y cinco","67 sesenta y siete"]},
+ {t:"note",v:"С 31 и выше — через y. Ваш возраст: cuarenta y cinco años."},
+
+ {t:"h",v:"Цены"},
+ {t:"ex",v:["¿Cuánto es? — Сколько стоит?","Son doce euros. — Двенадцать евро.","Tres con cincuenta. — Три пятьдесят.","¿Puedo pagar con tarjeta? — Можно картой?"]},
+ {t:"note",v:"Копейки говорят через con: 3,50 € — tres con cincuenta. Слово céntimos обычно опускают."},
+
+ {t:"h",v:"Время"},
+ {t:"ex",v:["¿Qué hora es? — Который час?","Son las tres. — Три часа.","Es la una. — Час дня.","Son las cinco y media. — Половина шестого.","A las nueve. — В девять."]},
+ {t:"note",v:"Только «час» берёт es la una, единственное число. Все остальные — son las. И выучите ¿A qué hora cierran? — во сколько закрываете."},
+
+ {t:"h",v:"Пригодится сразу"},
+ {t:"ex",v:["Tengo cuarenta y cinco años. — Мне 45 лет.","Somos cuatro. — Нас четверо.","Vivo en el número siete. — Живу в доме семь.","Dos billetes, por favor. — Два билета, пожалуйста."]}
+ ]},
+
+{h:"Три группы глаголов",sub:"-ar · -er · -ir",now:1,
+ b:[
+ {t:"p",v:"Каждый испанский глагол в словарной форме кончается на -ar, -er или -ir. Четвёртого не бывает."},
+ {t:"tab",head:["Группа","Доля","Примеры"],rows:[["-ar","~80%","trabajar, hablar, pagar"],["-er","~10%","comer, beber, leer"],["-ir","~10%","vivir, escribir, abrir"]]},
+ {t:"h",v:"Как строить форму"},
+ {t:"p",v:"Отрубаем окончание, на его место ставим хвост по хозяину. Корень остаётся, меняется только хвост."},
+ {t:"ex",v:["trabajar → trabaj → trabajo","vivir → viv → vivo"]},
+ {t:"note",v:"Частая ошибка: добавить хвост, не убрав -ar. Получается «hablaro» вместо hablo. Буква r должна уйти."},
+ {t:"h",v:"Таблица хвостов"},
+ {t:"tab",head:["Кто","-ar","-er","-ir"],rows:[["я","-o","-o","-o"],["ты","-as","-es","-es"],["он / она","-a","-e","-e"],["мы","-amos","-emos","-imos"],["вы","-áis","-éis","-ís"],["они","-an","-en","-en"]]},
+ {t:"note",v:"«Я» — всегда -o, у всех трёх групп. А -er и -ir отличаются только в «мы» и «вы»: comemos / vivimos. Значит запомнить надо две схемы, а не три."},
+ {t:"h",v:"Что это даёт"},
+ {t:"ex",v:["hablo — я говорю","compro — я покупаю","pago — я плачу","estudio — я учусь","necesito — мне нужно","termino — я заканчиваю"]},
+ {t:"p",v:"Шесть глаголов из одного правила. И так — тысяча."},
+ {t:"note",v:"Исключения: ser (soy), estar (estoy), tener (tengo), ir (voy), querer (quiero), poder (puedo). Это самые частые слова, их зубрят отдельно."}
+ ]},
+
+{h:"Глагол обязателен всегда",sub:"главное отличие от русского",
+ b:[
+ {t:"p",v:"По-русски «я инженер» — глагола нет и не нужно. По-испански обязательно «я ЕСТЬ инженер»."},
+ {t:"ex",v:["Soy ingeniero. — Я инженер.","El proyecto es complejo. — Проект сложный."]},
+ {t:"h",v:"А местоимение — наоборот, лишнее"},
+ {t:"p",v:"Форма глагола сама говорит, кто действует. Хвост -o означает «я», поэтому слово yo не нужно."},
+ {t:"ex",v:["Yo soy ingeniero → Soy ingeniero.","Yo trabajo aquí → Trabajo aquí."]},
+ {t:"note",v:"Опускается местоимение (yo, tú, nosotros), а не глагол. Yo ставят только для нажима: Tú eres el ingeniero, no yo — ТЫ инженер, не я."},
+ {t:"h",v:"И один хозяин — один глагол"},
+ {t:"p",v:"Два глагола рядом не ставятся. «Soy hablo» — это «я есть я говорю»."},
+ {t:"ex",v:["Hablo español. — Я говорю по-испански.","Soy ingeniero. Trabajo en construcción."]}
+ ]},
+
+{h:"Отрицание и вопрос",sub:"no · ¿ ?",
+ b:[
+ {t:"h",v:"NO — всегда перед глаголом"},
+ {t:"ex",v:["No soy padre. — Я не отец.","No eres ingeniero. — Ты не инженер.","No entiendo. — Я не понимаю."]},
+ {t:"note",v:"После глагола no не ставится никогда. «Soy no padre» сказать нельзя."},
+ {t:"h",v:"Вопрос — те же слова, два знака"},
+ {t:"p",v:"Порядок слов не меняется, ничего не добавляется. Меняются только знаки и интонация."},
+ {t:"ex",v:["Eres ingeniero. → ¿Eres ingeniero?","¿Vives en Valencia?","¿Cuánto es?"]},
+ {t:"note",v:"Знак ¿ в начале обязателен. То же с восклицанием: ¡Eres bueno!"},
+ {t:"h",v:"Ответ"},
+ {t:"ex",v:["Sí, soy ingeniero. — Да, я инженер.","No, no soy ingeniero. — Нет, я не инженер."]},
+ {t:"note",v:"В отрицательном ответе no идёт дважды: сначала как «нет», потом как отрицание перед глаголом."}
+ ]},
+
+{h:"Род и согласование",sub:"-o · -a · -s",
+ b:[
+ {t:"p",v:"Прилагательное копирует окончание существительного. Увидели -a — ставьте -a."},
+ {t:"tab",head:["","Один","Несколько"],rows:[["Мужской","Mi hijo es alto","Mis hijos son altos"],["Женский","Mi hija es alta","Mis hijas son altas"]]},
+ {t:"note",v:"Множественное число тянет -s через всё предложение: mis · hijos · son · altos. Меняется вся цепочка сразу."},
+ {t:"h",v:"Согласование идёт с хозяином"},
+ {t:"p",v:"Прилагательное описывает подлежащее, а не ближайшее слово."},
+ {t:"ex",v:["El proyecto de la casa es complejo. — сложный ПРОЕКТ","La casa del proyecto es compleja. — сложный ДОМ"]},
+ {t:"h",v:"Исключения"},
+ {t:"p",v:"Слова на -e и на согласную по роду не меняются: grande, fuerte, azul, joven."},
+ {t:"ex",v:["El edificio es grande. / La casa es grande."]},
+ {t:"note",v:"Смешанная компания берёт мужской род. Сын и дочь вместе — mis hijos son altos, даже если девочек больше."}
+ ]},
+
+{h:"Порядок слов",sub:"сначала предмет, потом признак",
+ b:[
+ {t:"p",v:"Прилагательное в испанском идёт ПОСЛЕ существительного. Мы ставим признак впереди, испанцы позади."},
+ {t:"tab",head:["Русский","Испанский"],rows:[["высокая учительница","profesora alta"],["сложный проект","proyecto complejo"],["армированный бетон","hormigón armado"]]},
+ {t:"note",v:"Вся строительная терминология построена так. Запомните на этом: hormigón armado, muro portante, planta baja."},
+ {t:"h",v:"Строение предложения"},
+ {t:"p",v:"Кто → глагол → какой. Хозяин всегда в начале."},
+ {t:"ex",v:["Mi mujer es profesora. — верно","Es mi mujer profesora. — так не говорят"]}
+ ]},
+
+{h:"Артикли",sub:"el · la · un · una",
+ b:[
+ {t:"p",v:"Артикль показывает род слова и то, идёт ли речь о конкретном предмете или о каком-то."},
+ {t:"tab",head:["","Мужской","Женский"],rows:[["тот самый","el edificio","la casa"],["какой-то","un edificio","una casa"],["мн. ч.","los edificios","las casas"]]},
+ {t:"h",v:"Как определить род"},
+ {t:"p",v:"Правило на первое время: кончается на -o — мужской, на -a — женский. Работает в большинстве случаев."},
+ {t:"ex",v:["el proyecto, el edificio, el trabajo","la casa, la obra, la planta"]},
+ {t:"note",v:"Исключения есть: el día (день) мужской, la mano (рука) женский. Их немного, запоминаются по ходу."},
+ {t:"h",v:"Слияние с предлогом"},
+ {t:"p",v:"de + el и a + el всегда сливаются. С женским родом слияния нет."},
+ {t:"tab",head:["Мужской","Женский"],rows:[["del proyecto","de la casa"],["al edificio","a la obra"]]}
+ ]},
+
+{h:"Чтение",sub:"как пишется — так и читается",
+ b:[
+ {t:"p",v:"Главная хорошая новость: испанский читается как пишется. Десять правил — и вы прочитаете вслух любой текст."},
+ {t:"tab",head:["Пишем","Читаем","Пример"],rows:[["h","не читается никогда","hola → óла"],["j","х","trabajo → трабáхо"],["g + e, i","х","ingeniero → инхеньéро"],["ll","й","calle → кáйе"],["ñ","нь","España → эспáнья"],["v","б","vivo → бúбо"],["z, c + e, i","межзубный θ","gracias → грáθиас"],["qu","к","que → ке"],["rr","раскатистое р","perro → пéрро"]]},
+ {t:"h",v:"Ударение"},
+ {t:"p",v:"Кончается на гласную, -n или -s — ударение на предпоследний слог. На другую согласную — на последний. Значок ´ отменяет оба правила."},
+ {t:"ex",v:["hola, ingeniero, gracias — предпоследний","español, ciudad, hablar — последний","teléfono, adiós — по значку"]},
+ {t:"note",v:"Критично: в испанском нет редукции. Безударная o — это всегда О, не А. Мы говорим «карандАш», испанец скажет «карандОш». Ломайте эту привычку с первого дня."}
+ ]}
+];
+
+(function(){
+  const L=$("gramList");
+  GRAM.forEach(g=>{
+    const card=document.createElement("div");
+    card.className="verb"+(g.now?" now":"");
+
+    const top=document.createElement("button"); top.className="top";
+    top.innerHTML='<span class="gh"></span>'+(g.now?'<span class="tag">база</span>':'')+'<span class="arrow">+</span>';
+    top.querySelector(".gh").textContent=g.h;
+
+    const body=document.createElement("div"); body.className="body";
+    const sub=document.createElement("p"); sub.className="sub"; sub.style.paddingTop="12px";
+    sub.textContent=g.sub; body.appendChild(sub);
+
+    g.b.forEach(x=>{
+      if(x.t==="p"){
+        const p=document.createElement("p"); p.className="corto"; p.textContent=x.v; body.appendChild(p);
+      }
+      if(x.t==="h"){
+        const d=document.createElement("div"); d.className="blk";
+        const h=document.createElement("h4"); h.textContent=x.v; d.appendChild(h); body.appendChild(d);
+      }
+      if(x.t==="ex"){
+        const d=document.createElement("div"); d.className="blk"; d.style.marginTop="10px";
+        const ul=document.createElement("ul");
+        x.v.forEach(s=>{const li=document.createElement("li");li.textContent=s;ul.appendChild(li);});
+        d.appendChild(ul); body.appendChild(d);
+      }
+      if(x.t==="tab"){
+        const tb=document.createElement("table");
+        const hr=document.createElement("tr");
+        x.head.forEach(t=>{const th=document.createElement("th");th.textContent=t;hr.appendChild(th);});
+        tb.appendChild(hr);
+        x.rows.forEach(r=>{
+          const tr=document.createElement("tr");
+          r.forEach((c,i)=>{
+            const td=document.createElement("td");
+            td.className = i===0 ? "q" : "c";
+            if(i>0 && c.length>14) td.className="n";
+            td.textContent=c; tr.appendChild(td);
+          });
+          tb.appendChild(tr);
+        });
+        body.appendChild(tb);
+      }
+      if(x.t==="note"){
+        const n=document.createElement("div"); n.className="nota"; n.style.marginTop="16px";
+        const s=document.createElement("span"); s.textContent="важно";
+        const p=document.createElement("p"); p.textContent=x.v;
+        n.append(s,p); body.appendChild(n);
+      }
+    });
+
+    card.append(top,body); L.appendChild(card);
+    top.onclick=()=>{
+      card.classList.toggle("open");
+      top.querySelector(".arrow").textContent=card.classList.contains("open")?"−":"+";
+    };
+  });
+})();
+
+/* ================= КОНСТРУКТОР ================= */
+let lvl=1, ej=0, slots=[], chips=[], bien=0, total=0;
+
+document.querySelectorAll(".lvl button").forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll(".lvl button").forEach(x=>x.classList.toggle("on",x===b));
+    lvl=+b.dataset.lvl; nuevo();
+  };
+});
+
+const limpia=s=>s.toLowerCase()
+  .normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g,"")
+  .replace(/[¿?¡!.,]/g,"").replace(/\s+/g," ").trim();
+
+function nuevo(){
+  ej=Math.floor(Math.random()*EJER.length);
+  const e=EJER[ej];
+  $("task").textContent=e.ru;
+  $("res").className="res";
+  const area=$("area"); area.innerHTML="";
+
+  if(lvl===3){
+    const inp=document.createElement("input");
+    inp.className="free"; inp.id="free";
+    inp.setAttribute("autocapitalize","off");
+    inp.setAttribute("autocomplete","off");
+    inp.setAttribute("spellcheck","false");
+    inp.placeholder="напишите по-испански";
+    area.appendChild(inp);
+    return;
+  }
+
+  const ocultos = lvl===1 ? [e.k] : e.es.map((_,i)=>i);
+  slots = e.es.map((w,i)=> ocultos.includes(i) ? null : w);
+
+  const sd=document.createElement("div"); sd.className="slots"; sd.id="slots";
+  const cd=document.createElement("div"); cd.className="chips"; cd.id="chips";
+  area.append(sd,cd);
+
+  chips = mix(ocultos.map(i=>e.es[i]).concat(lvl===1?e.x.slice(0,2):e.x));
+  render();
+}
+
+function render(){
+  const e=EJER[ej];
+  const sd=$("slots"), cd=$("chips");
+  sd.innerHTML=""; cd.innerHTML="";
+
+  slots.forEach((w,i)=>{
+    const b=document.createElement("button");
+    const fijo = lvl===1 && i!==e.k;
+    b.className="slot"+(w?(fijo?" fix":""):" empty");
+    b.textContent = w || "····";
+    if(w && !fijo) b.onclick=()=>{ chips.push(w); slots[i]=null; render(); };
+    sd.appendChild(b);
+  });
+
+  chips.forEach((w,i)=>{
+    const b=document.createElement("button");
+    b.className="chip"; b.textContent=w;
+    b.onclick=()=>{
+      const k=slots.indexOf(null);
+      if(k<0) return;
+      slots[k]=w; chips.splice(i,1); render();
+    };
+    cd.appendChild(b);
+  });
+}
+
+$("bCheck").onclick=()=>{
+  const e=EJER[ej], correcto=e.es.join(" ");
+  let mio;
+  if(lvl===3){ mio=($("free")||{value:""}).value; }
+  else{
+    if(slots.includes(null)){
+      $("res").className="res bad show";
+      $("res").textContent="Заполните все места.";
+      return;
+    }
+    mio=slots.join(" ");
+  }
+  total++;
+  const r=$("res");
+  if(limpia(mio)===limpia(correcto)){
+    bien++;
+    r.className="res good show";
+    r.innerHTML="Верно. <b>"+correcto+"</b>";
+  }else{
+    r.className="res bad show";
+    r.innerHTML="Не так. Правильно: <b>"+correcto+"</b>";
+  }
+  $("score").textContent="верно "+bien+" · всего "+total;
+};
+
+$("bSkip").onclick=nuevo;
+nuevo();
+</script>
+</body>
+</html>
