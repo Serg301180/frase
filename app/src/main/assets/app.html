@@ -103,6 +103,104 @@ button.b.pri{background:var(--graf);color:var(--hi)}
 button.b.pri:active{background:var(--carga);border-color:var(--carga)}
 button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
 
+/* ---------- путь ---------- */
+.hdr{margin-top:18px;padding-bottom:16px;border-bottom:1.5px solid var(--graf)}
+.hdr .big{font-family:var(--ser);font-size:27px;line-height:1.2}
+.hdr .small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lap);margin-top:6px}
+.barra{height:5px;background:var(--grid);margin-top:12px;position:relative}
+.barra i{position:absolute;left:0;top:0;bottom:0;background:var(--carga)}
+
+.niv{border:1.5px solid var(--graf);background:var(--hi);margin-top:12px;
+  display:flex;align-items:stretch;cursor:pointer;text-align:left;width:100%;padding:0}
+.niv .no{width:52px;flex:none;display:grid;place-items:center;
+  font-family:var(--ser);font-size:23px;border-right:1.5px solid var(--graf);color:var(--graf)}
+.niv .mid{flex:1;padding:12px 13px}
+.niv .tt{font-family:var(--ser);font-size:18px;line-height:1.2}
+.niv .ds{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;
+  color:var(--lap);margin-top:5px;text-transform:uppercase}
+.niv .st{width:56px;flex:none;display:grid;place-items:center;
+  font-family:var(--mono);font-size:10px;color:var(--lap);border-left:1px solid var(--grid)}
+.niv.hecho{border-color:var(--ok)}
+.niv.hecho .no{color:var(--ok);border-right-color:var(--ok)}
+.niv.hecho .st{color:var(--ok);font-weight:700}
+.niv.ahora{border-width:2.5px;border-color:var(--carga)}
+.niv.ahora .no{color:var(--carga)}
+.niv.cerrado{opacity:.42}
+.niv.cerrado .no{color:var(--lap)}
+
+/* экзамен */
+.exHdr{display:flex;justify-content:space-between;align-items:baseline;
+  margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--lap)}
+.exHdr b{color:var(--carga)}
+.exQ{font-family:var(--ser);font-size:clamp(21px,6.4vw,27px);line-height:1.3;
+  text-align:center;margin-top:26px;color:var(--graf)}
+.exSub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--lap);text-align:center;margin-top:9px}
+.opt{width:100%;display:block;text-align:left;margin-top:9px;padding:13px 15px;
+  border:1.5px solid var(--graf);background:var(--hi);color:var(--graf);
+  font-family:var(--ser);font-size:17px;cursor:pointer}
+.opt:active{background:var(--graf);color:var(--hi)}
+.opt.ok{border-color:var(--ok);color:var(--ok);background:rgba(46,107,79,.1)}
+.opt.no{border-color:var(--carga);color:var(--carga);background:rgba(166,58,36,.09)}
+.opt.off{pointer-events:none;opacity:.55}
+.fin{text-align:center;margin-top:40px}
+.fin .cifra{font-family:var(--ser);font-size:58px;line-height:1}
+.fin .cifra.ok{color:var(--ok)} .fin .cifra.no{color:var(--carga)}
+.fin .txt{font-size:17px;line-height:1.5;margin-top:14px}
+.fallos{margin-top:22px;text-align:left}
+.fallos h4{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--carga);margin-bottom:8px}
+.fallos li{list-style:none;font-family:var(--ser);font-size:15px;line-height:1.6;
+  border-left:2px solid var(--grid);padding-left:10px;margin-top:4px}
+
+/* динамик */
+.spk{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border:1.5px solid var(--graf);background:var(--hi);
+  color:var(--graf);font-size:15px;cursor:pointer;flex:none
+}
+.spk:active{background:var(--carga);border-color:var(--carga);color:var(--hi)}
+.lin{font-family:var(--ser);font-size:19px;line-height:1.75;margin-top:14px}
+.pal{cursor:pointer;border-bottom:1px dotted transparent;padding:1px 0}
+.pal:active{background:var(--carga);color:var(--hi)}
+.linru{font-family:var(--cond);font-size:14.5px;line-height:1.45;
+  color:var(--tinta);margin-top:4px;padding-left:11px;border-left:2px solid var(--grid)}
+#txPop{position:sticky;bottom:6px;margin-top:20px;padding:13px 15px;
+  background:var(--graf);color:var(--hi);font-size:16px;
+  opacity:0;transform:translateY(8px);transition:.16s;pointer-events:none}
+#txPop.show{opacity:1;transform:none}
+#txPop b{font-family:var(--ser);font-size:19px;color:#E8B4A0}
+.vel{display:flex;justify-content:center;margin-top:12px}
+.vel button{
+  background:transparent;border:1.5px solid var(--grid);color:var(--lap);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 13px;cursor:pointer
+}
+.vel button+button{border-left:0}
+.vel button.on{background:var(--graf);border-color:var(--graf);color:var(--hi)}
+.spk.wide{width:auto;padding:0 16px;height:40px;font-family:var(--cond);
+  font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;gap:7px}
+.tok .w{cursor:pointer}
+td.f{cursor:pointer}
+
+/* подрежимы */
+.sub2{display:flex;border:1.5px solid var(--graf);margin-top:16px}
+.sub2 button{flex:1;background:transparent;border:0;padding:12px 4px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--lap);cursor:pointer}
+.sub2 button+button{border-left:1.5px solid var(--graf)}
+.sub2 button.on{background:var(--graf);color:var(--hi)}
+
+/* тренажёр хвостов */
+.stem{font-family:var(--ser);font-size:clamp(30px,10vw,42px);text-align:center;
+  margin-top:26px;color:var(--graf);letter-spacing:.01em}
+.stem u{text-decoration:none;color:var(--carga);border-bottom:2.5px solid var(--carga);padding:0 2px}
+.who{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--lap);text-align:center;margin-top:10px}
+.hint{font-size:14px;color:var(--lap);text-align:center;margin-top:6px}
+
 /* ---------- глаголы ---------- */
 .verb{border:1.5px solid var(--graf);background:var(--hi);margin-top:14px}
 .verb>.top{width:100%;display:flex;align-items:baseline;gap:10px;padding:14px;background:transparent;border:0;cursor:pointer;text-align:left}
@@ -166,22 +264,47 @@ input.free:focus{outline:none;border-color:var(--carga)}
 <body>
 
 <nav>
-  <button data-go="ficha" class="on">Фраза</button>
+  <button data-go="ruta" class="on">Путь</button>
+  <button data-go="ficha">Фраза</button>
   <button data-go="gram">Правила</button>
   <button data-go="verbos">Глаголы</button>
-  <button data-go="taller">Собрать</button>
+  <button data-go="taller">Практика</button>
 </nav>
 
 <main>
 
+<!-- ============ ПУТЬ ============ -->
+<section id="ruta" class="on">
+  <div id="rutaLista">
+    <div class="hdr">
+      <div class="big" id="rTit">—</div>
+      <div class="small" id="rSub">—</div>
+      <div class="barra"><i id="rBar" style="width:0%"></i></div>
+    </div>
+    <div id="rNiv"></div>
+    <div class="score" id="rPie" style="margin-bottom:8px"></div>
+  </div>
+
+  <div id="rutaDet" hidden></div>
+  <div id="rutaEx" hidden></div>
+</section>
+
 <!-- ============ ФРАЗА ============ -->
-<section id="ficha" class="on">
+<section id="ficha">
   <div class="eyebrow"><span>ficha <b id="num">—</b></span><span id="tema">—</span></div>
   <div class="vista" id="emo">🏗️</div>
   <div class="words" id="words"></div>
   <div class="dim"><span class="cap"></span><span class="bar"></span><span>перевод</span><span class="bar"></span><span class="cap"></span></div>
   <div class="ru hid" id="ru"></div>
   <div class="say" id="say"></div>
+  <div style="display:flex;justify-content:center;margin-top:16px">
+    <button class="spk wide" id="bSay">🔊 Произнести</button>
+  </div>
+  <div class="vel" id="vel">
+    <button data-v="0.55">медленно</button>
+    <button data-v="0.7" class="on">обычно</button>
+    <button data-v="0.9">быстро</button>
+  </div>
   <div class="nota"><span>примечание</span><p id="nota"></p></div>
   <div class="row">
     <button class="b" id="bRu">Перевод</button>
@@ -204,19 +327,65 @@ input.free:focus{outline:none;border-color:var(--carga)}
 <!-- ============ СОБРАТЬ ============ -->
 <section id="taller">
   <div class="eyebrow"><span>taller</span><span>сборка фразы</span></div>
-  <div class="lvl">
-    <button data-lvl="1" class="on">Легко</button>
-    <button data-lvl="2">Средне</button>
-    <button data-lvl="3">Сложно</button>
+  <div class="sub2" id="modo">
+    <button data-m="fr" class="on">Фразы</button>
+    <button data-m="cj">Хвосты</button>
+    <button data-m="wd">Слова</button>
+    <button data-m="tx">Чтение</button>
   </div>
-  <div class="task" id="task">—</div>
-  <div id="area"></div>
-  <div class="res" id="res"></div>
-  <div class="row">
-    <button class="b" id="bCheck">Проверить</button>
-    <button class="b pri" id="bSkip">Следующее</button>
+
+  <div id="paneFr">
+    <div class="lvl">
+      <button data-lvl="1" class="on">Легко</button>
+      <button data-lvl="2">Средне</button>
+      <button data-lvl="3">Сложно</button>
+    </div>
+    <div class="task" id="task">—</div>
+    <div id="area"></div>
+    <div class="res" id="res"></div>
+    <div class="row">
+      <button class="b" id="bCheck">Проверить</button>
+      <button class="b pri" id="bSkip">Следующее</button>
+    </div>
+    <div class="score" id="score">верно 0 · всего 0</div>
   </div>
-  <div class="score" id="score">верно 0 · всего 0</div>
+
+  <div id="paneCj" hidden>
+    <div class="stem" id="cjStem">—</div>
+    <div class="who" id="cjWho">—</div>
+    <div class="hint" id="cjHint"></div>
+    <div class="chips" id="cjChips"></div>
+    <div class="res" id="cjRes"></div>
+    <button class="more" id="cjTogg">↓ Показать таблицу</button>
+    <div id="cjAyuda" hidden></div>
+    <div class="row"><button class="b pri" id="cjNext">Следующий</button></div>
+    <div class="score" id="cjScore">верно 0 · всего 0</div>
+  </div>
+
+  <div id="paneWd" hidden>
+    <div class="exSub" id="wdCaja" style="margin-top:18px">—</div>
+    <div class="exQ" id="wdPregunta">—</div>
+    <div class="exSub" id="wdSub">—</div>
+    <div id="wdArea" style="margin-top:22px"></div>
+    <div class="res" id="wdRes"></div>
+    <div class="row"><button class="b pri" id="wdNext">Следующее слово</button></div>
+    <div class="score" id="wdScore">—</div>
+  </div>
+
+  <div id="paneTx" hidden>
+    <div class="exSub" id="txCaja" style="margin-top:18px">—</div>
+    <div class="hdr" style="margin-top:8px;border-bottom:0;padding-bottom:0">
+      <div class="big" id="txTit">—</div>
+    </div>
+    <div id="txCuerpo"></div>
+    <div id="txPop"></div>
+    <div class="row">
+      <button class="b" id="txRu">Перевод</button>
+      <button class="b" id="txOir">🔊</button>
+      <button class="b pri" id="txNext">Дальше</button>
+    </div>
+    <div class="score">тапните любое слово — покажу перевод и произнесу</div>
+  </div>
 </section>
 
 </main>
@@ -307,6 +476,25 @@ const VERBOS=[
  largo:[
   ["О работе",["Trabajo en construcción. — Я работаю в строительстве.","¿Dónde trabajas? — Где ты работаешь?"],"trabajo — это ещё и существительное «работа»."],
   ["Окончания -ar",["-o я · -as ты · -a он · -amos мы · -an они"],"Тот же хвост у hablar, comprar, pagar, estudiar, llamar — тысячи глаголов."]
+ ]},
+
+{inf:"poder",tr:"мочь",
+ f:[["yo","puedo","пуэ́до"],["tú","puedes","пуэ́дес"],["él / ella","puede","пуэ́де"],
+    ["nosotros","podemos","подéмос"],["vosotros","podéis","подéйс"],["ellos","pueden","пуэ́ден"]],
+ corto:"Ломка корня o → ue. Работает с инфинитивом: puedo + любой глагол в словарной форме.",
+ largo:[
+  ["Просьба и разрешение",["¿Puedo pagar con tarjeta? — Могу заплатить картой?","¿Puede repetir, por favor? — Можете повторить?","No puedo ahora. — Сейчас не могу."],"¿Puede repetir? — выучите наизусть, это вежливее, чем no entiendo."],
+  ["Ломка o → ue",["podemos — корень целый","puedo, puedes, puede, pueden — корень ломается"],"Формы «мы» и «вы» ломку не берут никогда. Так у всех подобных глаголов."]
+ ]},
+
+{inf:"ir",tr:"идти, ехать",
+ f:[["yo","voy","бой"],["tú","vas","бас"],["él / ella","va","ба"],
+    ["nosotros","vamos","бáмос"],["vosotros","vais","байс"],["ellos","van","бан"]],
+ corto:"Самый неправильный глагол испанского — от инфинитива ir в формах не остаётся ничего. Заучивается целиком.",
+ largo:[
+  ["Куда",["Voy a Valencia. — Еду в Валенсию.","¿Vas a casa? — Идёшь домой?","Vamos a la obra. — Идём на стройку."],"После ir почти всегда идёт предлог a — «в, к»."],
+  ["Будущее время для разговора",["Voy a comprar pan. — Я куплю хлеб.","Vamos a empezar. — Начнём."],"ir + a + инфинитив заменяет будущее время в быту."],
+  ["Живое",["¡Vamos! — Пошли! Давай!","¿Cómo te va? — Как оно?"],"¡Vamos! в Испании слышится постоянно."]
  ]}
 ];
 
@@ -346,10 +534,72 @@ const EJER=[
 const $=id=>document.getElementById(id);
 const mix=a=>a.map(v=>[Math.random(),v]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
 
+/* озвучка: сначала мост в Android, если нет — браузерный синтезатор */
+let VEL=0.7;
+try{ const g=localStorage.getItem("frase_vel"); if(g) VEL=parseFloat(g); }catch(e){}
+
+function ponVel(v){
+  VEL=v;
+  try{ localStorage.setItem("frase_vel",String(v)); }catch(e){}
+  try{ if(window.Android && window.Android.velocidad) window.Android.velocidad(v); }catch(e){}
+}
+
+/* ждём, пока синтезатор договорит, и только потом идём дальше */
+let _cb=null, _reloj=null;
+
+window.__vozFin=function(){
+  if(!_cb) return;
+  const f=_cb; _cb=null;
+  clearTimeout(_reloj);
+  setTimeout(f, 260);
+};
+
+function corta(){ _cb=null; clearTimeout(_reloj); }
+
+function diY(txt, fn, extra){
+  corta();
+  if(!txt){ _reloj=setTimeout(fn, extra||900); return; }
+  _cb=()=>{ if(extra) setTimeout(fn, extra); else fn(); };
+  di(txt);
+  // страховка: если сигнал не придёт, идём по расчётному времени
+  const tope = 1600 + String(txt).length*90 + (extra||0);
+  _reloj = setTimeout(()=>{ const f=_cb; _cb=null; if(f) f(); }, tope);
+}
+
+function di(txt){
+  if(!txt) return;
+  const limpio=String(txt).replace(/[¿¡]/g,"").trim();
+  if(!limpio) return;
+  try{
+    if(window.Android && window.Android.hablar){ window.Android.hablar(limpio); return; }
+  }catch(e){}
+  try{
+    if(window.speechSynthesis){
+      window.speechSynthesis.cancel();
+      // пауза-прогрев: браузерный синтезатор тоже срезает начало
+      // беззвучная фраза-прогрев: даёт реальную длительность,
+      // за которую Bluetooth успевает открыть канал
+      const antes=new SpeechSynthesisUtterance("uno dos");
+      antes.lang="es-ES"; antes.volume=0; antes.rate=0.6;
+      window.speechSynthesis.speak(antes);
+
+      const u=new SpeechSynthesisUtterance(limpio);
+      u.lang="es-ES"; u.rate=VEL;
+      window.speechSynthesis.speak(u);
+
+      const despues=new SpeechSynthesisUtterance("uno dos");
+      despues.lang="es-ES"; despues.volume=0; despues.rate=0.6;
+      despues.onend=()=>{ if(window.__vozFin) window.__vozFin(); };
+      window.speechSynthesis.speak(despues);
+    }
+  }catch(e){}
+}
+
 document.querySelectorAll("nav button").forEach(b=>{
   b.onclick=()=>{
     document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x===b));
     document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===b.dataset.go));
+    corta();
     document.querySelector("main").scrollTop=0;
   };
 });
@@ -367,6 +617,7 @@ function pintaFicha(){
     const d=document.createElement("div");
     d.className="tok"+(k?" k":"");
     const a=document.createElement("span"); a.className="w"; a.textContent=w;
+    a.onclick=()=>di(w);
     const b=document.createElement("span"); b.className="lead";
     const e=document.createElement("span"); e.className="role"; e.textContent=role;
     d.append(a,b,e); box.appendChild(d);
@@ -375,8 +626,23 @@ function pintaFicha(){
   $("say").textContent=c.say; $("nota").textContent=c.n;
   abierto=false; $("bRu").textContent="Перевод";
 }
+$("bSay").onclick=()=>di(FRASES[fi].w.map(x=>x[0]).join(" "));
 $("bRu").onclick=()=>{abierto=!abierto;$("ru").classList.toggle("hid",!abierto);$("bRu").textContent=abierto?"Скрыть":"Перевод";};
 $("bNext").onclick=()=>{let n;do{n=Math.floor(Math.random()*FRASES.length)}while(n===fi);fi=n;pintaFicha();document.querySelector("main").scrollTop=0;};
+document.querySelectorAll("#vel button").forEach(b=>{
+  const v=parseFloat(b.dataset.v);
+  document.querySelectorAll("#vel button").forEach(x=>{
+    if(Math.abs(parseFloat(x.dataset.v)-VEL)<0.01) x.classList.add("on");
+    else x.classList.remove("on");
+  });
+  b.onclick=()=>{
+    document.querySelectorAll("#vel button").forEach(x=>x.classList.toggle("on",x===b));
+    ponVel(v);
+    di(FRASES[fi].w.map(x=>x[0]).join(" "));
+  };
+});
+ponVel(VEL);
+
 pintaFicha();
 
 /* ================= ГЛАГОЛЫ ================= */
@@ -399,6 +665,7 @@ pintaFicha();
       const tr=document.createElement("tr");
       const a=document.createElement("td"); a.className="q"; a.textContent=q;
       const b=document.createElement("td"); b.className="f"; b.textContent=f;
+      b.onclick=()=>di(f);
       const c=document.createElement("td"); c.className="p"; c.textContent=p;
       tr.append(a,b,c); tb.appendChild(tr);
     });
@@ -571,6 +838,26 @@ const GRAM=[
  {t:"tab",head:["Мужской","Женский"],rows:[["del proyecto","de la casa"],["al edificio","a la obra"]]}
  ]},
 
+{h:"Карта времён",sub:"куда мы идём",
+ b:[
+ {t:"p",v:"Сейчас вы знаете одно время — настоящее. Вот вся дорога целиком, чтобы понимать, где вы находитесь. Учить отсюда пока ничего не надо."},
+ {t:"tab",head:["Время","Пример","Когда берём"],rows:[["Настоящее","trabajo — работаю","сейчас"],["Ближайшее будущее","voy a trabajar — буду работать","сейчас"],["Прошедшее завершённое","trabajé — поработал","через месяц"],["Прошедшее длительное","trabajaba — работал","через месяц"],["Будущее","trabajaré — буду работать","2–3 месяца"],["Условное","trabajaría — работал бы","3–4 месяца"],["Subjuntivo","que trabaje — чтобы работал","4–6 месяцев"]]},
+
+ {t:"h",v:"Два прошедших — и это главная сложность"},
+ {t:"p",v:"В испанском их два, и различие похоже на наш совершенный и несовершенный вид."},
+ {t:"ex",v:["Ayer trabajé ocho horas. — Вчера отработал восемь часов. (факт, завершено)","Antes trabajaba en Járkov. — Раньше работал в Харькове. (длилось, фон)"]},
+ {t:"note",v:"Русскому это даётся легче, чем англичанину: у нас есть «делал» и «сделал», логика близкая."},
+
+ {t:"h",v:"Subjuntivo — то, чего нет в русском"},
+ {t:"p",v:"Особое наклонение для желаний, сомнений, просьб и вежливости. Именно оно отделяет B1 от B2."},
+ {t:"ex",v:["Espero que el proyecto esté listo. — Надеюсь, проект будет готов.","Quiero que trabajes conmigo. — Хочу, чтобы ты работал со мной."]},
+ {t:"note",v:"Не пугайтесь заранее. К нему подходят через полгода, и к тому времени он ложится нормально."},
+
+ {t:"h",v:"Что это значит для сроков"},
+ {t:"p",v:"Один глагол на уровне B2 — это около 50 форм. Поэтому B2 измеряется не числом слов, а числом времён, которыми вы владеете."},
+ {t:"note",v:"200 глаголов во всех временах дают больше, чем 500 в одном настоящем. Не гонитесь за списками."}
+ ]},
+
 {h:"Чтение",sub:"как пишется — так и читается",
  b:[
  {t:"p",v:"Главная хорошая новость: испанский читается как пишется. Десять правил — и вы прочитаете вслух любой текст."},
@@ -739,6 +1026,1420 @@ $("bCheck").onclick=()=>{
 
 $("bSkip").onclick=nuevo;
 nuevo();
+
+/* ================= ТРЕНАЖЁР ХВОСТОВ ================= */
+const REG=[
+ {inf:"trabajar",raiz:"trabaj",g:"ar",tr:"работать"},
+ {inf:"hablar",raiz:"habl",g:"ar",tr:"говорить"},
+ {inf:"comprar",raiz:"compr",g:"ar",tr:"покупать"},
+ {inf:"pagar",raiz:"pag",g:"ar",tr:"платить"},
+ {inf:"estudiar",raiz:"estudi",g:"ar",tr:"учиться"},
+ {inf:"preguntar",raiz:"pregunt",g:"ar",tr:"спрашивать"},
+ {inf:"comer",raiz:"com",g:"er",tr:"есть"},
+ {inf:"beber",raiz:"beb",g:"er",tr:"пить"},
+ {inf:"leer",raiz:"le",g:"er",tr:"читать"},
+ {inf:"vivir",raiz:"viv",g:"ir",tr:"жить"},
+ {inf:"escribir",raiz:"escrib",g:"ir",tr:"писать"},
+ {inf:"abrir",raiz:"abr",g:"ir",tr:"открывать"}
+];
+const COLA={
+  ar:["o","as","a","amos","áis","an"],
+  er:["o","es","e","emos","éis","en"],
+  ir:["o","es","e","imos","ís","en"]
+};
+const QUIEN=["yo — я","tú — ты","él / ella — он, она","nosotros — мы","vosotros — вы","ellos — они"];
+
+let cjOk=0, cjTot=0, cjResp=null;
+
+function cjNuevo(){
+  $("cjRes").className="res";
+  const irr = Math.random()<0.4;
+  const i = Math.floor(Math.random()*6);
+
+  if(irr){
+    const v = VERBOS[Math.floor(Math.random()*VERBOS.length)];
+    const correcta = v.f[i][1];
+    cjResp = correcta;
+    $("cjStem").innerHTML = '<span style="color:var(--lap)">'+v.inf+'</span> → <u>?</u>';
+    $("cjWho").textContent = QUIEN[i];
+    $("cjHint").textContent = "неправильный глагол · "+v.tr;
+    ponAyuda(tablaVerbo(v));
+    pintaChips(mix(v.f.map(x=>x[1])), true);
+  }else{
+    const v = REG[Math.floor(Math.random()*REG.length)];
+    const correcta = COLA[v.g][i];
+    cjResp = correcta;
+    $("cjStem").innerHTML = v.raiz+'<u>?</u>';
+    $("cjWho").textContent = QUIEN[i];
+    $("cjHint").textContent = v.inf+" · "+v.tr+" · группа -"+v.g;
+    ponAyuda(tablaCola());
+    const todas = [...new Set([].concat(COLA.ar,COLA.er,COLA.ir))];
+    const otras = mix(todas.filter(x=>x!==correcta)).slice(0,5);
+    pintaChips(mix(otras.concat([correcta])).map(x=>"-"+x), false, v.raiz);
+  }
+}
+
+function pintaChips(lista, esForma, raiz){
+  const c=$("cjChips"); c.innerHTML="";
+  lista.forEach(t=>{
+    const b=document.createElement("button");
+    b.className="chip"; b.textContent=t;
+    b.onclick=()=>cjRevisa(t, esForma, raiz);
+    c.appendChild(b);
+  });
+}
+
+function cjRevisa(elegido, esForma, raiz){
+  cjTot++;
+  const limpio = esForma ? elegido : elegido.replace(/^-/,"");
+  const r=$("cjRes");
+  const palabra = esForma ? cjResp : raiz+cjResp;
+  if(limpio===cjResp){
+    cjOk++;
+    r.className="res good show";
+    r.innerHTML="Верно. <b>"+palabra+"</b>";
+  }else{
+    r.className="res bad show";
+    r.innerHTML="Не так. Правильно: <b>"+palabra+"</b>";
+    abreAyuda();
+  }
+  di(palabra);
+  $("cjScore").textContent="верно "+cjOk+" · всего "+cjTot;
+}
+
+/* ---------- подсказка ---------- */
+const QCORTO=["я","ты","он / она","мы","вы","они"];
+let ayudaAbierta=false;
+try{ ayudaAbierta = localStorage.getItem("frase_ayuda")==="1"; }catch(e){}
+
+function tablaCola(){
+  let h='<table><tr><th>кто</th><th>-ar</th><th>-er</th><th>-ir</th></tr>';
+  for(let i=0;i<6;i++){
+    h+='<tr><td class="q">'+QCORTO[i]+'</td>'+
+       '<td class="c">-'+COLA.ar[i]+'</td>'+
+       '<td class="c">-'+COLA.er[i]+'</td>'+
+       '<td class="c">-'+COLA.ir[i]+'</td></tr>';
+  }
+  return h+'</table>';
+}
+
+function tablaVerbo(v){
+  let h='<table><tr><th>кто</th><th>'+v.inf+'</th><th>читается</th></tr>';
+  v.f.forEach(f=>{
+    h+='<tr><td class="q">'+f[0]+'</td><td class="c">'+f[1]+'</td>'+
+       '<td class="p">'+f[2]+'</td></tr>';
+  });
+  return h+'</table>';
+}
+
+function ponAyuda(html){
+  $("cjAyuda").innerHTML=html;
+  $("cjAyuda").hidden=!ayudaAbierta;
+  $("cjTogg").textContent=(ayudaAbierta?"↑ Скрыть таблицу":"↓ Показать таблицу");
+}
+
+$("cjTogg").onclick=()=>{
+  ayudaAbierta=!ayudaAbierta;
+  try{ localStorage.setItem("frase_ayuda", ayudaAbierta?"1":"0"); }catch(e){}
+  $("cjAyuda").hidden=!ayudaAbierta;
+  $("cjTogg").textContent=(ayudaAbierta?"↑ Скрыть таблицу":"↓ Показать таблицу");
+};
+
+function abreAyuda(){
+  if(ayudaAbierta) return;
+  ayudaAbierta=true;
+  $("cjAyuda").hidden=false;
+  $("cjTogg").textContent="↑ Скрыть таблицу";
+}
+
+$("cjNext").onclick=cjNuevo;
+
+document.querySelectorAll("#modo button").forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll("#modo button").forEach(x=>x.classList.toggle("on",x===b));
+    const m=b.dataset.m;
+    $("paneFr").hidden = m!=="fr";
+    $("paneCj").hidden = m!=="cj";
+    $("paneWd").hidden = m!=="wd";
+    $("paneTx").hidden = m!=="tx";
+    corta();
+    if(m==="cj") cjNuevo();
+    if(m==="wd") wdNueva();
+    if(m==="tx") pintaTexto();
+  };
+});
+cjNuevo();
+
+
+/* ================= ПУТЬ: УРОВНИ И ЭКЗАМЕНЫ ================= */
+
+const NIVELES=[
+ {n:1,t:"Знакомство",d:"ser · чтение букв · вопрос и отрицание",
+  ver:"Правила → Чтение, Глагол обязателен, Отрицание и вопрос. Глаголы → ser."},
+ {n:2,t:"Мир вокруг",d:"род · множественное · артикли · порядок слов",
+  ver:"Правила → Род и согласование, Порядок слов, Артикли."},
+ {n:3,t:"Я и моя жизнь",d:"tener · числа · возраст · семья",
+  ver:"Правила → Числительные. Глаголы → tener."},
+ {n:4,t:"Действия",d:"-ar · -er · -ir в настоящем времени",
+  ver:"Правила → Три группы глаголов. Собрать → Хвосты глаголов."},
+ {n:5,t:"Где и как",d:"estar · места · состояния · ser или estar",
+  ver:"Глаголы → estar. Сравнить с ser."},
+ {n:6,t:"Хочу и могу",d:"quiero · puedo · tengo que · voy a + инфинитив",
+  ver:"Правила → Глагол + инфинитив. Глаголы → poder, querer, ir."},
+ {n:7,t:"Быт",d:"магазин · цены · время · вежливость",
+  ver:"Правила → Числительные (цены, время). Фраза → бытовые карточки."},
+ {n:8,t:"Прошлое I",d:"indefinido — trabajé, comí, viví",pronto:1},
+ {n:9,t:"Прошлое II",d:"imperfecto — trabajaba, era, tenía",pronto:1},
+ {n:10,t:"Будущее",d:"futuro · condicional · вежливые формы",pronto:1}
+];
+
+const BANCO={
+1:[
+ {t:"f",q:"___ ingeniero.",s:"я инженер",o:["Soy","Eres","Es"],a:0},
+ {t:"f",q:"¿___ de Ucrania?",s:"ты из Украины?",o:["Eres","Soy","Es"],a:0},
+ {t:"f",q:"Mi hijo ___ alto.",s:"мой сын высокий",o:["es","soy","eres"],a:0},
+ {t:"f",q:"___ ucranianos.",s:"мы украинцы",o:["Somos","Soy","Son"],a:0},
+ {t:"f",q:"Mis hijos ___ altos.",s:"мои дети высокие",o:["son","es","somos"],a:0},
+ {t:"f",q:"Как пишется?",s:"инженер",o:["ingeniero","engeniero","ingeniro"],a:0},
+ {t:"f",q:"Как читается J?",s:"trabajo",o:["х — трабахо","ж — трабажо","дж — трабаджо"],a:0},
+ {t:"f",q:"Как читается H?",s:"hola",o:["не читается — ола","х — хола","г — гола"],a:0},
+ {t:"f",q:"Как читается LL?",s:"calle",o:["й — кайе","л — кале","ль — калье"],a:0},
+ {t:"f",q:"Где ошибка?",s:"я не отец",o:["Soy no padre","No soy padre","Ambas bien"],a:0},
+ {t:"f",q:"Правильный вопрос:",s:"ты инженер?",o:["¿Eres ingeniero?","Eres ingeniero?","¿Eres ingeniero"],a:0},
+ {t:"a",say:"Soy ingeniero.",o:["Я инженер","Ты инженер","Он инженер"],a:0},
+ {t:"a",say:"No soy padre.",o:["Я не отец","Я отец","Ты не отец"],a:0},
+ {t:"a",say:"Buenas tardes.",o:["Добрый день","Доброе утро","Спокойной ночи"],a:0},
+ {t:"b",q:"Я из Украины.",w:["Soy","de","Ucrania"],x:["es","en"]},
+ {t:"b",q:"Ты не инженер.",w:["No","eres","ingeniero"],x:["soy","es"]},
+ {t:"b",q:"Мы из Харькова.",w:["Somos","de","Járkov"],x:["Soy","en"]},
+ {t:"f",q:"Что значит gracias?",s:"",o:["спасибо","пожалуйста","извините"],a:0},
+ {t:"f",q:"Что значит perdone?",s:"",o:["извините","спасибо","до свидания"],a:0},
+ {t:"f",q:"No entiendo — это:",s:"",o:["я не понимаю","я не хочу","я не могу"],a:0}
+],
+2:[
+ {t:"f",q:"Mi hija es ___.",s:"моя дочь высокая",o:["alta","alto","altos"],a:0},
+ {t:"f",q:"Mis hijos son ___.",s:"мои дети высокие",o:["altos","alto","altas"],a:0},
+ {t:"f",q:"___ edificio es alto.",s:"артикль",o:["El","La","Los"],a:0},
+ {t:"f",q:"___ casa es grande.",s:"артикль",o:["La","El","Los"],a:0},
+ {t:"f",q:"Как сказать «сложный проект»?",s:"",o:["proyecto complejo","complejo proyecto","proyecto compleja"],a:0},
+ {t:"f",q:"Как сказать «высокая учительница»?",s:"",o:["profesora alta","alta profesora","profesor alto"],a:0},
+ {t:"f",q:"de + el =",s:"слияние",o:["del","de el","dal"],a:0},
+ {t:"f",q:"de + la =",s:"слияние",o:["de la","dela","del"],a:0},
+ {t:"f",q:"Mis niñas son ___.",s:"мои девочки высокие",o:["altas","altos","alta"],a:0},
+ {t:"f",q:"El edificio es ___.",s:"большое",o:["grande","granda","grandos"],a:0},
+ {t:"f",q:"Мн. число от el edificio:",s:"",o:["los edificios","las edificios","el edificios"],a:0},
+ {t:"f",q:"Сын и дочь вместе:",s:"мои дети высокие",o:["Mis hijos son altos","Mis hijos son altas","Mis hijas son altos"],a:0},
+ {t:"a",say:"La casa es grande.",o:["Дом большой","Дома большие","Проект большой"],a:0},
+ {t:"a",say:"Mi mujer es profesora.",o:["Моя жена учительница","Мой сын учитель","Моя дочь учительница"],a:0},
+ {t:"b",q:"Мой сын высокий.",w:["Mi hijo","es","alto"],x:["son","alta"]},
+ {t:"b",q:"Проект сложный.",w:["El proyecto","es","complejo"],x:["La","compleja"]},
+ {t:"b",q:"Моя дочь высокая.",w:["Mi hija","es","alta"],x:["alto","son"]},
+ {t:"b",q:"Мои коллеги украинцы.",w:["Mis compañeros","son","ucranianos"],x:["es","ucraniano"]}
+],
+3:[
+ {t:"f",q:"___ 45 años.",s:"мне 45 лет",o:["Tengo","Soy","Estoy"],a:0},
+ {t:"f",q:"¿Cuántos años ___?",s:"сколько тебе лет",o:["tienes","tengo","tiene"],a:0},
+ {t:"f",q:"Mi hijo ___ diez años.",s:"",o:["tiene","tengo","tienes"],a:0},
+ {t:"f",q:"45 по-испански:",s:"",o:["cuarenta y cinco","cuarenta cinco","cuarentacinco"],a:0},
+ {t:"f",q:"15 по-испански:",s:"",o:["quince","cinco","catorce"],a:0},
+ {t:"f",q:"30 по-испански:",s:"",o:["treinta","trece","tres"],a:0},
+ {t:"f",q:"12 по-испански:",s:"",o:["doce","dos","diez"],a:0},
+ {t:"f",q:"Что значит tengo hambre?",s:"",o:["я голоден","мне жарко","я тороплюсь"],a:0},
+ {t:"f",q:"Мне жарко:",s:"",o:["Tengo calor","Tengo color","Soy calor"],a:0},
+ {t:"f",q:"Я тороплюсь:",s:"",o:["Tengo prisa","Tengo rápido","Soy prisa"],a:0},
+ {t:"f",q:"Как пишется «год»?",s:"",o:["año","ano","anio"],a:0},
+ {t:"f",q:"Форма «мы» от tener:",s:"",o:["tenemos","tienemos","tengamos"],a:0},
+ {t:"a",say:"Tengo dos hijos.",o:["У меня двое детей","У меня один сын","У тебя двое детей"],a:0},
+ {t:"a",say:"Tengo hambre.",o:["Я голоден","Мне холодно","Я устал"],a:0},
+ {t:"a",say:"Son doce euros.",o:["Двенадцать евро","Два евро","Десять евро"],a:0},
+ {t:"b",q:"Мне 45 лет.",w:["Tengo","cuarenta y cinco","años"],x:["Soy","tienes"]},
+ {t:"b",q:"У вас есть ананасы?",w:["¿Tienen","piñas?"],x:["Tengo","piña"]},
+ {t:"b",q:"У меня вопрос.",w:["Tengo","una pregunta"],x:["Soy","preguntar"]}
+],
+4:[
+ {t:"f",q:"trabajar · yo →",s:"",o:["trabajo","trabaja","trabajas"],a:0},
+ {t:"f",q:"hablar · tú →",s:"",o:["hablas","hablo","habla"],a:0},
+ {t:"f",q:"comer · nosotros →",s:"",o:["comemos","comimos","comamos"],a:0},
+ {t:"f",q:"vivir · nosotros →",s:"",o:["vivimos","vivemos","vivamos"],a:0},
+ {t:"f",q:"escribir · ellos →",s:"",o:["escriben","escribin","escriban"],a:0},
+ {t:"f",q:"pagar · él →",s:"",o:["paga","pago","pagas"],a:0},
+ {t:"f",q:"beber · tú →",s:"",o:["bebes","bebas","bebe"],a:0},
+ {t:"f",q:"Хвост «я» у всех групп:",s:"",o:["-o","-as","-e"],a:0},
+ {t:"f",q:"Где ошибка?",s:"я говорю",o:["hablaro","hablo","Оба верны"],a:0},
+ {t:"f",q:"abrir · yo →",s:"",o:["abro","abre","abras"],a:0},
+ {t:"f",q:"Сколько групп глаголов?",s:"",o:["три","две","четыре"],a:0},
+ {t:"f",q:"Какая группа самая частая?",s:"",o:["-ar","-er","-ir"],a:0},
+ {t:"a",say:"Trabajo en construcción.",o:["Я работаю в строительстве","Ты работаешь на стройке","Мы работаем"],a:0},
+ {t:"a",say:"Vivimos en España.",o:["Мы живём в Испании","Я живу в Испании","Они живут в Испании"],a:0},
+ {t:"b",q:"Я живу в Мельяне.",w:["Vivo","en","Meliana"],x:["Vives","de"]},
+ {t:"b",q:"Я работаю в строительстве.",w:["Trabajo","en","construcción"],x:["Trabajas","de"]},
+ {t:"b",q:"Ты говоришь по-испански?",w:["¿Hablas","español?"],x:["Hablo","hablar"]}
+],
+5:[
+ {t:"f",q:"___ en casa.",s:"я дома",o:["Estoy","Soy","Tengo"],a:0},
+ {t:"f",q:"¿___ bien?",s:"ты в порядке?",o:["Estás","Eres","Estoy"],a:0},
+ {t:"f",q:"¿Dónde ___ el baño?",s:"",o:["está","es","son"],a:0},
+ {t:"f",q:"___ cansado.",s:"я устал",o:["Estoy","Soy","Tengo"],a:0},
+ {t:"f",q:"Я инженер:",s:"постоянное",o:["Soy ingeniero","Estoy ingeniero","Tengo ingeniero"],a:0},
+ {t:"f",q:"Он хороший:",s:"качество",o:["Es bueno","Está bueno","Está bien"],a:0},
+ {t:"f",q:"Всё в порядке:",s:"",o:["Está bien","Es bien","Es bueno"],a:0},
+ {t:"f",q:"Форма «мы» от estar:",s:"",o:["estamos","somos","estemos"],a:0},
+ {t:"f",q:"Постоянное свойство берёт:",s:"",o:["ser","estar","оба"],a:0},
+ {t:"f",q:"Место берёт:",s:"",o:["estar","ser","tener"],a:0},
+ {t:"f",q:"Вы открыты?",s:"магазин",o:["¿Están abiertos?","¿Son abiertos?","¿Tienen abierto?"],a:0},
+ {t:"f",q:"bien — это:",s:"",o:["хорошо","хороший","хорошая"],a:0},
+ {t:"a",say:"Estoy en la obra.",o:["Я на стройке","Я дома","Я на работе"],a:0},
+ {t:"a",say:"¿Dónde estás?",o:["Ты где?","Кто ты?","Как ты?"],a:0},
+ {t:"b",q:"Сегодня я устал.",w:["Hoy","estoy","cansado"],x:["soy","cansada"]},
+ {t:"b",q:"Мы в Валенсии.",w:["Estamos","en","Valencia"],x:["Somos","de"]},
+ {t:"b",q:"Проект сложный.",w:["El proyecto","es","complejo"],x:["está","compleja"]}
+],
+6:[
+ {t:"f",q:"Quiero ___ español.",s:"хочу говорить",o:["hablar","hablo","hablas"],a:0},
+ {t:"f",q:"¿___ pagar con tarjeta?",s:"могу заплатить",o:["Puedo","Puedes","Pado"],a:0},
+ {t:"f",q:"Tengo ___ trabajar.",s:"мне надо работать",o:["que","a","de"],a:0},
+ {t:"f",q:"Voy ___ comprar pan.",s:"я куплю хлеб",o:["a","que","de"],a:0},
+ {t:"f",q:"Форма «я» от querer:",s:"",o:["quiero","quero","queró"],a:0},
+ {t:"f",q:"Форма «я» от poder:",s:"",o:["puedo","pado","podo"],a:0},
+ {t:"f",q:"Форма «мы» от ir:",s:"",o:["vamos","vaimos","imos"],a:0},
+ {t:"f",q:"Второй глагол в конструкции:",s:"",o:["не спрягается","спрягается","зависит"],a:0},
+ {t:"f",q:"Где ошибка?",s:"мне надо работать",o:["Tengo trabajar","Tengo que trabajar","Оба верны"],a:0},
+ {t:"f",q:"Можете повторить?",s:"вежливо",o:["¿Puede repetir?","¿Puedes repites?","¿Podéis repetir?"],a:0},
+ {t:"f",q:"Начнём:",s:"",o:["Vamos a empezar","Vamos empezar","Vamos a empiezo"],a:0},
+ {t:"f",q:"Ломка корня у poder:",s:"",o:["o → ue","e → ie","нет ломки"],a:0},
+ {t:"a",say:"Quiero comer.",o:["Хочу есть","Могу есть","Надо есть"],a:0},
+ {t:"a",say:"Tengo que trabajar mañana.",o:["Мне надо работать завтра","Я работаю завтра","Хочу работать завтра"],a:0},
+ {t:"b",q:"Я хочу говорить по-испански.",w:["Quiero","hablar","español"],x:["hablo","Puedo"]},
+ {t:"b",q:"Завтра я куплю хлеб.",w:["Mañana","voy a","comprar","pan"],x:["voy","compro"]},
+ {t:"b",q:"Не могу сейчас говорить.",w:["No","puedo","hablar","ahora"],x:["hablo","puedes"]}
+],
+7:[
+ {t:"f",q:"Сколько стоит?",s:"",o:["¿Cuánto es?","¿Cuánto está?","¿Qué es?"],a:0},
+ {t:"f",q:"3,50 € — это:",s:"",o:["tres con cincuenta","tres cincuenta","tres y cincuenta"],a:0},
+ {t:"f",q:"Который час?",s:"",o:["¿Qué hora es?","¿Cuánto hora?","¿Cómo hora?"],a:0},
+ {t:"f",q:"Три часа:",s:"",o:["Son las tres","Es las tres","Son la tres"],a:0},
+ {t:"f",q:"Час дня:",s:"",o:["Es la una","Son la una","Son las una"],a:0},
+ {t:"f",q:"Во сколько закрываете?",s:"",o:["¿A qué hora cierran?","¿Qué hora cierran?","¿Cuándo cierra?"],a:0},
+ {t:"f",q:"planta baja — это:",s:"",o:["первый этаж","второй этаж","подвал"],a:0},
+ {t:"f",q:"Банан в Испании:",s:"",o:["plátano","banana","banano"],a:0},
+ {t:"f",q:"Билет:",s:"",o:["billete","bileto","boleto"],a:0},
+ {t:"f",q:"Медленнее, пожалуйста:",s:"",o:["Más despacio, por favor","Más rápido, por favor","Muy despacio"],a:0},
+ {t:"f",q:"Vale означает:",s:"",o:["ладно, ок","привет","спасибо"],a:0},
+ {t:"f",q:"Плачу картой:",s:"",o:["Pago con tarjeta","Pago en tarjeta","Pago de tarjeta"],a:0},
+ {t:"a",say:"¿A qué hora cierran?",o:["Во сколько закрываете?","Во сколько открываете?","Вы закрыты?"],a:0},
+ {t:"a",say:"Son las cinco y media.",o:["Половина шестого","Пять часов","Пятнадцать минут шестого"],a:0},
+ {t:"a",say:"¿Puedo pagar con tarjeta?",o:["Могу заплатить картой?","Где касса?","Сколько стоит?"],a:0},
+ {t:"b",q:"Два билета, пожалуйста.",w:["Dos billetes,","por favor"],x:["billete","gracias"]},
+ {t:"b",q:"У вас есть бананы?",w:["¿Tienen","plátanos?"],x:["Tengo","bananas"]}
+]
+};
+
+/* ---------- память ---------- */
+const LLAVE="frase_progreso";
+function leerProg(){
+  try{ const r=localStorage.getItem(LLAVE); if(r) return JSON.parse(r); }catch(e){}
+  return {max:1,res:{}};
+}
+function guardarProg(p){
+  try{ localStorage.setItem(LLAVE,JSON.stringify(p)); }catch(e){}
+}
+let PROG=leerProg();
+
+/* ---------- список уровней ---------- */
+function pintaRuta(){
+  $("rutaLista").hidden=false; $("rutaDet").hidden=true; $("rutaEx").hidden=true;
+
+  const hechos=Object.keys(PROG.res).length;
+  const abierto=Math.min(PROG.max,NIVELES.length);
+  const act=NIVELES.find(x=>x.n===abierto)||NIVELES[0];
+
+  $("rTit").textContent="Ступень "+abierto+" — "+act.t;
+  $("rSub").textContent="пройдено "+hechos+" из "+NIVELES.length;
+  $("rBar").style.width=Math.round(hechos/NIVELES.length*100)+"%";
+
+  const L=$("rNiv"); L.innerHTML="";
+  NIVELES.forEach(v=>{
+    const pasado=PROG.res[v.n]!==undefined;
+    const libre=v.n<=PROG.max && !v.pronto;
+    const b=document.createElement("button");
+    b.className="niv"+(pasado?" hecho":"")+(!pasado&&libre?" ahora":"")+((!libre)?" cerrado":"");
+    const est = pasado ? PROG.res[v.n]+"%" : (v.pronto ? "скоро" : (libre?"тест":"закрыт"));
+    b.innerHTML='<span class="no"></span><span class="mid"><span class="tt"></span>'+
+                '<span class="ds"></span></span><span class="st"></span>';
+    b.querySelector(".no").textContent=v.n;
+    b.querySelector(".tt").textContent=v.t;
+    b.querySelector(".ds").textContent=v.d;
+    b.querySelector(".st").textContent=est;
+    b.onclick=()=>{ if(libre) verNivel(v); };
+    L.appendChild(b);
+  });
+
+  $("rPie").textContent = PROG.max>=NIVELES.length ? "все ступени открыты"
+      : "следующая откроется после теста ступени "+PROG.max;
+}
+
+/* ---------- карточка уровня ---------- */
+function verNivel(v){
+  $("rutaLista").hidden=true; $("rutaEx").hidden=true;
+  const d=$("rutaDet"); d.hidden=false; d.innerHTML="";
+
+  const pasado=PROG.res[v.n]!==undefined;
+  d.innerHTML=
+   '<div class="hdr"><div class="big">Ступень '+v.n+'</div>'+
+   '<div class="small">'+v.d+'</div></div>'+
+   '<p class="corto" style="margin-top:20px">'+(v.ver||"")+'</p>'+
+   (pasado
+     ? '<div class="nota" style="margin-top:20px"><span>пройдено</span><p>Тест сдан на '+PROG.res[v.n]+'%. Возвращайтесь и проходите заново когда захотите — прогресс не собьётся, засчитается лучший результат.</p></div>'
+     : '')+
+   '<div class="nota" style="margin-top:16px"><span>тест</span><p>15 заданий вперемешку: формы, перевод, аудирование, сборка фраз. Порог — 80%, то есть 12 правильных. Попыток сколько угодно.</p></div>'+
+   '<div class="row"><button class="b" id="dAtras">Назад</button>'+
+   '<button class="b pri" id="dEx">'+(pasado?"Пройти заново":"Пройти тест")+'</button></div>';
+
+  $("dAtras").onclick=pintaRuta;
+  $("dEx").onclick=()=>arrancaExamen(v);
+}
+
+/* ---------- экзамен ---------- */
+let EX=null;
+
+function arrancaExamen(v){
+  const banco=BANCO[v.n]||[];
+  const preg=mix(banco.slice()).slice(0,15);
+  EX={niv:v,preg:preg,i:0,ok:0,fallos:[]};
+  $("rutaLista").hidden=true; $("rutaDet").hidden=true; $("rutaEx").hidden=false;
+  pintaPregunta();
+}
+
+function pintaPregunta(){
+  const c=$("rutaEx"); c.innerHTML="";
+  if(EX.i>=EX.preg.length){ pintaFinal(); return; }
+  const q=EX.preg[EX.i];
+
+  const h=document.createElement("div"); h.className="exHdr";
+  h.innerHTML='<span>ступень '+EX.niv.n+'</span><span><b>'+(EX.i+1)+'</b> / '+EX.preg.length+'</span>';
+  c.appendChild(h);
+
+  const bar=document.createElement("div"); bar.className="barra";
+  bar.innerHTML='<i style="width:'+Math.round(EX.i/EX.preg.length*100)+'%"></i>';
+  c.appendChild(bar);
+
+  if(q.t==="b"){ pintaSuelta(c,q); return; }
+
+  const pr=document.createElement("div"); pr.className="exQ";
+  pr.textContent = q.t==="a" ? "🔊 Прослушайте" : q.q;
+  c.appendChild(pr);
+
+  if(q.t==="a"){
+    di(q.say);
+    const rep=document.createElement("div");
+    rep.style.cssText="display:flex;justify-content:center;margin-top:14px";
+    rep.innerHTML='<button class="spk wide">🔊 Повторить</button>';
+    rep.querySelector("button").onclick=()=>di(q.say);
+    c.appendChild(rep);
+  }else if(q.s){
+    const sb=document.createElement("div"); sb.className="exSub"; sb.textContent=q.s; c.appendChild(sb);
+  }
+
+  const caja=document.createElement("div"); caja.style.marginTop="22px";
+  const orden=mix(q.o.map((txt,k)=>({txt:txt,k:k})));
+  orden.forEach(op=>{
+    const b=document.createElement("button"); b.className="opt"; b.textContent=op.txt;
+    b.onclick=()=>{
+      caja.querySelectorAll(".opt").forEach(x=>x.classList.add("off"));
+      const bien = op.k===q.a;
+      b.classList.add(bien?"ok":"no");
+      if(bien){ EX.ok++; }
+      else{
+        EX.fallos.push((q.t==="a"?q.say:q.q)+" → "+q.o[q.a]);
+        caja.querySelectorAll(".opt").forEach(x=>{ if(x.textContent===q.o[q.a]) x.classList.add("ok"); });
+      }
+      diY(q.t==="a" ? null : q.o[q.a],
+          ()=>{ EX.i++; pintaPregunta(); },
+          bien?200:1500);
+    };
+    caja.appendChild(b);
+  });
+  c.appendChild(caja);
+}
+
+function pintaSuelta(c,q){
+  const pr=document.createElement("div"); pr.className="exQ"; pr.textContent=q.q; c.appendChild(pr);
+  const sb=document.createElement("div"); sb.className="exSub"; sb.textContent="соберите фразу"; c.appendChild(sb);
+
+  let huecos=q.w.map(()=>null);
+  let fichas=mix(q.w.concat(q.x));
+
+  const sd=document.createElement("div"); sd.className="slots"; sd.style.marginTop="20px";
+  const cd=document.createElement("div"); cd.className="chips";
+  c.appendChild(sd); c.appendChild(cd);
+
+  const fila=document.createElement("div"); fila.className="row";
+  fila.innerHTML='<button class="b pri">Проверить</button>';
+  c.appendChild(fila);
+
+  function dibuja(){
+    sd.innerHTML=""; cd.innerHTML="";
+    huecos.forEach((w,i)=>{
+      const b=document.createElement("button");
+      b.className="slot"+(w?"":" empty"); b.textContent=w||"····";
+      if(w) b.onclick=()=>{ fichas.push(w); huecos[i]=null; dibuja(); };
+      sd.appendChild(b);
+    });
+    fichas.forEach((w,i)=>{
+      const b=document.createElement("button"); b.className="chip"; b.textContent=w;
+      b.onclick=()=>{ const k=huecos.indexOf(null); if(k<0)return;
+        huecos[k]=w; fichas.splice(i,1); dibuja(); };
+      cd.appendChild(b);
+    });
+  }
+  dibuja();
+
+  fila.querySelector("button").onclick=()=>{
+    if(huecos.includes(null)) return;
+    const correcto=q.w.join(" ");
+    const bien = limpia(huecos.join(" "))===limpia(correcto);
+    if(bien) EX.ok++; else EX.fallos.push(q.q+" → "+correcto);
+    const r=document.createElement("div");
+    r.className="res "+(bien?"good":"bad")+" show";
+    r.innerHTML=(bien?"Верно. <b>":"Не так. Правильно: <b>")+correcto+"</b>";
+    c.appendChild(r);
+    fila.querySelector("button").disabled=true;
+    sd.querySelectorAll("button").forEach(x=>x.onclick=null);
+    cd.querySelectorAll("button").forEach(x=>x.onclick=null);
+    diY(correcto, ()=>{ EX.i++; pintaPregunta(); }, bien?250:1600);
+  };
+}
+
+function pintaFinal(){
+  const c=$("rutaEx"); c.innerHTML="";
+  const pct=Math.round(EX.ok/EX.preg.length*100);
+  const pasa=pct>=80;
+
+  if(pasa){
+    const antes=PROG.res[EX.niv.n];
+    if(antes===undefined||pct>antes) PROG.res[EX.niv.n]=pct;
+    if(PROG.max===EX.niv.n && EX.niv.n<NIVELES.length) PROG.max=EX.niv.n+1;
+    guardarProg(PROG);
+    alimentarWidget();
+  }
+
+  const f=document.createElement("div"); f.className="fin";
+  f.innerHTML='<div class="cifra '+(pasa?"ok":"no")+'">'+pct+'%</div>'+
+    '<div class="txt">'+EX.ok+' из '+EX.preg.length+'<br>'+
+    (pasa
+      ? (EX.niv.n<NIVELES.length && !NIVELES[EX.niv.n].pronto
+          ? "Ступень сдана. Открыта ступень "+(EX.niv.n+1)+"."
+          : "Ступень сдана.")
+      : "Порог 80%. Подтяните пропущенное и пройдите заново — попыток сколько угодно.")+
+    '</div>';
+  c.appendChild(f);
+
+  if(EX.fallos.length){
+    const d=document.createElement("div"); d.className="fallos";
+    const h=document.createElement("h4"); h.textContent="что подтянуть"; d.appendChild(h);
+    const ul=document.createElement("ul");
+    EX.fallos.forEach(t=>{const li=document.createElement("li");li.textContent=t;ul.appendChild(li);});
+    d.appendChild(ul); c.appendChild(d);
+  }
+
+  const row=document.createElement("div"); row.className="row";
+  row.innerHTML='<button class="b" id="fSalir">К списку</button>'+
+                '<button class="b pri" id="fOtra">Пройти заново</button>';
+  c.appendChild(row);
+  $("fSalir").onclick=pintaRuta;
+  $("fOtra").onclick=()=>arrancaExamen(EX.niv);
+}
+
+
+/* ---------- отдаём материал виджету ---------- */
+function alimentarWidget(){
+  try{
+    if(!(window.Android && window.Android.sincronizar)) return;
+    const lote=[];
+
+    // карточки-схемы
+    FRASES.forEach(f=>{
+      lote.push({
+        e:f.w.map(x=>x[0]).join(" "),
+        p:f.t,
+        r:f.ru,
+        s:f.say,
+        n:1
+      });
+    });
+
+    // предложения из текстов — по ступеням
+    TEXTOS.forEach(t=>{
+      t.es.forEach((linea,i)=>{
+        if(linea.split(" ").length<=9){
+          lote.push({e:linea,p:"текст · "+t.t,r:t.ru[i]||"",s:"",n:t.n});
+        }
+      });
+    });
+
+    // слова
+    PALABRAS.forEach(w=>{
+      lote.push({e:w.e,p:"слово · ступень "+w.n,r:w.r,s:"",n:w.n});
+    });
+
+    window.Android.sincronizar(JSON.stringify(lote), Math.min(PROG.max,7));
+  }catch(e){}
+}
+
+pintaRuta();
+
+
+/* ================= СЛОВАРЬ ПО СТУПЕНЯМ =================
+   формат: "испанский|русский"                              */
+
+const VOC={
+
+1:[
+// приветствия и вежливость
+"hola|привет","adiós|пока","buenos días|доброе утро","buenas tardes|добрый день",
+"buenas noches|доброй ночи","hasta luego|до скорого","hasta mañana|до завтра",
+"gracias|спасибо","de nada|не за что","por favor|пожалуйста","perdone|извините",
+"perdón|простите","lo siento|сожалею","vale|ладно","claro|конечно","bienvenido|добро пожаловать",
+// базовые слова
+"sí|да","no|нет","y|и","o|или","también|тоже","muy|очень","poco|мало","mucho|много",
+"más|больше","menos|меньше","bien|хорошо","mal|плохо","aquí|здесь","allí|там",
+"hoy|сегодня","ahora|сейчас","siempre|всегда","nunca|никогда","todo|всё","nada|ничего",
+// люди
+"hombre|мужчина","mujer|женщина, жена","niño|ребёнок","niña|девочка","padre|отец",
+"madre|мать","hijo|сын","hija|дочь","hermano|брат","hermana|сестра","familia|семья",
+"amigo|друг","amiga|подруга","vecino|сосед","persona|человек","gente|люди",
+"señor|господин","señora|госпожа","abuelo|дедушка","abuela|бабушка",
+// профессии
+"ingeniero|инженер","arquitecto|архитектор","profesor|учитель","profesora|учительница",
+"médico|врач","enfermera|медсестра","policía|полиция","camarero|официант",
+"jefe|начальник","obrero|рабочий","estudiante|студент","conductor|водитель",
+// страны и языки
+"españa|Испания","español|испанский","ucrania|Украина","ucraniano|украинский",
+"ruso|русский","inglés|английский","valencia|Валенсия","país|страна","idioma|язык",
+// признаки
+"alto|высокий","bajo|низкий","grande|большой","pequeño|маленький","nuevo|новый",
+"viejo|старый","joven|молодой","bueno|хороший","malo|плохой","bonito|красивый",
+"feo|некрасивый","fácil|лёгкий","difícil|трудный","importante|важный","posible|возможный",
+"blanco|белый","negro|чёрный","rojo|красный","verde|зелёный","azul|синий","amarillo|жёлтый",
+// служебные
+"el|артикль м.р.","la|артикль ж.р.","los|мн.ч. м.р.","las|мн.ч. ж.р.",
+"un|один, какой-то","una|одна, какая-то","de|из, от","en|в, на","con|с","sin|без",
+"para|для","por|по, из-за","a|в, к","que|что, который","pero|но","porque|потому что",
+"como|как","cuando|когда","dónde|где","quién|кто","qué|что","cuál|какой",
+"mi|мой","tu|твой","su|его, её","nuestro|наш","este|этот","ese|тот","otro|другой"
+],
+
+2:[
+// дом и город
+"casa|дом","piso|квартира","habitación|комната","cocina|кухня","baño|туалет, ванная",
+"salón|гостиная","dormitorio|спальня","puerta|дверь","ventana|окно","pared|стена",
+"suelo|пол","techo|потолок","escalera|лестница","ascensor|лифт","llave|ключ",
+"mesa|стол","silla|стул","cama|кровать","armario|шкаф","luz|свет",
+"ciudad|город","pueblo|посёлок","calle|улица","plaza|площадь","avenida|проспект",
+"barrio|район","centro|центр","parque|парк","jardín|сад","playa|пляж",
+"mar|море","río|река","montaña|гора","campo|поле, деревня","carretera|шоссе",
+// стройка — база
+"edificio|здание","obra|стройка","proyecto|проект","plano|чертёж","construcción|строительство",
+"material|материал","cemento|цемент","hormigón|бетон","ladrillo|кирпич","acero|сталь",
+"madera|дерево","hierro|железо","vidrio|стекло","piedra|камень","arena|песок",
+"muro|стена несущая","columna|колонна","viga|балка","losa|плита","cimentación|фундамент",
+"tejado|крыша","planta|этаж","planta baja|первый этаж","altura|высота","ancho|ширина",
+// вещи
+"coche|машина","teléfono|телефон","móvil|мобильный","ordenador|компьютер","libro|книга",
+"papel|бумага","documento|документ","carta|письмо","bolsa|сумка","dinero|деньги",
+"ropa|одежда","zapatos|обувь","reloj|часы","gafas|очки","maleta|чемодан",
+// признаки 2
+"largo|длинный","corto|короткий","ancho|широкий","estrecho|узкий","fuerte|сильный",
+"débil|слабый","caro|дорогой","barato|дешёвый","limpio|чистый","sucio|грязный",
+"lleno|полный","vacío|пустой","abierto|открытый","cerrado|закрытый","libre|свободный",
+"ocupado|занятый","tranquilo|спокойный","rápido|быстрый","lento|медленный","seguro|надёжный",
+"complejo|сложный","simple|простой","completo|полный","listo|готовый","roto|сломанный",
+// количество
+"todo|весь","todos|все","algunos|некоторые","ninguno|никакой","cada|каждый",
+"varios|несколько","bastante|достаточно","demasiado|слишком","casi|почти","sólo|только"
+],
+
+3:[
+// числа
+"cero|ноль","uno|один","dos|два","tres|три","cuatro|четыре","cinco|пять",
+"seis|шесть","siete|семь","ocho|восемь","nueve|девять","diez|десять",
+"once|одиннадцать","doce|двенадцать","trece|тринадцать","catorce|четырнадцать",
+"quince|пятнадцать","dieciséis|шестнадцать","diecisiete|семнадцать","dieciocho|восемнадцать",
+"diecinueve|девятнадцать","veinte|двадцать","treinta|тридцать","cuarenta|сорок",
+"cincuenta|пятьдесят","sesenta|шестьдесят","setenta|семьдесят","ochenta|восемьдесят",
+"noventa|девяносто","cien|сто","mil|тысяча","millón|миллион",
+"primero|первый","segundo|второй","tercero|третий","último|последний","medio|половина",
+"número|номер","cantidad|количество","total|итого","suma|сумма","resto|остаток",
+// время
+"año|год","mes|месяц","semana|неделя","día|день","hora|час","minuto|минута",
+"segundo|секунда","mañana|утро, завтра","tarde|день, вечер","noche|ночь","mediodía|полдень",
+"lunes|понедельник","martes|вторник","miércoles|среда","jueves|четверг",
+"viernes|пятница","sábado|суббота","domingo|воскресенье",
+"enero|январь","febrero|февраль","marzo|март","abril|апрель","mayo|май","junio|июнь",
+"julio|июль","agosto|август","septiembre|сентябрь","octubre|октябрь",
+"noviembre|ноябрь","diciembre|декабрь",
+"ayer|вчера","anteayer|позавчера","luego|потом","pronto|скоро","tarde|поздно",
+"temprano|рано","antes|раньше","después|потом","durante|в течение","mientras|пока",
+"fecha|дата","plazo|срок","tiempo|время, погода","momento|момент","vez|раз",
+// состояния через tener
+"hambre|голод","sed|жажда","frío|холод","calor|жара","sueño|сон","prisa|спешка",
+"miedo|страх","razón|правота","suerte|удача","cuidado|осторожность","dolor|боль",
+// семья и жизнь
+"vida|жизнь","nombre|имя","apellido|фамилия","edad|возраст","cumpleaños|день рождения",
+"boda|свадьба","niños|дети","padres|родители","pareja|пара, партнёр","matrimonio|брак",
+"escuela|школа","colegio|школа","universidad|университет","clase|класс, урок","curso|курс",
+"deberes|домашнее задание","examen|экзамен","nota|оценка","título|диплом","beca|стипендия"
+]
+
+};
+
+VOC[4]=[
+// глаголы -ar
+"trabajar|работать","hablar|говорить","estudiar|учиться","comprar|покупать",
+"pagar|платить","llamar|звать, звонить","preguntar|спрашивать","contestar|отвечать",
+"buscar|искать","encontrar|находить","llevar|нести, носить","tomar|брать, пить",
+"dejar|оставлять","entrar|входить","llegar|приходить","pasar|проходить","quedar|оставаться",
+"mirar|смотреть","escuchar|слушать","esperar|ждать","ayudar|помогать","necesitar|нуждаться",
+"usar|использовать","cambiar|менять","empezar|начинать","terminar|заканчивать",
+"preparar|готовить","enseñar|учить, показывать","viajar|путешествовать","descansar|отдыхать",
+"cocinar|готовить еду","limpiar|убирать","arreglar|чинить","firmar|подписывать",
+"revisar|проверять","calcular|считать","medir|измерять","marcar|отмечать","montar|монтировать",
+// глаголы -er / -ir
+"comer|есть","beber|пить","leer|читать","aprender|учить","comprender|понимать",
+"correr|бегать","vender|продавать","responder|отвечать","creer|верить","deber|быть должным",
+"vivir|жить","escribir|писать","abrir|открывать","recibir|получать","subir|подниматься",
+"decidir|решать","permitir|разрешать","existir|существовать","dividir|делить",
+// части речи вокруг действий
+"trabajo|работа","estudio|учёба","viaje|поездка","compra|покупка","venta|продажа",
+"pregunta|вопрос","respuesta|ответ","ayuda|помощь","cambio|изменение","comienzo|начало",
+"final|конец","resultado|результат","error|ошибка","prueba|проверка","medida|размер",
+// наречия
+"rápidamente|быстро","despacio|медленно","juntos|вместе","solo|один","otra vez|снова",
+"todavía|ещё","ya|уже","apenas|едва","quizás|возможно","seguramente|наверняка",
+"además|кроме того","entonces|тогда","sin embargo|однако","por eso|поэтому","es decir|то есть",
+// учёба и язык
+"palabra|слово","frase|фраза","letra|буква","verbo|глагол","sustantivo|существительное",
+"adjetivo|прилагательное","regla|правило","ejemplo|пример","ejercicio|упражнение",
+"traducción|перевод","diccionario|словарь","texto|текст","página|страница","cuaderno|тетрадь",
+"bolígrafo|ручка","lápiz|карандаш","acento|ударение, акцент","pronunciación|произношение"
+];
+
+VOC[5]=[
+// место и направление
+"dentro|внутри","fuera|снаружи","arriba|наверху","abajo|внизу","delante|впереди",
+"detrás|сзади","al lado|рядом","enfrente|напротив","entre|между","sobre|на, о",
+"debajo|под","cerca|близко","lejos|далеко","izquierda|левая","derecha|правая",
+"recto|прямо","esquina|угол","dirección|адрес, направление","camino|путь","lugar|место",
+"sitio|место","zona|зона","región|регион","norte|север","sur|юг","este|восток","oeste|запад",
+// состояния
+"cansado|уставший","contento|довольный","triste|грустный","alegre|весёлый","enfadado|сердитый",
+"nervioso|нервный","tranquilo|спокойный","preocupado|обеспокоенный","sorprendido|удивлённый",
+"aburrido|скучающий","ocupado|занятый","enfermo|больной","sano|здоровый","fuerte|сильный",
+"despierto|бодрый","dormido|спящий","perdido|потерянный","seguro|уверенный","claro|ясный",
+// погода
+"sol|солнце","lluvia|дождь","viento|ветер","nieve|снег","nube|облако","cielo|небо",
+"calor|жара","frío|холод","temperatura|температура","grado|градус","tormenta|гроза",
+"verano|лето","invierno|зима","primavera|весна","otoño|осень","estación|время года",
+// транспорт
+"tren|поезд","autobús|автобус","metro|метро","avión|самолёт","barco|корабль",
+"bicicleta|велосипед","taxi|такси","parada|остановка","estación|станция","aeropuerto|аэропорт",
+"billete|билет","viaje|поездка","salida|выход, отправление","llegada|прибытие","retraso|задержка",
+"gasolina|бензин","aparcamiento|парковка","carné|права","seguro|страховка","multa|штраф",
+// здоровье и услуги
+"hospital|больница","farmacia|аптека","cita|приём, встреча","receta|рецепт","medicina|лекарство",
+"banco|банк","cuenta|счёт","oficina|офис","correo|почта","ayuntamiento|мэрия",
+"papeles|документы","cola|очередь","turno|очередь, смена","formulario|бланк","firma|подпись",
+"empadronamiento|прописка","residencia|вид на жительство","extranjero|иностранец","permiso|разрешение","trámite|формальность"
+];
+
+VOC[6]=[
+// конструкции и модальность
+"querer|хотеть","poder|мочь","deber|быть должным","saber|знать","conocer|быть знакомым",
+"pensar|думать","sentir|чувствовать","parecer|казаться","gustar|нравиться","preferir|предпочитать",
+"intentar|пытаться","conseguir|добиваться","lograr|достигать","olvidar|забывать","recordar|помнить",
+"decir|говорить, сказать","contar|рассказывать, считать","explicar|объяснять","mostrar|показывать",
+"pedir|просить","ofrecer|предлагать","aceptar|принимать","rechazar|отказывать","prometer|обещать",
+// еда
+"pan|хлеб","agua|вода","leche|молоко","café|кофе","té|чай","vino|вино","cerveza|пиво",
+"zumo|сок","aceite|масло","sal|соль","azúcar|сахар","huevo|яйцо","queso|сыр","jamón|хамон",
+"carne|мясо","pollo|курица","pescado|рыба","arroz|рис","pasta|макароны","sopa|суп",
+"ensalada|салат","fruta|фрукт","verdura|овощ","manzana|яблоко","naranja|апельсин",
+"plátano|банан","piña|ананас","tomate|помидор","patata|картошка","cebolla|лук",
+"desayuno|завтрак","comida|еда, обед","cena|ужин","plato|тарелка, блюдо","vaso|стакан",
+"restaurante|ресторан","bar|бар","cafetería|кафе","menú|меню","cuenta|счёт",
+// общение
+"conversación|разговор","reunión|встреча, совещание","llamada|звонок","mensaje|сообщение",
+"correo electrónico|электронная почта","noticia|новость","opinión|мнение","idea|идея",
+"problema|проблема","solución|решение","duda|сомнение","acuerdo|согласие","consejo|совет",
+"favor|одолжение","permiso|разрешение","invitación|приглашение","visita|визит","fiesta|праздник"
+];
+
+VOC[7]=[
+// магазин и деньги
+"tienda|магазин","supermercado|супермаркет","mercado|рынок","panadería|пекарня",
+"carnicería|мясная лавка","frutería|фруктовая лавка","farmacia|аптека","quiosco|киоск",
+"precio|цена","oferta|акция","descuento|скидка","rebajas|распродажа","caja|касса",
+"cajero|кассир, банкомат","tarjeta|карта","efectivo|наличные","cambio|сдача","recibo|чек",
+"factura|счёт-фактура","euro|евро","céntimo|цент","gratis|бесплатно","caro|дорого","barato|дёшево",
+"kilo|килограмм","litro|литр","metro|метр","gramo|грамм","docena|дюжина","paquete|пакет",
+"bolsa|пакет, сумка","botella|бутылка","lata|банка","caja|коробка","unidad|штука",
+// работа и стройка
+"presupuesto|смета, бюджет","contrato|договор","cliente|заказчик","empresa|компания",
+"obra|стройка","plazo|срок","informe|отчёт","medición|обмер","certificación|акт",
+"licencia|разрешение","normativa|нормы","seguridad|безопасность","calidad|качество",
+"ejecución|производство работ","reforma|реконструкция","instalación|установка",
+"estructura|конструкция","cubierta|покрытие","fachada|фасад","cimiento|фундамент",
+"maquinaria|техника","herramienta|инструмент","andamio|леса","grúa|кран","excavadora|экскаватор",
+"albañil|каменщик","fontanero|сантехник","electricista|электрик","pintor|маляр","encargado|прораб",
+// быт Испании
+"siesta|сиеста","fallas|Фальяс","paella|паэлья","tapas|тапас","horchata|орчата",
+"fiesta|праздник","festivo|выходной","puente|длинные выходные","verbena|гулянье","tradición|традиция",
+"vecindario|соседи","comunidad|товарищество жильцов","alquiler|аренда","hipoteca|ипотека","nómina|расчётный лист",
+// вежливые обороты
+"por supuesto|разумеется","desde luego|конечно","enseguida|сейчас же","un momento|минуточку",
+"disculpe|извините","con permiso|разрешите","no pasa nada|ничего страшного",
+"qué tal|как дела","igualmente|взаимно","encantado|очень приятно"
+];
+
+/* ---- расширение по ступеням ---- */
+
+VOC[2]=VOC[2].concat([
+"cuerpo|тело","cabeza|голова","cara|лицо","ojo|глаз","boca|рот","nariz|нос","oreja|ухо",
+"mano|рука","brazo|рука (от плеча)","pierna|нога","pie|ступня","dedo|палец","pelo|волосы",
+"diente|зуб","espalda|спина","corazón|сердце","piel|кожа","voz|голос","sangre|кровь","hueso|кость",
+"animal|животное","perro|собака","gato|кот","pájaro|птица","caballo|лошадь","vaca|корова",
+"árbol|дерево","flor|цветок","hoja|лист","hierba|трава","fuego|огонь","tierra|земля","aire|воздух",
+"color|цвет","forma|форма","tamaño|размер","peso|вес","parte|часть","lado|сторона","final|конец",
+"principio|начало","medio|середина","borde|край","punto|точка","línea|линия","círculo|круг",
+"cuadrado|квадрат","gris|серый","marrón|коричневый","naranja|оранжевый","rosa|розовый","morado|фиолетовый"
+]);
+
+VOC[3]=VOC[3].concat([
+"semana pasada|прошлая неделя","mes pasado|прошлый месяц","año pasado|прошлый год",
+"próximo|следующий","pasado|прошлый","actual|нынешний","futuro|будущее","presente|настоящее",
+"reloj|часы","calendario|календарь","agenda|ежедневник","horario|расписание","turno|смена",
+"vacaciones|отпуск","festivo|праздничный день","laborable|рабочий день","jornada|рабочий день",
+"salario|зарплата","sueldo|оклад","gasto|расход","ingreso|доход","ahorro|сбережение",
+"deuda|долг","impuesto|налог","banco|банк","préstamo|заём","interés|процент","pago|платёж",
+"mitad|половина","tercio|треть","cuarto|четверть","doble|двойной","triple|тройной",
+"par|пара","docena|дюжина","centenar|сотня","por ciento|процент","aproximadamente|примерно",
+"exacto|точный","máximo|максимум","mínimo|минимум","promedio|средний","aumento|увеличение","reducción|снижение"
+]);
+
+VOC[4]=VOC[4].concat([
+"pensar|думать","volver|возвращаться","salir|выходить","venir|приходить","poner|класть",
+"hacer|делать","dar|давать","ver|видеть","oír|слышать","traer|приносить","seguir|следовать",
+"sentarse|садиться","levantarse|вставать","acostarse|ложиться","despertarse|просыпаться",
+"ducharse|принимать душ","vestirse|одеваться","lavarse|мыться","llamarse|называться","irse|уходить",
+"jugar|играть","ganar|выигрывать, зарабатывать","perder|терять","cerrar|закрывать","contar|считать",
+"mover|двигать","llenar|наполнять","vaciar|опорожнять","cortar|резать","romper|ломать",
+"construir|строить","reparar|ремонтировать","instalar|устанавливать","diseñar|проектировать",
+"dibujar|чертить, рисовать","planificar|планировать","organizar|организовывать","dirigir|руководить",
+"controlar|контролировать","comprobar|проверять","aprobar|утверждать","rechazar|отклонять",
+"enviar|отправлять","recibir|получать","entregar|сдавать, вручать","devolver|возвращать",
+"apagar|выключать","encender|включать","funcionar|работать (о технике)","fallar|давать сбой",
+"caber|помещаться","valer|стоить, годиться","importar|иметь значение","tratar|пытаться, обращаться"
+]);
+
+VOC[5]=VOC[5].concat([
+"situación|ситуация","condición|условие","estado|состояние","nivel|уровень","grado|степень",
+"caso|случай","razón|причина","motivo|повод","efecto|следствие","riesgo|риск",
+"peligro|опасность","aviso|предупреждение","emergencia|чрезвычайная ситуация","accidente|авария",
+"bomberos|пожарные","ambulancia|скорая","urgencias|неотложка","comisaría|отделение полиции",
+"denuncia|заявление","testigo|свидетель","salud|здоровье","fiebre|температура","tos|кашель",
+"herida|рана","golpe|удар","descanso|отдых","fuerza|сила","energía|энергия","ánimo|настрой",
+"esfuerzo|усилие","costumbre|привычка","hábito|привычка","rutina|распорядок","paciencia|терпение",
+"suerte|удача","éxito|успех","fracaso|провал","meta|цель","objetivo|цель","plan|план",
+"progreso|прогресс","avance|продвижение","retraso|отставание","mejora|улучшение","cambio|перемена"
+]);
+
+VOC[6]=VOC[6].concat([
+"aunque|хотя","mientras|пока","siempre que|при условии","en cuanto|как только","antes de|перед тем как",
+"después de|после того как","a pesar de|несмотря на","gracias a|благодаря","según|согласно","respecto a|относительно",
+"tal vez|может быть","por supuesto|разумеется","en realidad|на самом деле","de hecho|фактически",
+"por ejemplo|например","es decir|то есть","en general|в целом","sobre todo|прежде всего","al final|в итоге",
+"palabra clave|ключевое слово","significado|значение","sentido|смысл","manera|способ","modo|образ",
+"forma de|способ","costo|стоимость","beneficio|выгода","ventaja|преимущество","desventaja|недостаток",
+"diferencia|разница","semejanza|сходство","comparación|сравнение","relación|отношение","conexión|связь",
+"experiencia|опыт","conocimiento|знание","habilidad|навык","capacidad|способность","formación|подготовка",
+"carrera|карьера, специальность","puesto|должность","entrevista|собеседование","currículum|резюме","contrato|контракт"
+]);
+
+VOC[7]=VOC[7].concat([
+"albarán|накладная","pedido|заказ","proveedor|поставщик","almacén|склад","stock|запас",
+"entrega|поставка","plazo de entrega|срок поставки","garantía|гарантия","reclamación|претензия",
+"presupuesto detallado|детальная смета","partida|позиция сметы","unidad de obra|единица работ",
+"rendimiento|производительность","mano de obra|рабочая сила","coste|себестоимость",
+"beneficio industrial|прибыль подрядчика","gastos generales|накладные расходы","IVA|НДС",
+"acta|акт","reunión de obra|совещание на стройке","dirección facultativa|авторский надзор",
+"promotor|застройщик","contratista|подрядчик","subcontrata|субподряд","aparejador|техник-строитель",
+"colegio profesional|профессиональная палата","visado|виза проекта","homologación|признание диплома",
+"titulación|квалификация","convalidación|подтверждение","expediente|дело, досье","solicitud|заявление",
+"resolución|решение","plazo legal|законный срок","registro|реестр","sello|печать","copia|копия",
+"original|оригинал","traducción jurada|присяжный перевод","apostilla|апостиль","notario|нотариус",
+"cita previa|предварительная запись","ventanilla|окошко","funcionario|чиновник","gestor|представитель",
+"NIE|номер иностранца","padrón|прописка","tarjeta sanitaria|медицинская карта","seguridad social|соцстрах","autónomo|самозанятый"
+]);
+
+/* ---- формы глаголов для тапа по тексту ---- */
+const FORMAS={
+"soy":"я есть","eres":"ты есть","es":"он/она есть","somos":"мы есть","sois":"вы есть","son":"они есть",
+"estoy":"я нахожусь","estás":"ты находишься","está":"он/она находится","estamos":"мы находимся","están":"они находятся",
+"tengo":"я имею","tienes":"ты имеешь","tiene":"он имеет","tenemos":"мы имеем","tienen":"они имеют",
+"hay":"есть, имеется","he":"я (вспом.)","has":"ты (вспом.)","ha":"он (вспом.)","hemos":"мы (вспом.)","han":"они (вспом.)",
+"voy":"я иду","vas":"ты идёшь","va":"он идёт","vamos":"мы идём","van":"они идут",
+"quiero":"я хочу","quieres":"ты хочешь","quiere":"он хочет","queremos":"мы хотим","quieren":"они хотят",
+"puedo":"я могу","puedes":"ты можешь","puede":"он может","podemos":"мы можем","pueden":"они могут",
+"sé":"я знаю","sabes":"ты знаешь","sabe":"он знает","sabemos":"мы знаем","saben":"они знают",
+"digo":"я говорю","dice":"он говорит","dicen":"они говорят","hago":"я делаю","hace":"он делает","hacen":"они делают",
+"doy":"я даю","da":"он даёт","dan":"они дают","veo":"я вижу","ve":"он видит","ven":"они видят",
+"vengo":"я прихожу","viene":"он приходит","vienen":"они приходят","salgo":"я выхожу","sale":"он выходит","salen":"они выходят",
+"pongo":"я кладу","pone":"он кладёт","ponen":"они кладут","pido":"я прошу","pide":"он просит","piden":"они просят",
+"pienso":"я думаю","piensa":"он думает","piensan":"они думают","vuelvo":"я возвращаюсь","vuelve":"он возвращается",
+"empiezo":"я начинаю","empieza":"он начинает","empiezan":"они начинают","cierro":"я закрываю","cierra":"он закрывает","cierran":"они закрывают",
+"entiendo":"я понимаю","entiende":"он понимает","entienden":"они понимают","prefiero":"я предпочитаю","prefiere":"он предпочитает",
+"trabajo":"я работаю","trabajas":"ты работаешь","trabaja":"он работает","trabajamos":"мы работаем","trabajan":"они работают",
+"hablo":"я говорю","hablas":"ты говоришь","habla":"он говорит","hablamos":"мы говорим","hablan":"они говорят",
+"estudio":"я учусь","estudias":"ты учишься","estudia":"он учится","estudiamos":"мы учимся","estudian":"они учатся",
+"compro":"я покупаю","compras":"ты покупаешь","compra":"он покупает","compramos":"мы покупаем","compran":"они покупают",
+"pago":"я плачу","pagas":"ты платишь","paga":"он платит","pagamos":"мы платим","pagan":"они платят",
+"llamo":"я зову","llamas":"ты зовёшь","llama":"он зовёт","llaman":"они зовут",
+"espero":"я жду","espera":"он ждёт","esperan":"они ждут","necesito":"мне нужно","necesita":"ему нужно","necesitan":"им нужно",
+"ayudo":"я помогаю","ayuda":"он помогает","uso":"я использую","usa":"он использует","usan":"они используют",
+"como":"я ем; как","come":"он ест","comen":"они едят","bebo":"я пью","bebe":"он пьёт","beben":"они пьют",
+"leo":"я читаю","lee":"он читает","leen":"они читают","aprendo":"я учу","aprende":"он учит","aprenden":"они учат",
+"vivo":"я живу","vives":"ты живёшь","vive":"он живёт","vivimos":"мы живём","viven":"они живут",
+"escribo":"я пишу","escribe":"он пишет","escriben":"они пишут","abro":"я открываю","abre":"он открывает","abren":"они открывают",
+"recibo":"я получаю","recibe":"он получает","reciben":"они получают","subo":"я поднимаюсь","sube":"он поднимается",
+"cuesta":"стоит","cuestan":"стоят","gusta":"нравится","gustan":"нравятся","parece":"кажется","queda":"остаётся",
+"llega":"прибывает","llegan":"прибывают","pasa":"происходит","pasan":"происходят","queman":"сжигают",
+"celebra":"празднует","construye":"строит","construyen":"строят","funciona":"работает","falta":"не хватает",
+"me":"мне, меня","te":"тебе, тебя","le":"ему, ей","nos":"нам, нас","les":"им, их","se":"себя","lo":"это, его",
+"mí":"мне","ti":"тебе","él":"он","ella":"она","ellos":"они","nosotros":"мы","vosotros":"вы","usted":"Вы","ustedes":"Вы (мн.)",
+"al":"в, к (a+el)","del":"из, от (de+el)","este":"этот","esta":"эта","estos":"эти","estas":"эти",
+"ese":"тот","esa":"та","eso":"то","esto":"это","aquel":"тот дальний","tan":"такой","tanto":"столько"
+};
+
+/* ---- дополнение до полного объёма ---- */
+VOC[4]=VOC[4].concat([
+"idioma|язык","gramática|грамматика","vocabulario|словарный запас","memoria|память",
+"repaso|повторение","práctica|практика","progreso|прогресс","dificultad|трудность",
+"paciencia|терпение","constancia|постоянство","meta|цель","reto|вызов","logro|достижение",
+"hábito|привычка","rutina|распорядок","horario|график","descanso|перерыв","concentración|сосредоточенность",
+"atención|внимание","interés|интерес","curiosidad|любопытство","duda|сомнение","confianza|уверенность",
+"seguridad|уверенность","miedo|страх","vergüenza|стеснение","orgullo|гордость","alegría|радость",
+"tristeza|грусть","enfado|злость","sorpresa|удивление","calma|спокойствие","estrés|стресс"
+]);
+
+VOC[5]=VOC[5].concat([
+"documento|документ","certificado|справка","informe|отчёт","solicitud|заявление","contrato|договор",
+"factura|счёт","recibo|квитанция","justificante|подтверждение","copia|копия","original|оригинал",
+"sello|печать","firma|подпись","fecha|дата","plazo|срок","validez|срок действия",
+"requisito|требование","condición|условие","obligación|обязанность","derecho|право","norma|норма",
+"ley|закон","reglamento|регламент","permiso|разрешение","licencia|лицензия","autorización|разрешение",
+"multa|штраф","sanción|санкция","recurso|обжалование","resolución|решение","notificación|уведомление",
+"expediente|дело","trámite|процедура","gestión|оформление","oficina|офис","organismo|орган",
+"funcionario|чиновник","responsable|ответственный","representante|представитель","interesado|заявитель","titular|владелец"
+]);
+
+VOC[6]=VOC[6].concat([
+"casa|дом","hogar|очаг, дом","mueble|мебель","electrodoméstico|бытовая техника","nevera|холодильник",
+"lavadora|стиральная машина","horno|духовка","microondas|микроволновка","aire acondicionado|кондиционер",
+"calefacción|отопление","enchufe|розетка","cable|кабель","bombilla|лампочка","interruptor|выключатель",
+"grifo|кран","tubería|труба","desagüe|слив","fuga|протечка","avería|поломка","reparación|ремонт",
+"limpieza|уборка","basura|мусор","reciclaje|переработка","contenedor|контейнер","escoba|метла",
+"jabón|мыло","toalla|полотенце","papel higiénico|туалетная бумага","cepillo|щётка","peine|расчёска",
+"cocina|кухня","sartén|сковорода","olla|кастрюля","cuchillo|нож","tenedor|вилка","cuchara|ложка",
+"servilleta|салфетка","mantel|скатерть","nevera|холодильник","congelador|морозилка","receta|рецепт"
+]);
+
+VOC[7]=VOC[7].concat([
+"resistencia|прочность","carga|нагрузка","tensión|напряжение","compresión|сжатие","flexión|изгиб",
+"deformación|деформация","asentamiento|осадка","grieta|трещина","humedad|влажность","aislamiento|изоляция",
+"impermeabilización|гидроизоляция","ventilación|вентиляция","fontanería|сантехника","electricidad|электрика",
+"climatización|климатизация","acabado|отделка","revestimiento|облицовка","pintura|краска","yeso|гипс",
+"mortero|раствор","encofrado|опалубка","armadura|арматура","soldadura|сварка","junta|шов",
+"nivel|уровень","plomada|отвес","cinta métrica|рулетка","escuadra|угольник","replanteo|разбивка осей",
+"topografía|геодезия","terreno|участок","parcela|надел","solar|участок под застройку","linde|межа",
+"catastro|кадастр","escritura|акт собственности","propiedad|собственность","arrendamiento|аренда","fianza|залог",
+"comunidad de propietarios|ТСЖ","derrama|доп. взнос","cuota|взнос","junta de vecinos|собрание жильцов","administrador|управляющий"
+]);
+
+VOC[3]=VOC[3].concat([
+"ropa|одежда","camisa|рубашка","camiseta|футболка","pantalón|брюки","falda|юбка",
+"vestido|платье","chaqueta|куртка","abrigo|пальто","jersey|свитер","calcetines|носки",
+"zapato|туфля","bota|ботинок","zapatilla|кроссовок","cinturón|ремень","sombrero|шляпа",
+"guante|перчатка","bufanda|шарф","talla|размер одежды","probador|примерочная","moda|мода"
+]);
+
+VOC[4]=VOC[4].concat([
+"deporte|спорт","fútbol|футбол","partido|матч","equipo|команда","jugador|игрок",
+"entrenador|тренер","entrenamiento|тренировка","gimnasio|спортзал","piscina|бассейн","natación|плавание",
+"carrera|забег","paseo|прогулка","bicicleta|велосипед","monte|гора","excursión|вылазка",
+"música|музыка","canción|песня","película|фильм","serie|сериал","libro|книга",
+"periódico|газета","revista|журнал","radio|радио","televisión|телевидение","internet|интернет",
+"ordenador|компьютер","pantalla|экран","teclado|клавиатура","ratón|мышь","archivo|файл",
+"carpeta|папка","programa|программа","aplicación|приложение","contraseña|пароль","usuario|пользователь"
+]);
+
+VOC[5]=VOC[5].concat([
+"escuela|школа","curso escolar|учебный год","matrícula|запись, зачисление","aula|класс",
+"asignatura|предмет","deberes|домашка","recreo|перемена","comedor|столовая","autobús escolar|школьный автобус",
+"tutor|классный руководитель","director|директор","alumno|ученик","compañero de clase|одноклассник",
+"nota|оценка","boletín|табель","reunión de padres|родительское собрание","excursión escolar|школьная экскурсия",
+"uniforme|форма","mochila|рюкзак","material escolar|школьные принадлежности","extraescolar|дополнительные занятия"
+]);
+
+VOC[6]=VOC[6].concat([
+"tiempo libre|свободное время","aficion|увлечение","costumbre|обычай","cultura|культура",
+"historia|история","arte|искусство","museo|музей","iglesia|церковь","castillo|замок",
+"turismo|туризм","viaje|путешествие","hotel|отель","reserva|бронь","habitación doble|двухместный номер",
+"llave de la habitación|ключ от номера","recepción|стойка регистрации","equipaje|багаж","mapa|карта",
+"guía|гид, путеводитель","entrada|билет, вход","salida|выход","horario de visita|часы посещения","precio de entrada|цена билета"
+]);
+
+VOC[2]=VOC[2].concat([
+"norte|север","sur|юг","este|восток","oeste|запад","mapa|карта","frontera|граница",
+"capital|столица","provincia|провинция","comunidad|автономия","isla|остров","costa|побережье",
+"pueblo|деревня","aldea|село","afueras|окраина","urbanización|жилой комплекс","acera|тротуар",
+"semáforo|светофор","cruce|перекрёсток","puente|мост","túnel|тоннель","rotonda|кольцо",
+"tráfico|движение","atasco|пробка","velocidad|скорость","peaje|платная дорога","señal|знак"
+]);
+
+VOC[3]=VOC[3].concat([
+"desayunar|завтракать","almorzar|обедать","cenar|ужинать","merendar|полдничать",
+"cita|встреча, приём","reunión|совещание","evento|мероприятие","cumpleaños|день рождения",
+"aniversario|годовщина","navidad|Рождество","año nuevo|Новый год","semana santa|Пасхальная неделя",
+"verano|лето","invierno|зима","otoño|осень","primavera|весна","estación del año|время года",
+"amanecer|рассвет","atardecer|закат","madrugada|раннее утро","fin de semana|выходные"
+]);
+
+VOC[6]=VOC[6].concat([
+"sentimiento|чувство","emoción|эмоция","carácter|характер","personalidad|личность",
+"amable|любезный","simpático|приятный","serio|серьёзный","tranquilo|спокойный","nervioso|нервный",
+"trabajador|трудолюбивый","perezoso|ленивый","inteligente|умный","listo|сообразительный",
+"honesto|честный","generoso|щедрый","paciente|терпеливый","puntual|пунктуальный","responsable|ответственный",
+"educado|воспитанный","maleducado|невоспитанный","abierto|открытый","cerrado|замкнутый","sincero|искренний"
+]);
+
+VOC[7]=VOC[7].concat([
+"negocio|бизнес","cliente|клиент","proveedor|поставщик","competencia|конкуренция","mercado|рынок",
+"producto|продукт","servicio|услуга","calidad|качество","garantía|гарантия","plazo de pago|срок оплаты",
+"anticipo|аванс","transferencia|перевод","cuenta bancaria|банковский счёт","IBAN|IBAN",
+"declaración|декларация","hacienda|налоговая","autónomo|ИП","alta|регистрация","baja|снятие с учёта",
+"cuota de autónomo|взнос ИП","asesoría|бухгалтерская фирма","gestoría|фирма по оформлению","notaría|нотариат"
+]);
+
+VOC[5]=VOC[5].concat([
+"cuerpo humano|тело человека","cabeza|голова","garganta|горло","estómago|желудок","rodilla|колено",
+"tobillo|лодыжка","hombro|плечо","codo|локоть","muñeca|запястье","cadera|бедро",
+"resfriado|простуда","gripe|грипп","alergia|аллергия","análisis|анализ","radiografía|рентген",
+"tratamiento|лечение","pastilla|таблетка","jarabe|сироп","venda|бинт","inyección|укол",
+"consulta|приём у врача","especialista|специалист","dentista|стоматолог","urgente|срочный","ingreso|госпитализация"
+]);
+
+VOC[4]=VOC[4].concat([
+"norte de españa|север Испании","clima|климат","paisaje|пейзаж","naturaleza|природа","medio ambiente|экология",
+"basura|мусор","contaminación|загрязнение","energía solar|солнечная энергия","agua potable|питьевая вода",
+"sequía|засуха","inundación|наводнение","incendio|пожар","terremoto|землетрясение","huracán|ураган",
+"protección|защита","prevención|профилактика","evacuación|эвакуация","refugio|убежище","alarma|тревога",
+"voluntario|доброволец","ayuda humanitaria|гуманитарная помощь","refugiado|беженец","acogida|приём","integración|интеграция"
+]);
+
+/* ================= СЛОВА ================= */
+
+const PALABRAS=[];
+Object.keys(VOC).forEach(k=>{
+  const n=parseInt(k,10);
+  VOC[k].forEach(par=>{
+    const t=par.split("|");
+    if(t.length===2 && !PALABRAS.some(x=>x.e===t[0])) PALABRAS.push({e:t[0],r:t[1],n:n});
+  });
+});
+
+const CAJA_LLAVE="frase_cajas";
+let CAJAS={};
+try{ const g=localStorage.getItem(CAJA_LLAVE); if(g) CAJAS=JSON.parse(g); }catch(e){}
+function guardaCajas(){ try{ localStorage.setItem(CAJA_LLAVE,JSON.stringify(CAJAS)); }catch(e){} }
+
+/* убираем острые ударения, но НЕ трогаем ñ */
+function pelar(t){
+  return String(t).toLowerCase().trim()
+    .replace(/á/g,"a").replace(/é/g,"e").replace(/í/g,"i")
+    .replace(/ó/g,"o").replace(/ú/g,"u").replace(/ü/g,"u")
+    .replace(/\s+/g," ");
+}
+
+let wdActual=null, wdModo=0, wdOk=0, wdTot=0;
+
+function disponibles(){
+  const tope = Math.min(PROG.max, 7);
+  return PALABRAS.filter(p=>p.n<=tope);
+}
+
+function wdNueva(){
+  $("wdRes").className="res";
+  const lista=disponibles();
+  if(!lista.length){ $("wdPregunta").textContent="—"; return; }
+
+  // берём слова из самых слабых коробок
+  let min=99;
+  lista.forEach(p=>{ const c=CAJAS[p.e]||0; if(c<min) min=c; });
+  const debiles=lista.filter(p=>(CAJAS[p.e]||0)<=Math.min(min+1,3));
+  wdActual = debiles[Math.floor(Math.random()*debiles.length)];
+
+  const caja = CAJAS[wdActual.e]||0;
+  wdModo = caja<1 ? 0 : (caja<3 ? 1 : 2);
+
+  $("wdCaja").textContent = "коробка "+caja+" из 4 · ступень "+wdActual.n;
+  const area=$("wdArea"); area.innerHTML="";
+
+  if(wdModo===0){
+    $("wdPregunta").textContent=wdActual.e;
+    $("wdSub").textContent="что это значит?";
+    di(wdActual.e);
+    opciones(area, wdActual.r, lista.map(p=>p.r), false);
+  }
+  else if(wdModo===1){
+    $("wdPregunta").textContent=wdActual.r;
+    $("wdSub").textContent="как по-испански?";
+    opciones(area, wdActual.e, lista.map(p=>p.e), true);
+  }
+  else{
+    $("wdPregunta").textContent="🔊";
+    $("wdSub").textContent="напишите то, что слышите";
+    di(wdActual.e);
+    const inp=document.createElement("input");
+    inp.className="free"; inp.id="wdInput";
+    inp.setAttribute("autocapitalize","off");
+    inp.setAttribute("autocomplete","off");
+    inp.setAttribute("spellcheck","false");
+    inp.placeholder="по-испански";
+    area.appendChild(inp);
+
+    const fila=document.createElement("div"); fila.className="row";
+    fila.innerHTML='<button class="spk">🔊</button><button class="b pri">Проверить</button>';
+    fila.querySelector(".spk").onclick=()=>di(wdActual.e);
+    fila.querySelector(".b").onclick=()=>wdRevisa(inp.value, true);
+    area.appendChild(fila);
+    setTimeout(()=>inp.focus(),150);
+  }
+}
+
+function opciones(area, correcta, todas, hablar){
+  const otras = mix(todas.filter(x=>x!==correcta)).slice(0,3);
+  mix(otras.concat([correcta])).forEach(t=>{
+    const b=document.createElement("button"); b.className="opt"; b.textContent=t;
+    b.onclick=()=>{
+      area.querySelectorAll(".opt").forEach(x=>x.classList.add("off"));
+      const bien = t===correcta;
+      b.classList.add(bien?"ok":"no");
+      if(!bien) area.querySelectorAll(".opt").forEach(x=>{ if(x.textContent===correcta) x.classList.add("ok"); });
+      wdRevisa(t, false, correcta);
+    };
+    area.appendChild(b);
+  });
+}
+
+function wdRevisa(dado, escrito, correcta){
+  const esperado = escrito ? wdActual.e : correcta;
+  const bien = escrito ? (pelar(dado)===pelar(esperado)) : (dado===esperado);
+
+  wdTot++;
+  const caja = CAJAS[wdActual.e]||0;
+  CAJAS[wdActual.e] = bien ? Math.min(caja+1,4) : 0;
+  guardaCajas();
+
+  const r=$("wdRes");
+  if(bien){
+    wdOk++;
+    r.className="res good show";
+    r.innerHTML="Верно. <b>"+wdActual.e+"</b> — "+wdActual.r;
+  }else{
+    r.className="res bad show";
+    r.innerHTML="Не так. <b>"+wdActual.e+"</b> — "+wdActual.r+
+      (escrito?"<br><span style='font-size:14px'>вы написали: "+dado+"</span>":"");
+  }
+  di(wdActual.e);
+  wdMarcador();
+}
+
+function wdMarcador(){
+  const lista=disponibles();
+  const sabidas=lista.filter(p=>(CAJAS[p.e]||0)>=4).length;
+  $("wdScore").textContent="выучено "+sabidas+" из "+lista.length+
+    " · сессия "+wdOk+"/"+wdTot;
+}
+
+$("wdNext").onclick=wdNueva;
+wdMarcador();
+
+
+/* ================= ЧТЕНИЕ ================= */
+
+const TEXTOS=[
+{n:1,t:"Me llamo Serhii",
+ es:["Hola. Me llamo Serhii.","Soy ingeniero.","Soy de Ucrania.","Ahora vivo en España.","Mi familia está aquí.","Estoy bien."],
+ ru:["Привет. Меня зовут Сергей.","Я инженер.","Я из Украины.","Сейчас я живу в Испании.","Моя семья здесь.","У меня всё хорошо."]},
+
+{n:1,t:"Mi familia",
+ es:["Mi mujer es profesora.","Mi hijo es alto.","Mi hija es alta también.","Somos una familia de Ucrania.","Somos cuatro."],
+ ru:["Моя жена учительница.","Мой сын высокий.","Моя дочь тоже высокая.","Мы семья из Украины.","Нас четверо."]},
+
+{n:2,t:"Mi casa en Meliana",
+ es:["Vivo en Meliana.","Meliana es una ciudad pequeña cerca de Valencia.","Mi casa no es grande.","La planta baja es pequeña.","La calle es tranquila.","Aquí hay muchas naranjas."],
+ ru:["Я живу в Мельяне.","Мельяна — небольшой город рядом с Валенсией.","Мой дом не большой.","Первый этаж маленький.","Улица тихая.","Здесь много апельсинов."]},
+
+{n:2,t:"El edificio",
+ es:["El edificio es alto y nuevo.","El proyecto es complejo.","La obra es grande.","Los ingenieros trabajan aquí.","El trabajo es difícil pero bueno."],
+ ru:["Здание высокое и новое.","Проект сложный.","Стройка большая.","Инженеры работают здесь.","Работа трудная, но хорошая."]},
+
+{n:3,t:"Tengo una familia",
+ es:["Tengo cuarenta y cinco años.","Tengo dos hijos.","Mi hijo tiene diez años.","Mi hija tiene ocho años.","Tenemos un coche viejo.","Hoy tengo hambre y sed."],
+ ru:["Мне сорок пять лет.","У меня двое детей.","Моему сыну десять лет.","Моей дочери восемь лет.","У нас старая машина.","Сегодня я голоден и хочу пить."]},
+
+{n:3,t:"En el mercado",
+ es:["Hoy voy al mercado.","Compro pan y leche.","El pan cuesta dos euros.","La leche cuesta uno con veinte.","Todo cuesta doce euros.","Pago con tarjeta."],
+ ru:["Сегодня я иду на рынок.","Покупаю хлеб и молоко.","Хлеб стоит два евро.","Молоко стоит один двадцать.","Всё стоит двенадцать евро.","Плачу картой."]},
+
+{n:4,t:"Trabajo en construcción",
+ es:["Trabajo en construcción.","Hablo ruso y ucraniano.","Ahora estudio español.","Escribo documentos todos los días.","Leo planos y presupuestos.","Mis compañeros hablan español rápido."],
+ ru:["Я работаю в строительстве.","Я говорю по-русски и по-украински.","Сейчас я учу испанский.","Я пишу документы каждый день.","Я читаю чертежи и сметы.","Мои коллеги говорят по-испански быстро."]},
+
+{n:4,t:"Estudio español",
+ es:["Cada día estudio español.","Por la mañana leo palabras nuevas.","Por la tarde escribo frases.","No entiendo todo, pero entiendo mucho más que antes.","Mi hija habla español muy bien."],
+ ru:["Каждый день я учу испанский.","Утром я читаю новые слова.","Днём я пишу фразы.","Я не всё понимаю, но понимаю намного больше, чем раньше.","Моя дочь говорит по-испански очень хорошо."]},
+
+{n:5,t:"Un día en Valencia",
+ es:["Hoy estoy en Valencia.","La ciudad es muy grande.","Estoy cansado pero contento.","¿Dónde está el baño?","La tienda está cerrada ahora.","Abre a las cinco de la tarde."],
+ ru:["Сегодня я в Валенсии.","Город очень большой.","Я устал, но доволен.","Где туалет?","Магазин сейчас закрыт.","Открывается в пять вечера."]},
+
+{n:5,t:"La siesta",
+ es:["En España muchas tiendas están cerradas por la tarde.","Es la siesta.","Cierran a las dos y abren a las cinco.","Al principio no entiendo nada.","Ahora ya sé cuándo están abiertas."],
+ ru:["В Испании многие магазины закрыты днём.","Это сиеста.","Закрываются в два и открываются в пять.","Сначала я ничего не понимаю.","Теперь я уже знаю, когда они открыты."]},
+
+{n:6,t:"Quiero aprender español",
+ es:["Quiero hablar español bien.","Puedo leer un poco.","Tengo que estudiar cada día.","Voy a hablar con mis vecinos.","No puedo hablar rápido todavía.","Pero voy a aprender."],
+ ru:["Я хочу хорошо говорить по-испански.","Я могу немного читать.","Мне надо заниматься каждый день.","Я буду говорить с соседями.","Я пока не могу говорить быстро.","Но я научусь."]},
+
+{n:6,t:"En la obra",
+ es:["Mañana tengo que ir a la obra.","Quiero ver el edificio nuevo.","Puedo hablar con el jefe de obra.","Vamos a empezar a las ocho.","Tenemos que terminar el proyecto en junio."],
+ ru:["Завтра мне надо ехать на стройку.","Я хочу посмотреть новое здание.","Я могу поговорить с прорабом.","Начнём в восемь.","Нам надо закончить проект в июне."]},
+
+{n:7,t:"En el supermercado",
+ es:["Perdone, ¿tienen plátanos?","Sí, están allí.","¿Cuánto cuestan?","Dos con cincuenta el kilo.","¿Puedo pagar con tarjeta?","Claro. Muchas gracias. Hasta luego."],
+ ru:["Извините, у вас есть бананы?","Да, они там.","Сколько стоят?","Два пятьдесят за кило.","Могу заплатить картой?","Конечно. Большое спасибо. До скорого."]},
+
+{n:7,t:"Las Fallas",
+ es:["En marzo Valencia celebra las Fallas.","La gente hace figuras grandes de madera.","Después las queman en la calle.","Hay mucho ruido y mucha luz.","A mis hijos les gusta mucho.","Es una fiesta muy importante aquí."],
+ ru:["В марте Валенсия празднует Фальяс.","Люди делают большие фигуры из дерева.","Потом их сжигают на улице.","Много шума и много света.","Моим детям это очень нравится.","Это очень важный праздник здесь."]}
+];
+
+/* словарь для тапа по слову */
+const DICC={
+"tal":"такой","qué tal":"как дела","sus":"его, её, их","levanto":"я встаю","levanta":"встаёт","barra":"батон, брусок","barras":"батоны","armado":"армированный","centímetro":"сантиметр","centímetros":"сантиметры","yo":"я","homologar":"признавать диплом","mejorar":"улучшать","añadir":"добавлять","general":"общий","generales":"общие","votar":"голосовать","votan":"голосуют","entendía":"понимал","figura":"фигура","artista":"мастер, художник","artistas":"мастера","cartón":"картон","toda":"вся","todas":"все","salvar":"спасать","salva":"спасается","ruidoso":"шумный","raro":"странный","maravilloso":"великолепный","victoria":"победа","barrio":"район","cuidado":"осторожность","medida":"размер, обмер","medidas":"размеры","firmo":"я подписываю","reviso":"я проверяю","miro":"я смотрю","contesto":"я отвечаю","descanso":"отдыхаю; отдых","preparar":"готовить","prepara":"готовит","organiza":"организует","cambian":"меняются","tienen":"имеют",
+"hola":"привет","serhii":"Сергей","me":"мне, меня","llamo":"зовут (я)","llamas":"зовут (тебя)",
+"soy":"я есть","eres":"ты есть","es":"он/она есть","somos":"мы есть","son":"они есть",
+"estoy":"я нахожусь","estás":"ты находишься","está":"он/она находится","están":"они находятся",
+"estamos":"мы находимся","estado":"состояние",
+"ingeniero":"инженер","ingenieros":"инженеры","de":"из, от","ucrania":"Украина",
+"ucraniano":"украинский","ahora":"сейчас","vivo":"живу","vive":"живёт","vivimos":"живём",
+"en":"в, на","españa":"Испания","español":"испанский","mi":"мой, моя","mis":"мои",
+"familia":"семья","aquí":"здесь","allí":"там","bien":"хорошо","mal":"плохо",
+"mujer":"жена, женщина","profesora":"учительница","hijo":"сын","hijos":"дети, сыновья",
+"hija":"дочь","alto":"высокий","alta":"высокая","también":"тоже","una":"одна",
+"un":"один","cuatro":"четыре","meliana":"Мельяна","ciudad":"город","pequeña":"маленькая",
+"pequeño":"маленький","cerca":"близко","valencia":"Валенсия","casa":"дом","no":"не, нет",
+"grande":"большой","grandes":"большие","planta":"этаж","baja":"нижняя","la":"артикль ж.р.",
+"el":"артикль м.р.","los":"артикль мн.ч.","las":"артикль ж.р. мн.ч.","calle":"улица",
+"tranquila":"тихая","hay":"есть, имеется","muchas":"много","muchos":"много","mucho":"много",
+"mucha":"много","naranjas":"апельсины","edificio":"здание","nuevo":"новый","nuevas":"новые",
+"y":"и","o":"или","proyecto":"проект","complejo":"сложный","obra":"стройка","trabajan":"работают",
+"trabajo":"работаю; работа","trabajar":"работать","difícil":"трудный","pero":"но","bueno":"хороший",
+"tengo":"имею","tiene":"имеет","tenemos":"имеем","tienen":"имеют","tener":"иметь",
+"cuarenta":"сорок","cinco":"пять","años":"лет, годы","año":"год","dos":"два","diez":"десять",
+"ocho":"восемь","coche":"машина","viejo":"старый","hoy":"сегодня","hambre":"голод","sed":"жажда",
+"mercado":"рынок","voy":"иду, еду","vamos":"идём","va":"идёт","ir":"идти, ехать","al":"в, к",
+"compro":"покупаю","comprar":"покупать","pan":"хлеб","leche":"молоко","cuesta":"стоит",
+"cuestan":"стоят","euros":"евро","uno":"один","con":"с","veinte":"двадцать","todo":"всё",
+"doce":"двенадцать","pago":"плачу","pagar":"платить","tarjeta":"карта","construcción":"строительство",
+"hablo":"говорю","habla":"говорит","hablan":"говорят","hablar":"говорить","ruso":"русский",
+"estudio":"учусь, изучаю","estudiar":"учиться","escribo":"пишу","escribir":"писать",
+"documentos":"документы","todos":"все","días":"дни","día":"день","leo":"читаю","leer":"читать",
+"planos":"чертежи","presupuestos":"сметы","compañeros":"коллеги","rápido":"быстро",
+"cada":"каждый","por":"по, через","mañana":"завтра; утро","palabras":"слова","tarde":"день, вечер",
+"frases":"фразы","entiendo":"понимаю","entiende":"понимает","más":"больше","que":"что, чем",
+"antes":"раньше","muy":"очень","cansado":"уставший","contento":"довольный","dónde":"где",
+"baño":"туалет","tienda":"магазин","tiendas":"магазины","cerrada":"закрытая","cerradas":"закрытые",
+"abiertas":"открытые","abre":"открывается","abren":"открывают","cierran":"закрывают",
+"a":"в, к","siesta":"сиеста","principio":"начало","nada":"ничего","ya":"уже","sé":"знаю",
+"cuándo":"когда","quiero":"хочу","quieres":"хочешь","querer":"хотеть","aprender":"учить, осваивать",
+"puedo":"могу","puede":"может","poder":"мочь","poco":"немного","vecinos":"соседи",
+"todavía":"пока ещё","ver":"видеть, смотреть","jefe":"начальник","empezar":"начинать",
+"terminar":"заканчивать","junio":"июнь","perdone":"извините","plátanos":"бананы","sí":"да",
+"cuánto":"сколько","cincuenta":"пятьдесят","kilo":"кило","claro":"конечно","gracias":"спасибо",
+"hasta":"до","luego":"потом, скоро","marzo":"март","celebra":"празднует","fallas":"Фальяс",
+"gente":"люди","hace":"делает","figuras":"фигуры","madera":"дерево","después":"потом",
+"queman":"сжигают","ruido":"шум","luz":"свет","les":"им","gusta":"нравится","fiesta":"праздник",
+"importante":"важный"
+};
+
+TEXTOS.push(
+{n:1,t:"Buenos días",
+ es:["Buenos días.","¿Qué tal?","Bien, gracias.","¿Y tú?","Muy bien también.","Hasta luego."],
+ ru:["Доброе утро.","Как дела?","Хорошо, спасибо.","А ты?","Тоже очень хорошо.","До скорого."]},
+
+{n:1,t:"Mi vecino",
+ es:["Mi vecino es español.","Es un hombre bueno.","No es joven.","Su mujer es profesora.","Sus hijos son pequeños."],
+ ru:["Мой сосед испанец.","Он хороший человек.","Он не молодой.","Его жена учительница.","Его дети маленькие."]},
+
+{n:2,t:"La calle de mi casa",
+ es:["Mi calle es tranquila.","Hay una panadería y una farmacia.","El parque está cerca.","Los edificios no son altos.","Hay muchos árboles.","Me gusta este barrio."],
+ ru:["Моя улица тихая.","Есть пекарня и аптека.","Парк рядом.","Здания невысокие.","Много деревьев.","Мне нравится этот район."]},
+
+{n:2,t:"Los materiales",
+ es:["En la obra hay muchos materiales.","El cemento y la arena están fuera.","Los ladrillos son rojos.","El acero es fuerte.","La madera es para el encofrado."],
+ ru:["На стройке много материалов.","Цемент и песок снаружи.","Кирпичи красные.","Сталь прочная.","Дерево для опалубки."]},
+
+{n:3,t:"Mi horario",
+ es:["Me levanto a las siete.","Trabajo de nueve a seis.","Como a las dos.","Estudio español por la tarde.","Los sábados descanso.","Los domingos estoy con la familia."],
+ ru:["Я встаю в семь.","Работаю с девяти до шести.","Обедаю в два.","Учу испанский вечером.","По субботам отдыхаю.","По воскресеньям я с семьёй."]},
+
+{n:3,t:"En la panadería",
+ es:["Buenos días. ¿Tiene pan?","Sí, claro.","Quiero dos barras.","Son dos euros con cuarenta.","Aquí tiene.","Gracias, hasta mañana."],
+ ru:["Доброе утро. Есть хлеб?","Да, конечно.","Хочу два батона.","Два евро сорок.","Вот, пожалуйста.","Спасибо, до завтра."]},
+
+{n:4,t:"Un día normal",
+ es:["Cada mañana leo mensajes de trabajo.","Escribo informes en ruso y en ucraniano.","Hablo con mis compañeros por teléfono.","Después estudio palabras nuevas.","Aprendo despacio pero aprendo."],
+ ru:["Каждое утро я читаю рабочие сообщения.","Пишу отчёты по-русски и по-украински.","Говорю с коллегами по телефону.","Потом учу новые слова.","Учусь медленно, но учусь."]},
+
+{n:4,t:"El plano",
+ es:["Miro el plano del edificio.","La estructura es de hormigón armado.","Las columnas son de cuarenta por cuarenta.","La losa tiene veinte centímetros.","Reviso las medidas con cuidado.","Después firmo el documento."],
+ ru:["Смотрю чертёж здания.","Конструкция из железобетона.","Колонны сорок на сорок.","Плита двадцать сантиметров.","Внимательно проверяю размеры.","Потом подписываю документ."]},
+
+{n:5,t:"En el ayuntamiento",
+ es:["Estoy en el ayuntamiento.","Hay mucha gente y hay cola.","Necesito el padrón.","La ventanilla está cerrada hasta las diez.","El funcionario es amable.","Todo está bien, ya tengo los papeles."],
+ ru:["Я в мэрии.","Много людей, и есть очередь.","Мне нужна прописка.","Окошко закрыто до десяти.","Чиновник любезный.","Всё хорошо, документы уже у меня."]},
+
+{n:5,t:"El médico",
+ es:["Hoy estoy en el centro de salud.","Tengo cita a las once.","No estoy muy bien.","El médico pregunta y yo contesto despacio.","No entiendo todo, pero entiendo lo importante.","Ahora estoy más tranquilo."],
+ ru:["Сегодня я в поликлинике.","У меня приём в одиннадцать.","Мне не очень хорошо.","Врач спрашивает, а я медленно отвечаю.","Понимаю не всё, но главное понимаю.","Теперь я спокойнее."]},
+
+{n:6,t:"Quiero trabajar aquí",
+ es:["Quiero trabajar como ingeniero en España.","Tengo que homologar mi título.","Puedo empezar con trabajos pequeños.","Voy a mejorar mi español cada día.","No es fácil, pero es posible.","Necesito paciencia y tiempo."],
+ ru:["Хочу работать инженером в Испании.","Мне надо признать диплом.","Могу начать с небольших работ.","Буду улучшать испанский каждый день.","Это непросто, но возможно.","Нужны терпение и время."]},
+
+{n:6,t:"La reunión",
+ es:["Mañana tenemos una reunión de obra.","Vamos a hablar del plazo y del presupuesto.","El cliente quiere terminar en junio.","Tenemos que revisar las mediciones.","Puedo preparar el informe hoy.","Voy a escribir todo en español."],
+ ru:["Завтра у нас совещание на стройке.","Будем говорить о сроке и о смете.","Заказчик хочет закончить в июне.","Нам надо проверить обмеры.","Я могу подготовить отчёт сегодня.","Напишу всё по-испански."]},
+
+{n:7,t:"El presupuesto",
+ es:["El presupuesto tiene muchas partidas.","Cada partida tiene un precio por unidad.","La mano de obra es cara aquí.","Los materiales cambian de precio cada mes.","Hay que añadir los gastos generales y el IVA.","Al final el cliente firma el contrato."],
+ ru:["В смете много позиций.","У каждой позиции своя цена за единицу.","Рабочая сила здесь дорогая.","Материалы меняются в цене каждый месяц.","Надо добавить накладные расходы и НДС.","В конце заказчик подписывает договор."]},
+
+{n:7,t:"La comunidad de vecinos",
+ es:["En España los edificios tienen comunidad de vecinos.","Cada mes pagamos una cuota.","El administrador organiza las reuniones.","Si hay una avería grande, hay una derrama.","Los vecinos votan las obras del edificio.","Al principio no entendía nada de esto."],
+ ru:["В Испании у домов есть товарищество жильцов.","Каждый месяц платим взнос.","Управляющий организует собрания.","Если крупная поломка — дополнительный сбор.","Жильцы голосуют за работы по дому.","Сначала я ничего в этом не понимал."]},
+
+{n:7,t:"Las Fallas de cerca",
+ es:["Las Fallas empiezan en marzo.","Cada barrio prepara su figura durante todo el año.","Los artistas trabajan con madera y cartón.","La noche del diecinueve queman casi todas las figuras.","Sólo una se salva y va al museo.","Es ruidoso, es raro y es maravilloso."],
+ ru:["Фальяс начинаются в марте.","Каждый район готовит свою фигуру весь год.","Мастера работают с деревом и картоном.","В ночь на девятнадцатое сжигают почти все фигуры.","Только одна спасается и попадает в музей.","Это шумно, странно и великолепно."]},
+
+{n:6,t:"Hablar sin miedo",
+ es:["Al principio no quiero hablar.","Tengo miedo de los errores.","Pero los errores no son un problema.","La gente aquí es paciente.","Si no entiendo, puedo decir: más despacio, por favor.","Cada conversación es una victoria pequeña."],
+ ru:["Сначала я не хочу говорить.","Боюсь ошибок.","Но ошибки — не проблема.","Люди здесь терпеливые.","Если не понимаю, могу сказать: медленнее, пожалуйста.","Каждый разговор — маленькая победа."]}
+);
+
+let txActual=0, txRu=false;
+
+Object.keys(VOC).forEach(k=>{
+  VOC[k].forEach(par=>{
+    const t=par.split("|");
+    if(t.length===2 && !DICC[t[0]]) DICC[t[0]]=t[1];
+  });
+});
+Object.keys(FORMAS).forEach(k=>{ if(!DICC[k]) DICC[k]=FORMAS[k]; });
+
+function limpiaTok(t){
+  return t.toLowerCase().replace(/[.,¿?¡!:;«»"()]/g,"");
+}
+
+/* поиск: точное совпадение, потом без ударений, потом попытка вернуть
+   спрягнутую форму к словарной */
+const COLAS=["o","as","a","amos","áis","an","es","e","emos","éis","en","imos","ís","s"];
+function buscar(w){
+  if(DICC[w]) return DICC[w];
+  const pl=pelar(w);
+  for(const k in DICC){ if(pelar(k)===pl) return DICC[k]; }
+  // множественное число
+  for(const c of ["es","s"]){
+    if(pl.length>3 && pl.endsWith(c)){
+      const sing=pl.slice(0,pl.length-c.length);
+      for(const k in DICC){ if(pelar(k)===sing) return DICC[k]; }
+    }
+  }
+  for(const c of COLAS){
+    if(pl.endsWith(c)){
+      const raiz=pl.slice(0,pl.length-c.length);
+      for(const inf of [raiz+"ar",raiz+"er",raiz+"ir"]){
+        for(const k in DICC){ if(pelar(k)===inf) return DICC[k]+" (форма)"; }
+      }
+    }
+  }
+  return null;
+}
+
+function pintaTexto(){
+  const libres=TEXTOS.filter(t=>t.n<=Math.min(PROG.max,7));
+  if(txActual>=libres.length) txActual=0;
+  const T=libres[txActual];
+
+  $("txCaja").textContent="ступень "+T.n+" · текст "+(txActual+1)+" из "+libres.length;
+  $("txTit").textContent=T.t;
+
+  const c=$("txCuerpo"); c.innerHTML="";
+  T.es.forEach((linea,li)=>{
+    const p=document.createElement("p"); p.className="lin";
+    linea.split(" ").forEach(w=>{
+      const sp=document.createElement("span"); sp.className="pal"; sp.textContent=w;
+      sp.onclick=()=>{
+        const k=limpiaTok(w);
+        const tr=buscar(k);
+        $("txPop").innerHTML='<b>'+k+'</b> — '+(tr||"нет в словаре");
+        $("txPop").classList.add("show");
+        di(k);
+      };
+      p.appendChild(sp);
+      p.appendChild(document.createTextNode(" "));
+    });
+    if(txRu){
+      const r=document.createElement("p"); r.className="linru"; r.textContent=T.ru[li];
+      p.appendChild(r);
+    }
+    c.appendChild(p);
+  });
+  $("txPop").classList.remove("show");
+}
+
+$("txRu").onclick=()=>{
+  txRu=!txRu;
+  $("txRu").textContent = txRu ? "Скрыть перевод" : "Перевод";
+  pintaTexto();
+};
+$("txOir").onclick=()=>{
+  const libres=TEXTOS.filter(t=>t.n<=Math.min(PROG.max,7));
+  di(libres[txActual].es.join(" "));
+};
+$("txNext").onclick=()=>{
+  const libres=TEXTOS.filter(t=>t.n<=Math.min(PROG.max,7));
+  txActual=(txActual+1)%libres.length;
+  pintaTexto();
+  document.querySelector("main").scrollTop=0;
+};
+
+
+/* материал для виджета — в самом конце, когда всё объявлено */
+alimentarWidget();
 </script>
 </body>
 </html>
