@@ -7,6 +7,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -26,6 +28,13 @@ public class FraseWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context ctx, AppWidgetManager mgr, int[] ids) {
         for (int id : ids) pintar(ctx, mgr, id);
+    }
+
+    /** Пользователь растянул или сжал виджет — пересчитываем кегль. */
+    @Override
+    public void onAppWidgetOptionsChanged(Context ctx, AppWidgetManager mgr,
+                                          int id, Bundle nuevasOpciones) {
+        pintar(ctx, mgr, id);
     }
 
     @Override
@@ -96,12 +105,22 @@ public class FraseWidget extends AppWidgetProvider {
         return t;
     }
 
-    /** Плавный подбор кегля: до corto символов — max, от largo — min. */
-    private static float escalar(int len, float max, float min, int corto, int largo) {
-        if (len <= corto) return max;
-        if (len >= largo) return min;
-        float t = (float) (len - corto) / (float) (largo - corto);
-        return max - (max - min) * t;
+    /**
+     * Подбираем кегль так, чтобы текст заполнил отведённое место:
+     * спускаемся от максимума, пока строки не влезут и по ширине, и по высоте.
+     */
+    private static float ajustar(String texto, float anchoDp, float altoDp,
+                                 float kAncho, float sMax, float sMin, int lineasMax) {
+        if (texto == null || texto.length() == 0) return sMin;
+        if (sMax < sMin) sMax = sMin;
+
+        for (float s = sMax; s > sMin; s -= 1f) {
+            int porLinea = (int) (anchoDp / (kAncho * s));
+            if (porLinea < 1) porLinea = 1;
+            int lineas = (int) Math.ceil((double) texto.length() / porLinea);
+            if (lineas <= lineasMax && lineas * s * 1.25f <= altoDp) return s;
+        }
+        return sMin;
     }
 
     private void pintar(Context ctx, AppWidgetManager mgr, int id) {
@@ -115,20 +134,43 @@ public class FraseWidget extends AppWidgetProvider {
         if (k < 0.8f) k = 0.8f;
         if (k > 1.6f) k = 1.6f;
 
-        // размер подбираем под длину: короткое слово — крупно,
-        // длинная фраза — мельче и переносится на несколько строк
-        float sEs = escalar(t.es.length(), 36f, 17f, 10, 54);
-        float sRu = escalar(t.ru.length(), 22f, 14f, 10, 60);
+        // фактический размер виджета на экране
+        float anchoDp = 250f, altoDp = 150f;
+        try {
+            Bundle o = mgr.getAppWidgetOptions(id);
+            boolean vertical = ctx.getResources().getConfiguration()
+                    .orientation == Configuration.ORIENTATION_PORTRAIT;
+            int w = o.getInt(vertical ? AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH
+                                      : AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH);
+            int h = o.getInt(vertical ? AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT
+                                      : AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
+            if (w > 40) anchoDp = w;
+            if (h > 40) altoDp = h;
+        } catch (Exception e) {
+            // остаёмся на значениях по умолчанию
+        }
 
-        v.setTextViewTextSize(R.id.ficha, TypedValue.COMPLEX_UNIT_SP, 12f * k);
+        float aw = Math.max(anchoDp - 32f, 80f);
+        float ah = Math.max(altoDp - 40f, 60f);
+
+        float sFicha = Math.max(9f,  Math.min(15f, ah * 0.075f));
+        float sRol   = Math.max(9f,  Math.min(16f, ah * 0.080f));
+        float sEs = ajustar(t.es, aw, ah * 0.46f, 0.52f, 56f, 15f, 4);
+        float sRu = ajustar(t.ru, aw, ah * 0.26f,  0.56f,
+                            Math.max(12f, sEs * 0.62f), 12f, 3);
+        float sSay = Math.max(10f, Math.min(16f, sRu * 0.68f));
+
+        v.setTextViewTextSize(R.id.ficha, TypedValue.COMPLEX_UNIT_SP, sFicha * k);
         v.setTextViewTextSize(R.id.es,    TypedValue.COMPLEX_UNIT_SP, sEs * k);
-        v.setTextViewTextSize(R.id.roles, TypedValue.COMPLEX_UNIT_SP, 12f * k);
+        v.setTextViewTextSize(R.id.roles, TypedValue.COMPLEX_UNIT_SP, sRol * k);
         v.setTextViewTextSize(R.id.ru,    TypedValue.COMPLEX_UNIT_SP, sRu * k);
-        v.setTextViewTextSize(R.id.say,   TypedValue.COMPLEX_UNIT_SP, 13f * k);
+        v.setTextViewTextSize(R.id.say,   TypedValue.COMPLEX_UNIT_SP, sSay * k);
 
-        // произношение пустое — прячем строку, чтобы не оставалась дыра
-        v.setViewVisibility(R.id.say, t.say.length() > 0 ? View.VISIBLE : View.GONE);
+        // пустые строки прячем, чтобы не оставалась дыра
+        v.setViewVisibility(R.id.say,   t.say.length() > 0 ? View.VISIBLE : View.GONE);
         v.setViewVisibility(R.id.roles, t.rol.length() > 0 ? View.VISIBLE : View.GONE);
+        // в совсем низком виджете номер карточки только мешает
+        v.setViewVisibility(R.id.ficha, altoDp >= 110f ? View.VISIBLE : View.GONE);
 
         v.setTextViewText(R.id.ficha, String.format("ficha %02d/%d", t.num, t.total));
         v.setTextViewText(R.id.es, t.es);
