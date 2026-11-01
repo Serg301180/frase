@@ -4,28 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_vertical"
     android:background="@drawable/widget_bg"
-    android:padding="12dp">
+    android:padding="14dp">
 
     <TextView
         android:id="@+id/ficha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="9sp"
-        android:letterSpacing="0.15"
+        android:textSize="12sp"
+        android:letterSpacing="0.12"
         android:textColor="#5E6A63"
         android:fontFamily="monospace"
+        android:maxLines="1"
         android:text="ficha" />
 
     <TextView
         android:id="@+id/es"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textSize="21sp"
+        android:layout_marginTop="6dp"
+        android:textSize="28sp"
         android:textColor="#1E2422"
         android:fontFamily="serif"
-        android:maxLines="2"
+        android:lineSpacingMultiplier="1.05"
+        android:maxLines="4"
         android:ellipsize="end"
         android:text="Soy ingeniero." />
 
@@ -33,19 +36,19 @@
         android:id="@+id/roles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:textSize="9sp"
-        android:letterSpacing="0.06"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
+        android:letterSpacing="0.05"
         android:textColor="#A63A24"
         android:fontFamily="monospace"
-        android:maxLines="1"
+        android:maxLines="2"
         android:ellipsize="end"
         android:text="SER" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="9dp"
         android:background="#2A4C6B"
         android:text="" />
 
@@ -53,10 +56,11 @@
         android:id="@+id/ru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textSize="14sp"
+        android:layout_marginTop="7dp"
+        android:textSize="19sp"
         android:textColor="#2A4C6B"
-        android:maxLines="2"
+        android:lineSpacingMultiplier="1.1"
+        android:maxLines="4"
         android:ellipsize="end"
         android:text="Я инженер." />
 
@@ -64,12 +68,12 @@
         android:id="@+id/say"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textSize="11sp"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
         android:textColor="#5E6A63"
         android:fontFamily="monospace"
-        android:maxLines="1"
+        android:maxLines="2"
         android:ellipsize="end"
-        android:text="сой инхеньéро" />
+        android:text="" />
 
 </LinearLayout>

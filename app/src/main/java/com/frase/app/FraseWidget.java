@@ -7,6 +7,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.TypedValue;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import org.json.JSONArray;
@@ -94,10 +96,40 @@ public class FraseWidget extends AppWidgetProvider {
         return t;
     }
 
+    /** Плавный подбор кегля: до corto символов — max, от largo — min. */
+    private static float escalar(int len, float max, float min, int corto, int largo) {
+        if (len <= corto) return max;
+        if (len >= largo) return min;
+        float t = (float) (len - corto) / (float) (largo - corto);
+        return max - (max - min) * t;
+    }
+
     private void pintar(Context ctx, AppWidgetManager mgr, int id) {
         Tarjeta t = elegir(ctx);
 
         RemoteViews v = new RemoteViews(ctx.getPackageName(), R.layout.widget);
+
+        // масштаб из настроек приложения
+        float k = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                     .getFloat("escala", 1f);
+        if (k < 0.8f) k = 0.8f;
+        if (k > 1.6f) k = 1.6f;
+
+        // размер подбираем под длину: короткое слово — крупно,
+        // длинная фраза — мельче и переносится на несколько строк
+        float sEs = escalar(t.es.length(), 36f, 17f, 10, 54);
+        float sRu = escalar(t.ru.length(), 22f, 14f, 10, 60);
+
+        v.setTextViewTextSize(R.id.ficha, TypedValue.COMPLEX_UNIT_SP, 12f * k);
+        v.setTextViewTextSize(R.id.es,    TypedValue.COMPLEX_UNIT_SP, sEs * k);
+        v.setTextViewTextSize(R.id.roles, TypedValue.COMPLEX_UNIT_SP, 12f * k);
+        v.setTextViewTextSize(R.id.ru,    TypedValue.COMPLEX_UNIT_SP, sRu * k);
+        v.setTextViewTextSize(R.id.say,   TypedValue.COMPLEX_UNIT_SP, 13f * k);
+
+        // произношение пустое — прячем строку, чтобы не оставалась дыра
+        v.setViewVisibility(R.id.say, t.say.length() > 0 ? View.VISIBLE : View.GONE);
+        v.setViewVisibility(R.id.roles, t.rol.length() > 0 ? View.VISIBLE : View.GONE);
+
         v.setTextViewText(R.id.ficha, String.format("ficha %02d/%d", t.num, t.total));
         v.setTextViewText(R.id.es, t.es);
         v.setTextViewText(R.id.roles, t.rol);

@@ -12,6 +12,11 @@
   --mono:ui-monospace,"Roboto Mono",monospace;
   --cond:"Roboto Condensed","Arial Narrow",system-ui,sans-serif;
   --ser:Georgia,"Noto Serif",serif;
+  --h:1;
+}
+:root.noche{
+  --sheet:#171C1A; --hi:#212825; --grid:#283029; --gridb:#333C36;
+  --graf:#E6EBE6; --lap:#93A099; --carga:#E08A6B; --tinta:#90B9DB; --ok:#74C49A;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
@@ -43,13 +48,37 @@ th{
 td.c{font-family:var(--ser);font-weight:700;color:var(--carga);text-align:left}
 td.n{font-size:14px;color:var(--graf)}
 .verb .sub{font-family:var(--mono);font-size:10px;color:var(--carga);letter-spacing:.08em}
-.gh{font-family:var(--ser);font-size:19px;line-height:1.25;color:var(--graf);flex:1;text-align:left}
+.gh{font-family:var(--ser);font-size:calc(var(--h)*19px);line-height:1.25;color:var(--graf);flex:1;text-align:left}
 nav button.on{color:var(--graf);border-bottom-color:var(--carga);font-weight:700}
+nav button.eng{flex:none;padding-left:13px;padding-right:13px;font-size:15px;letter-spacing:0}
+.aj{margin-top:24px}
+.aj h4{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--lap);margin-bottom:9px}
+.fila{display:flex;border:1.5px solid var(--graf)}
+.fila button{flex:1;background:transparent;border:0;padding:12px 3px;cursor:pointer;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--lap)}
+.fila button+button{border-left:1.5px solid var(--graf)}
+.fila button.on{background:var(--graf);color:var(--hi)}
+.tonos{display:flex;gap:11px}
+.tono{width:44px;height:44px;border:2px solid var(--graf);cursor:pointer;flex:none;padding:0}
+.tono.on{outline:3px solid var(--graf);outline-offset:3px}
+.muestra{border:1.5px solid var(--graf);background:var(--hi);padding:16px;margin-top:12px}
+.muestra .t1{font-family:var(--ser);font-size:calc(var(--h)*24px);color:var(--graf)}
+.muestra .t2{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--carga);
+  text-transform:uppercase;margin-top:5px}
+.muestra .t3{font-size:calc(var(--h)*16px);color:var(--tinta);margin-top:9px}
 
 main{flex:1;overflow-y:auto;overflow-x:hidden;padding:0 16px calc(28px + env(safe-area-inset-bottom))}
 section{display:none;animation:in .22s ease-out}
 section.on{display:block}
 @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes desdeDer{from{opacity:.25;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes desdeIzq{from{opacity:.25;transform:translateX(-26px)}to{opacity:1;transform:none}}
+section.der{animation:desdeDer .2s ease-out}
+section.izq{animation:desdeIzq .2s ease-out}
+@media (prefers-reduced-motion:reduce){
+  section,section.der,section.izq{animation:none}
+}
 
 .eyebrow{
   font-family:var(--mono);font-size:10px;letter-spacing:.16em;
@@ -61,7 +90,7 @@ section.on{display:block}
 /* ---------- карточка ---------- */
 .vista{
   width:84px;height:84px;margin:14px auto 4px;display:grid;place-items:center;
-  font-size:44px;background:var(--hi);border:1.5px solid var(--graf);position:relative
+  font-size:calc(var(--h)*44px);background:var(--hi);border:1.5px solid var(--graf);position:relative
 }
 .vista::after{
   content:"вид";position:absolute;bottom:-9px;right:-1px;background:var(--sheet);
@@ -69,7 +98,7 @@ section.on{display:block}
 }
 .words{display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px;margin-top:24px}
 .tok{display:flex;flex-direction:column;align-items:center;max-width:150px}
-.tok .w{font-family:var(--ser);font-size:clamp(24px,7.6vw,34px);line-height:1.15;padding-bottom:3px}
+.tok .w{font-family:var(--ser);font-size:calc(var(--h)*clamp(24px,7.6vw,34px));line-height:1.15;padding-bottom:3px}
 .tok.k .w{color:var(--carga);font-weight:700}
 .tok .lead{width:1px;background:var(--lap)}
 .tok:nth-child(odd) .lead{height:20px}
@@ -84,10 +113,10 @@ section.on{display:block}
 .dim{margin-top:28px;display:flex;align-items:center;gap:6px;color:var(--tinta);font-family:var(--mono);font-size:9px}
 .dim .bar{flex:1;height:1px;background:var(--tinta)}
 .dim .cap{width:1px;height:9px;background:var(--tinta)}
-.ru{text-align:center;padding-top:9px;font-size:18px;color:var(--tinta);min-height:28px}
+.ru{text-align:center;padding-top:9px;font-size:calc(var(--h)*18px);color:var(--tinta);min-height:28px}
 .ru.hid{visibility:hidden}
 .say{text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--lap);margin-top:5px}
-.nota{border-left:2.5px solid var(--carga);background:rgba(232,236,230,.75);padding:10px 12px;margin-top:20px}
+.nota{border-left:2.5px solid var(--carga);background:var(--hi);padding:10px 12px;margin-top:20px}
 .nota span{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--carga);text-transform:uppercase;display:block;margin-bottom:3px}
 .nota p{font-size:14.5px;line-height:1.45}
 
@@ -105,7 +134,7 @@ button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
 
 /* ---------- путь ---------- */
 .hdr{margin-top:18px;padding-bottom:16px;border-bottom:1.5px solid var(--graf)}
-.hdr .big{font-family:var(--ser);font-size:27px;line-height:1.2}
+.hdr .big{font-family:var(--ser);font-size:calc(var(--h)*27px);line-height:1.2}
 .hdr .small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--lap);margin-top:6px}
 .barra{height:5px;background:var(--grid);margin-top:12px;position:relative}
@@ -114,9 +143,9 @@ button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
 .niv{border:1.5px solid var(--graf);background:var(--hi);margin-top:12px;
   display:flex;align-items:stretch;cursor:pointer;text-align:left;width:100%;padding:0}
 .niv .no{width:52px;flex:none;display:grid;place-items:center;
-  font-family:var(--ser);font-size:23px;border-right:1.5px solid var(--graf);color:var(--graf)}
+  font-family:var(--ser);font-size:calc(var(--h)*23px);border-right:1.5px solid var(--graf);color:var(--graf)}
 .niv .mid{flex:1;padding:12px 13px}
-.niv .tt{font-family:var(--ser);font-size:18px;line-height:1.2}
+.niv .tt{font-family:var(--ser);font-size:calc(var(--h)*18px);line-height:1.2}
 .niv .ds{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;
   color:var(--lap);margin-top:5px;text-transform:uppercase}
 .niv .st{width:56px;flex:none;display:grid;place-items:center;
@@ -134,21 +163,21 @@ button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
   margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--lap)}
 .exHdr b{color:var(--carga)}
-.exQ{font-family:var(--ser);font-size:clamp(21px,6.4vw,27px);line-height:1.3;
+.exQ{font-family:var(--ser);font-size:calc(var(--h)*clamp(21px,6.4vw,27px));line-height:1.3;
   text-align:center;margin-top:26px;color:var(--graf)}
 .exSub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--lap);text-align:center;margin-top:9px}
 .opt{width:100%;display:block;text-align:left;margin-top:9px;padding:13px 15px;
   border:1.5px solid var(--graf);background:var(--hi);color:var(--graf);
-  font-family:var(--ser);font-size:17px;cursor:pointer}
+  font-family:var(--ser);font-size:calc(var(--h)*17px);cursor:pointer}
 .opt:active{background:var(--graf);color:var(--hi)}
 .opt.ok{border-color:var(--ok);color:var(--ok);background:rgba(46,107,79,.1)}
 .opt.no{border-color:var(--carga);color:var(--carga);background:rgba(166,58,36,.09)}
 .opt.off{pointer-events:none;opacity:.55}
 .fin{text-align:center;margin-top:40px}
-.fin .cifra{font-family:var(--ser);font-size:58px;line-height:1}
+.fin .cifra{font-family:var(--ser);font-size:calc(var(--h)*58px);line-height:1}
 .fin .cifra.ok{color:var(--ok)} .fin .cifra.no{color:var(--carga)}
-.fin .txt{font-size:17px;line-height:1.5;margin-top:14px}
+.fin .txt{font-size:calc(var(--h)*17px);line-height:1.5;margin-top:14px}
 .fallos{margin-top:22px;text-align:left}
 .fallos h4{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--carga);margin-bottom:8px}
@@ -162,16 +191,16 @@ button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
   color:var(--graf);font-size:15px;cursor:pointer;flex:none
 }
 .spk:active{background:var(--carga);border-color:var(--carga);color:var(--hi)}
-.lin{font-family:var(--ser);font-size:19px;line-height:1.75;margin-top:14px}
+.lin{font-family:var(--ser);font-size:calc(var(--h)*19px);line-height:1.75;margin-top:14px}
 .pal{cursor:pointer;border-bottom:1px dotted transparent;padding:1px 0}
 .pal:active{background:var(--carga);color:var(--hi)}
 .linru{font-family:var(--cond);font-size:14.5px;line-height:1.45;
   color:var(--tinta);margin-top:4px;padding-left:11px;border-left:2px solid var(--grid)}
 #txPop{position:sticky;bottom:6px;margin-top:20px;padding:13px 15px;
-  background:var(--graf);color:var(--hi);font-size:16px;
+  background:var(--graf);color:var(--hi);font-size:calc(var(--h)*16px);
   opacity:0;transform:translateY(8px);transition:.16s;pointer-events:none}
 #txPop.show{opacity:1;transform:none}
-#txPop b{font-family:var(--ser);font-size:19px;color:#E8B4A0}
+#txPop b{font-family:var(--ser);font-size:calc(var(--h)*19px);color:#E8B4A0}
 .vel{display:flex;justify-content:center;margin-top:12px}
 .vel button{
   background:transparent;border:1.5px solid var(--grid);color:var(--lap);
@@ -194,7 +223,7 @@ td.f{cursor:pointer}
 .sub2 button.on{background:var(--graf);color:var(--hi)}
 
 /* тренажёр хвостов */
-.stem{font-family:var(--ser);font-size:clamp(30px,10vw,42px);text-align:center;
+.stem{font-family:var(--ser);font-size:calc(var(--h)*clamp(30px,10vw,42px));text-align:center;
   margin-top:26px;color:var(--graf);letter-spacing:.01em}
 .stem u{text-decoration:none;color:var(--carga);border-bottom:2.5px solid var(--carga);padding:0 2px}
 .who{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
@@ -204,7 +233,7 @@ td.f{cursor:pointer}
 /* ---------- глаголы ---------- */
 .verb{border:1.5px solid var(--graf);background:var(--hi);margin-top:14px}
 .verb>.top{width:100%;display:flex;align-items:baseline;gap:10px;padding:14px;background:transparent;border:0;cursor:pointer;text-align:left}
-.verb .inf{font-family:var(--ser);font-size:24px;color:var(--graf)}
+.verb .inf{font-family:var(--ser);font-size:calc(var(--h)*24px);color:var(--graf)}
 .verb .tr{font-size:14px;color:var(--lap);flex:1}
 .verb .arrow{font-family:var(--mono);font-size:14px;color:var(--carga)}
 .verb .body{display:none;padding:0 14px 16px;border-top:1px solid var(--grid)}
@@ -232,32 +261,32 @@ td.p{font-family:var(--mono);font-size:11.5px;color:var(--lap)}
 .lvl button+button{border-left:1.5px solid var(--graf)}
 .lvl button.on{background:var(--graf);color:var(--hi)}
 
-.task{margin-top:24px;font-size:20px;color:var(--tinta);text-align:center;line-height:1.35}
+.task{margin-top:24px;font-size:calc(var(--h)*20px);color:var(--tinta);text-align:center;line-height:1.35}
 .slots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px;min-height:52px}
 .slot{
   min-width:60px;padding:10px 12px;border-bottom:2px solid var(--lap);
-  font-family:var(--ser);font-size:20px;text-align:center;background:transparent;
+  font-family:var(--ser);font-size:calc(var(--h)*20px);text-align:center;background:transparent;
   border-top:0;border-left:0;border-right:0;color:var(--graf);cursor:pointer
 }
-.slot.empty{color:transparent;background:rgba(255,255,255,.28)}
+.slot.empty{color:transparent;background:var(--hi)}
 .slot.fix{border-bottom-color:var(--grid);color:var(--lap);cursor:default}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:26px}
 .chip{
-  font-family:var(--ser);font-size:18px;padding:9px 14px;
+  font-family:var(--ser);font-size:calc(var(--h)*18px);padding:9px 14px;
   border:1.5px solid var(--graf);background:var(--hi);color:var(--graf);cursor:pointer
 }
 .chip:active{background:var(--graf);color:var(--hi)}
 .chip.used{opacity:.25;pointer-events:none}
 input.free{
   width:100%;margin-top:22px;padding:14px 12px;border:1.5px solid var(--graf);
-  background:var(--hi);font-family:var(--ser);font-size:20px;color:var(--graf);text-align:center
+  background:var(--hi);font-family:var(--ser);font-size:calc(var(--h)*20px);color:var(--graf);text-align:center
 }
 input.free:focus{outline:none;border-color:var(--carga)}
 .res{margin-top:18px;padding:12px;font-size:15px;line-height:1.45;display:none}
 .res.show{display:block}
 .res.good{background:rgba(46,107,79,.12);border-left:3px solid var(--ok);color:var(--ok)}
 .res.bad{background:rgba(166,58,36,.1);border-left:3px solid var(--carga);color:var(--carga)}
-.res b{font-family:var(--ser);font-size:17px}
+.res b{font-family:var(--ser);font-size:calc(var(--h)*17px)}
 .score{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--lap);text-align:center;margin-top:18px;text-transform:uppercase}
 </style>
 </head>
@@ -269,6 +298,7 @@ input.free:focus{outline:none;border-color:var(--carga)}
   <button data-go="gram">Правила</button>
   <button data-go="verbos">Глаголы</button>
   <button data-go="taller">Практика</button>
+  <button data-go="ajustes" class="eng">⚙</button>
 </nav>
 
 <main>
@@ -287,6 +317,64 @@ input.free:focus{outline:none;border-color:var(--carga)}
 
   <div id="rutaDet" hidden></div>
   <div id="rutaEx" hidden></div>
+</section>
+
+<!-- ============ НАСТРОЙКИ ============ -->
+<section id="ajustes">
+  <div class="eyebrow"><span>ajustes</span><span>как это выглядит</span></div>
+
+  <div class="aj">
+    <h4>Тема</h4>
+    <div class="fila" id="ajTema">
+      <button data-v="dia">День</button>
+      <button data-v="noche">Ночь</button>
+      <button data-v="auto">Как в системе</button>
+    </div>
+  </div>
+
+  <div class="aj">
+    <h4>Размер текста</h4>
+    <div class="fila" id="ajTexto">
+      <button data-v="90">Мелкий</button>
+      <button data-v="100">Обычный</button>
+      <button data-v="115">Крупный</button>
+      <button data-v="135">Очень</button>
+    </div>
+  </div>
+
+  <div class="aj">
+    <h4>Размер заголовков</h4>
+    <div class="fila" id="ajTitulo">
+      <button data-v="0.85">Мельче</button>
+      <button data-v="1">Обычные</button>
+      <button data-v="1.2">Крупнее</button>
+      <button data-v="1.4">Большие</button>
+    </div>
+  </div>
+
+  <div class="aj">
+    <h4>Цвет выделения — глагол, разбор</h4>
+    <div class="tonos" id="ajCarga"></div>
+  </div>
+
+  <div class="aj">
+    <h4>Цвет перевода</h4>
+    <div class="tonos" id="ajTinta"></div>
+  </div>
+
+  <div class="aj">
+    <h4>Как это выглядит</h4>
+    <div class="muestra">
+      <div class="t1">Soy ingeniero.</div>
+      <div class="t2">SER · я → кто я</div>
+      <div class="t3">Я инженер.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <button class="b" id="ajReset">Сбросить</button>
+  </div>
+  <div class="score" style="margin-bottom:10px">настройки сохраняются в телефоне</div>
 </section>
 
 <!-- ============ ФРАЗА ============ -->
@@ -595,14 +683,138 @@ function di(txt){
   }catch(e){}
 }
 
+const HOJAS=["ruta","ficha","gram","verbos","taller","ajustes"];
+
+function vaA(id, lado){
+  document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x.dataset.go===id));
+  document.querySelectorAll("section").forEach(s=>{
+    s.classList.remove("der","izq");
+    const activa = s.id===id;
+    s.classList.toggle("on", activa);
+    if(activa && lado) s.classList.add(lado);
+  });
+  corta();
+  document.querySelector("main").scrollTop=0;
+}
+
+function hojaActual(){
+  const a=document.querySelector("section.on");
+  return a ? HOJAS.indexOf(a.id) : 0;
+}
+
+function pasar(dir){            // +1 вправо по списку, -1 влево
+  const i=hojaActual();
+  const n=i+dir;
+  if(n<0 || n>=HOJAS.length) return;
+  vaA(HOJAS[n], dir>0 ? "der" : "izq");
+}
+
 document.querySelectorAll("nav button").forEach(b=>{
   b.onclick=()=>{
-    document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x===b));
-    document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===b.dataset.go));
-    corta();
-    document.querySelector("main").scrollTop=0;
+    const destino=b.dataset.go;
+    const lado = HOJAS.indexOf(destino) > hojaActual() ? "der" : "izq";
+    vaA(destino, lado);
   };
 });
+
+/* ---------- листание пальцем ---------- */
+(function(){
+  const zona=document.querySelector("main");
+  let x0=0, y0=0, t0=0, sigue=false;
+
+  zona.addEventListener("touchstart", e=>{
+    if(e.touches.length!==1){ sigue=false; return; }
+    const d=e.target;
+    // не перехватываем жест на полях ввода
+    if(d.closest && d.closest("input,textarea,select")){ sigue=false; return; }
+    x0=e.touches[0].clientX; y0=e.touches[0].clientY;
+    t0=Date.now(); sigue=true;
+  }, {passive:true});
+
+  zona.addEventListener("touchend", e=>{
+    if(!sigue) return;
+    sigue=false;
+    const t=e.changedTouches[0];
+    const dx=t.clientX-x0, dy=t.clientY-y0, dt=Date.now()-t0;
+    if(dt>700) return;                      // слишком медленно — это не свайп
+    if(Math.abs(dx)<60) return;             // слишком коротко
+    if(Math.abs(dx) < Math.abs(dy)*1.7) return;  // это вертикальная прокрутка
+    pasar(dx<0 ? 1 : -1);                   // палец влево — следующая вкладка
+  }, {passive:true});
+})();
+
+/* ================= НАСТРОЙКИ ================= */
+const AJ_LLAVE="frase_ajustes";
+const AJ_DEF={tema:"dia",texto:100,titulo:1,carga:"#A63A24",tinta:"#2A4C6B"};
+let AJ=Object.assign({},AJ_DEF);
+try{ const g=localStorage.getItem(AJ_LLAVE); if(g) AJ=Object.assign({},AJ_DEF,JSON.parse(g)); }catch(e){}
+
+const CARGAS=[["#A63A24","кирпичный"],["#7A1F3D","бордовый"],["#1F6F8B","морской"],["#4A6B1F","оливковый"]];
+const TINTAS=[["#2A4C6B","синий"],["#3F5A3A","зелёный"],["#5A3A6B","лиловый"],["#444B4F","графит"]];
+
+function guardaAj(){ try{ localStorage.setItem(AJ_LLAVE,JSON.stringify(AJ)); }catch(e){} }
+
+function aplicaAj(){
+  const r=document.documentElement;
+
+  let noche = AJ.tema==="noche";
+  if(AJ.tema==="auto"){
+    try{ noche = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches; }catch(e){ noche=false; }
+  }
+  r.classList.toggle("noche", noche);
+
+  r.style.setProperty("--h", AJ.titulo);
+  r.style.setProperty("--carga", AJ.carga);
+  r.style.setProperty("--tinta", AJ.tinta);
+  if(noche){
+    r.style.setProperty("--carga", AJ.carga==="#A63A24" ? "#E08A6B" : AJ.carga);
+  }
+
+  try{
+    if(window.Android && window.Android.tamano) window.Android.tamano(parseInt(AJ.texto,10));
+    if(window.Android && window.Android.escalaWidget)
+      window.Android.escalaWidget(parseFloat(AJ.titulo)*(parseInt(AJ.texto,10)/100));
+    else document.body.style.zoom = (AJ.texto/100);
+  }catch(e){}
+}
+
+function marcaFila(id, valor){
+  document.querySelectorAll("#"+id+" button").forEach(b=>{
+    b.classList.toggle("on", String(b.dataset.v)===String(valor));
+  });
+}
+
+function pintaTonos(id, lista, actual, campo){
+  const c=document.getElementById(id); if(!c) return;
+  c.innerHTML="";
+  lista.forEach(([col,nom])=>{
+    const b=document.createElement("button");
+    b.className="tono"+(col===actual?" on":"");
+    b.style.background=col; b.title=nom;
+    b.onclick=()=>{ AJ[campo]=col; guardaAj(); aplicaAj(); refrescaAj(); };
+    c.appendChild(b);
+  });
+}
+
+function refrescaAj(){
+  marcaFila("ajTema",AJ.tema);
+  marcaFila("ajTexto",AJ.texto);
+  marcaFila("ajTitulo",AJ.titulo);
+  pintaTonos("ajCarga",CARGAS,AJ.carga,"carga");
+  pintaTonos("ajTinta",TINTAS,AJ.tinta,"tinta");
+}
+
+[["ajTema","tema"],["ajTexto","texto"],["ajTitulo","titulo"]].forEach(([id,campo])=>{
+  const caja=document.getElementById(id); if(!caja) return;
+  caja.querySelectorAll("button").forEach(b=>{
+    b.onclick=()=>{ AJ[campo]=b.dataset.v; guardaAj(); aplicaAj(); refrescaAj(); };
+  });
+});
+
+const bReset=document.getElementById("ajReset");
+if(bReset) bReset.onclick=()=>{ AJ=Object.assign({},AJ_DEF); guardaAj(); aplicaAj(); refrescaAj(); };
+
+aplicaAj(); refrescaAj();
 
 /* ================= ФРАЗА ================= */
 let fi=Math.floor(Math.random()*FRASES.length), abierto=false;
@@ -932,6 +1144,7 @@ const GRAM=[
 
 /* ================= КОНСТРУКТОР ================= */
 let lvl=1, ej=0, slots=[], chips=[], bien=0, total=0;
+let mostrado=false;   // ответ уже открыт — кнопка ведёт дальше
 
 document.querySelectorAll(".lvl button").forEach(b=>{
   b.onclick=()=>{
@@ -949,6 +1162,9 @@ function nuevo(){
   const e=EJER[ej];
   $("task").textContent=e.ru;
   $("res").className="res";
+  mostrado=false;
+  $("bSkip").textContent="Следующее";
+  $("bCheck").disabled=false;
   const area=$("area"); area.innerHTML="";
 
   if(lvl===3){
@@ -1022,9 +1238,39 @@ $("bCheck").onclick=()=>{
     r.innerHTML="Не так. Правильно: <b>"+correcto+"</b>";
   }
   $("score").textContent="верно "+bien+" · всего "+total;
+  di(correcto);
+  abrePaso();
 };
 
-$("bSkip").onclick=nuevo;
+/* ответ открыт — кнопка превращается в переход к следующей фразе */
+function abrePaso(){
+  mostrado=true;
+  $("bCheck").disabled=true;
+  $("bSkip").textContent="Следующая фраза";
+}
+
+$("bSkip").onclick=()=>{
+  if(mostrado){ nuevo(); return; }
+
+  // нажали «Следующее», не проверив — сначала показываем правильный вариант
+  const correcto=EJER[ej].es.join(" ");
+  let mio = lvl===3 ? (($("free")||{value:""}).value) :
+            (slots.includes(null) ? "" : slots.join(" "));
+
+  total++;
+  const r=$("res");
+  if(mio && limpia(mio)===limpia(correcto)){
+    bien++;
+    r.className="res good show";
+    r.innerHTML="Верно. <b>"+correcto+"</b>";
+  }else{
+    r.className="res bad show";
+    r.innerHTML="Правильно так: <b>"+correcto+"</b>";
+  }
+  $("score").textContent="верно "+bien+" · всего "+total;
+  di(correcto);
+  abrePaso();
+};
 nuevo();
 
 /* ================= ТРЕНАЖЁР ХВОСТОВ ================= */

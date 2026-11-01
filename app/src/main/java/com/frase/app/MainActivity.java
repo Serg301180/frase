@@ -133,6 +133,33 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
         }
 
+        /** Размер всего текста в приложении, проценты. */
+        @JavascriptInterface
+        public void tamano(final int pct) {
+            final int v = Math.max(70, Math.min(170, pct));
+            runOnUiThread(new Runnable() {
+                @Override public void run() {
+                    if (web != null) web.getSettings().setTextZoom(v);
+                }
+            });
+        }
+
+        /** Размер текста в виджете — следует за настройкой заголовков. */
+        @JavascriptInterface
+        public void escalaWidget(float k) {
+            SharedPreferences p = getSharedPreferences("frase_prefs", MODE_PRIVATE);
+            p.edit().putFloat("escala", k).apply();
+
+            AppWidgetManager m = AppWidgetManager.getInstance(MainActivity.this);
+            int[] ids = m.getAppWidgetIds(new ComponentName(MainActivity.this, FraseWidget.class));
+            if (ids != null && ids.length > 0) {
+                Intent i = new Intent(MainActivity.this, FraseWidget.class);
+                i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+                i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+                sendBroadcast(i);
+            }
+        }
+
         @JavascriptInterface
         public boolean disponible() {
             return listo;
