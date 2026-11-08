@@ -8,7 +8,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.AudioAttributes;
+import android.content.ContentValues;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -157,6 +161,41 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
                 i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
                 sendBroadcast(i);
+            }
+        }
+
+        /** Сохраняет текстовый файл в папку «Загрузки». Возвращает true при успехе. */
+        @JavascriptInterface
+        public boolean guardar(String nombre, String contenido) {
+            if (nombre == null || contenido == null) return false;
+            try {
+                byte[] datos = contenido.getBytes("UTF-8");
+
+                if (Build.VERSION.SDK_INT >= 29) {
+                    ContentValues cv = new ContentValues();
+                    cv.put(MediaStore.Downloads.DISPLAY_NAME, nombre);
+                    cv.put(MediaStore.Downloads.MIME_TYPE, "text/plain");
+                    Uri destino = getContentResolver().insert(
+                            MediaStore.Downloads.EXTERNAL_CONTENT_URI, cv);
+                    if (destino == null) return false;
+                    java.io.OutputStream os = getContentResolver().openOutputStream(destino);
+                    if (os == null) return false;
+                    os.write(datos);
+                    os.close();
+                    return true;
+                }
+
+                java.io.File carpeta = Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_DOWNLOADS);
+                if (carpeta != null && !carpeta.exists()) carpeta.mkdirs();
+                java.io.File f = new java.io.File(carpeta, nombre);
+                java.io.FileOutputStream fo = new java.io.FileOutputStream(f);
+                fo.write(datos);
+                fo.close();
+                return true;
+
+            } catch (Exception e) {
+                return false;
             }
         }
 

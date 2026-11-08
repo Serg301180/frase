@@ -201,6 +201,13 @@ button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
   opacity:0;transform:translateY(8px);transition:.16s;pointer-events:none}
 #txPop.show{opacity:1;transform:none}
 #txPop b{font-family:var(--ser);font-size:calc(var(--h)*19px);color:#E8B4A0}
+.busca{display:flex;gap:0;margin-top:16px;border:1.5px solid var(--graf)}
+.busca input{flex:1;border:0;background:var(--hi);padding:12px 13px;
+  font-family:var(--ser);font-size:17px;color:var(--graf)}
+.busca input:focus{outline:none}
+.busca button{flex:none;width:46px;border:0;border-left:1.5px solid var(--graf);
+  background:var(--hi);color:var(--lap);font-size:15px;cursor:pointer}
+.busca button:active{background:var(--graf);color:var(--hi)}
 .vel{display:flex;justify-content:center;margin-top:12px}
 .vel button{
   background:transparent;border:1.5px solid var(--grid);color:var(--lap);
@@ -371,8 +378,35 @@ input.free:focus{outline:none;border-color:var(--carga)}
     </div>
   </div>
 
+  <div class="aj">
+    <h4>Новых слов в день</h4>
+    <div class="fila" id="ajNuevos">
+      <button data-v="5">5</button>
+      <button data-v="10">10</button>
+      <button data-v="20">20</button>
+      <button data-v="30">30</button>
+    </div>
+  </div>
+
+  <div class="aj">
+    <h4>Насколько прочно помнить</h4>
+    <div class="fila" id="ajRet">
+      <button data-v="0.85">Полегче</button>
+      <button data-v="0.9">Обычно</button>
+      <button data-v="0.95">Намертво</button>
+    </div>
+    <p class="corto" id="ajRetTxt" style="margin-top:9px">—</p>
+  </div>
+
+  <div class="aj">
+    <h4>Выгрузить колоду</h4>
+    <p class="corto">Файл для AnkiDroid — все ваши слова вместе с прогрессом.</p>
+    <div class="row"><button class="b" id="ajExp">Выгрузить в файл</button></div>
+    <div id="ajExpRes"></div>
+  </div>
+
   <div class="row">
-    <button class="b" id="ajReset">Сбросить</button>
+    <button class="b" id="ajReset">Сбросить вид</button>
   </div>
   <div class="score" style="margin-bottom:10px">настройки сохраняются в телефоне</div>
 </section>
@@ -451,13 +485,23 @@ input.free:focus{outline:none;border-color:var(--carga)}
   </div>
 
   <div id="paneWd" hidden>
-    <div class="exSub" id="wdCaja" style="margin-top:18px">—</div>
-    <div class="exQ" id="wdPregunta">—</div>
-    <div class="exSub" id="wdSub">—</div>
-    <div id="wdArea" style="margin-top:22px"></div>
-    <div class="res" id="wdRes"></div>
-    <div class="row"><button class="b pri" id="wdNext">Следующее слово</button></div>
-    <div class="score" id="wdScore">—</div>
+    <div class="busca">
+      <input id="wdBusca" placeholder="найти слово…"
+             autocapitalize="off" autocomplete="off" spellcheck="false">
+      <button id="wdLimpia">✕</button>
+    </div>
+    <div id="wdHallaz"></div>
+
+    <div id="wdEstudio">
+      <div class="exSub" id="wdCaja" style="margin-top:18px">—</div>
+      <div class="exQ" id="wdPregunta">—</div>
+      <div class="exSub" id="wdSub">—</div>
+      <div id="wdArea" style="margin-top:22px"></div>
+      <div class="res" id="wdRes"></div>
+      <button class="more" id="wdDificil" hidden>было трудно — показать раньше</button>
+      <div class="row"><button class="b pri" id="wdNext">Следующее слово</button></div>
+      <div class="score" id="wdScore">—</div>
+    </div>
   </div>
 
   <div id="paneTx" hidden>
@@ -2292,6 +2336,53 @@ VOC[4]=VOC[4].concat([
 "voluntario|доброволец","ayuda humanitaria|гуманитарная помощь","refugiado|беженец","acogida|приём","integración|интеграция"
 ]);
 
+/* ================= FSRS ================= */
+/* Free Spaced Repetition Scheduler 4.5, веса по умолчанию.
+   Карточка описывается тремя числами:
+     S — стабильность: через сколько дней вероятность вспомнить упадёт до 90 %
+     D — трудность: 1 (лёгкая) … 10 (тяжёлая)
+     R — вероятность вспомнить сейчас, считается от S и прошедших дней
+   Оценка: 1 снова · 2 трудно · 3 хорошо · 4 легко                           */
+
+const W=[0.4872,1.4003,3.7145,13.8206,5.1618,1.2298,0.8975,0.031,
+         1.6474,0.1367,1.0461,2.1072,0.0793,0.3246,1.587,0.2272,2.8755];
+const DECAY=-0.5, FACTOR=19/81, DIA=86400000;
+const tope=(x,a,b)=>Math.min(Math.max(x,a),b);
+
+function recuerdo(t,s){ return s<=0 ? 0 : Math.pow(1+FACTOR*t/s, DECAY); }
+function intervalo(s,r){
+  return tope(Math.round((s/FACTOR)*(Math.pow(r,1/DECAY)-1)),1,3650);
+}
+function d0(g){ return tope(W[4]-(g-3)*W[5],1,10); }
+
+function nuevaD(d,g){
+  return tope(W[7]*d0(4)+(1-W[7])*(d-W[6]*(g-3)), 1, 10);
+}
+function nuevaS(s,d,r,g){
+  if(g===1){
+    const caida=W[11]*Math.pow(d,-W[12])*(Math.pow(s+1,W[13])-1)*Math.exp(W[14]*(1-r));
+    return Math.max(0.1, Math.min(caida,s));
+  }
+  const dura = g===2?W[15]:1, facil = g===4?W[16]:1;
+  return tope(s*(1+Math.exp(W[8])*(11-d)*Math.pow(s,-W[9])*
+                 (Math.exp(W[10]*(1-r))-1)*dura*facil), 0.1, 3650);
+}
+
+function programar(c,g,ret,ahora){
+  ahora=ahora||Date.now();
+  let s,d, lapses=c?(c.lapses||0):0, reps=c?(c.reps||0):0;
+  if(!c || !c.s){ s=W[g-1]; d=d0(g); }
+  else{
+    const t=Math.max(0,(ahora-(c.last||ahora))/DIA);
+    const r=recuerdo(t,c.s);
+    d=nuevaD(c.d,g); s=nuevaS(c.s,c.d,r,g);
+    if(g===1) lapses++;
+  }
+  reps++;
+  const due = g===1 ? ahora+600000 : ahora+intervalo(s,ret)*DIA;
+  return {s:+s.toFixed(4), d:+d.toFixed(4), due:due, last:ahora, reps:reps, lapses:lapses};
+}
+
 /* ================= СЛОВА ================= */
 
 const PALABRAS=[];
@@ -2303,12 +2394,51 @@ Object.keys(VOC).forEach(k=>{
   });
 });
 
-const CAJA_LLAVE="frase_cajas";
-let CAJAS={};
-try{ const g=localStorage.getItem(CAJA_LLAVE); if(g) CAJAS=JSON.parse(g); }catch(e){}
-function guardaCajas(){ try{ localStorage.setItem(CAJA_LLAVE,JSON.stringify(CAJAS)); }catch(e){} }
+/* --- свои слова --- */
+const MIAS_LLAVE="frase_mias";
+let MIAS=[];
+try{ const g=localStorage.getItem(MIAS_LLAVE); if(g) MIAS=JSON.parse(g); }catch(e){}
+function guardaMias(){ try{ localStorage.setItem(MIAS_LLAVE,JSON.stringify(MIAS)); }catch(e){} }
+MIAS.forEach(m=>{ if(!PALABRAS.some(x=>x.e===m.e)) PALABRAS.push({e:m.e,r:m.r,n:1,mia:1}); });
 
-/* убираем острые ударения, но НЕ трогаем ñ */
+/* --- хранилище расписания --- */
+const FS_LLAVE="frase_fsrs";
+let FS={};
+try{ const g=localStorage.getItem(FS_LLAVE); if(g) FS=JSON.parse(g); }catch(e){}
+function guardaFS(){ try{ localStorage.setItem(FS_LLAVE,JSON.stringify(FS)); }catch(e){} }
+
+/* --- перенос старых коробок 0–4 в стабильность --- */
+(function migrar(){
+  if(localStorage.getItem("frase_migrado")==="1") return;
+  let cajas={};
+  try{ const g=localStorage.getItem("frase_cajas"); if(g) cajas=JSON.parse(g); }catch(e){}
+  const tablaS=[0,1,3,8,21], ahora=Date.now();
+  let n=0;
+  Object.keys(cajas).forEach(p=>{
+    const c=cajas[p];
+    if(c>0 && !FS[p]){
+      FS[p]={s:tablaS[Math.min(c,4)], d:tope(6-c*0.4,1,10),
+             due:ahora, last:ahora-tablaS[Math.min(c,4)]*DIA, reps:c, lapses:0};
+      n++;
+    }
+  });
+  if(n){ guardaFS(); }
+  try{ localStorage.setItem("frase_migrado","1"); }catch(e){}
+})();
+
+/* --- настройки повторений --- */
+const CFG_LLAVE="frase_srs";
+let SRS={nuevos:10, ret:0.90};
+try{ const g=localStorage.getItem(CFG_LLAVE); if(g) SRS=Object.assign(SRS,JSON.parse(g)); }catch(e){}
+function guardaSRS(){ try{ localStorage.setItem(CFG_LLAVE,JSON.stringify(SRS)); }catch(e){} }
+
+/* --- учёт новых за сегодня --- */
+function hoyClave(){ const d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
+let NUEVOS={dia:"",n:0};
+try{ const g=localStorage.getItem("frase_nuevos"); if(g) NUEVOS=JSON.parse(g); }catch(e){}
+if(NUEVOS.dia!==hoyClave()) NUEVOS={dia:hoyClave(),n:0};
+function sumaNuevo(){ NUEVOS.n++; try{ localStorage.setItem("frase_nuevos",JSON.stringify(NUEVOS)); }catch(e){} }
+
 function pelar(t){
   return String(t).toLowerCase().trim()
     .replace(/á/g,"a").replace(/é/g,"e").replace(/í/g,"i")
@@ -2316,40 +2446,70 @@ function pelar(t){
     .replace(/\s+/g," ");
 }
 
-let wdActual=null, wdModo=0, wdOk=0, wdTot=0;
+let wdActual=null, wdModo=0, wdOk=0, wdTot=0, wdT0=0, wdCola=[];
 
 function disponibles(){
-  const tope = Math.min(PROG.max, 7);
-  return PALABRAS.filter(p=>p.n<=tope);
+  const t=Math.min(PROG.max,7);
+  return PALABRAS.filter(p=>p.n<=t||p.mia);
+}
+
+/** очередь: сначала просроченные, потом новые по дневному лимиту */
+function armaCola(){
+  const lista=disponibles(), ahora=Date.now();
+  const vencidas=lista.filter(p=>FS[p.e] && FS[p.e].due<=ahora)
+                      .sort((a,b)=>FS[a.e].due-FS[b.e].due);
+  let cola=vencidas.slice();
+  if(NUEVOS.n < SRS.nuevos){
+    const nuevas=mix(lista.filter(p=>!FS[p.e])).slice(0, SRS.nuevos-NUEVOS.n);
+    // новые вперемешку со старыми, чтобы не шли подряд
+    nuevas.forEach((p,i)=>cola.splice(Math.min((i+1)*3,cola.length),0,p));
+  }
+  return cola;
+}
+
+function estadoPalabra(p){
+  const c=FS[p.e];
+  if(!c) return "nueva";
+  if(c.s<21) return "aprendiendo";
+  return "sabida";
 }
 
 function wdNueva(){
   $("wdRes").className="res";
-  const lista=disponibles();
-  if(!lista.length){ $("wdPregunta").textContent="—"; return; }
+  const caja=$("wdDificil"); if(caja) caja.hidden=true;
 
-  // берём слова из самых слабых коробок
-  let min=99;
-  lista.forEach(p=>{ const c=CAJAS[p.e]||0; if(c<min) min=c; });
-  const debiles=lista.filter(p=>(CAJAS[p.e]||0)<=Math.min(min+1,3));
-  wdActual = debiles[Math.floor(Math.random()*debiles.length)];
+  if(!wdCola.length) wdCola=armaCola();
+  if(!wdCola.length){
+    $("wdPregunta").textContent="✓";
+    $("wdSub").textContent="на сегодня всё — очередь пуста";
+    $("wdCaja").textContent="";
+    $("wdArea").innerHTML="";
+    wdMarcador();
+    return;
+  }
 
-  const caja = CAJAS[wdActual.e]||0;
-  wdModo = caja<1 ? 0 : (caja<3 ? 1 : 2);
+  wdActual=wdCola.shift();
+  const c=FS[wdActual.e];
+  const s=c?c.s:0;
+  wdModo = !c||s<2 ? 0 : (s<10 ? 1 : 2);
+  wdT0=Date.now();
 
-  $("wdCaja").textContent = "коробка "+caja+" из 4 · ступень "+wdActual.n;
+  $("wdCaja").textContent = (!c ? "новое слово"
+      : "знаю "+(s<1?"меньше суток":Math.round(s)+" дн")) +
+      " · в очереди "+wdCola.length;
+
   const area=$("wdArea"); area.innerHTML="";
 
   if(wdModo===0){
     $("wdPregunta").textContent=wdActual.e;
     $("wdSub").textContent="что это значит?";
     di(wdActual.e);
-    opciones(area, wdActual.r, lista.map(p=>p.r), false);
+    opciones(area, wdActual.r, disponibles().map(p=>p.r), false);
   }
   else if(wdModo===1){
     $("wdPregunta").textContent=wdActual.r;
     $("wdSub").textContent="как по-испански?";
-    opciones(area, wdActual.e, lista.map(p=>p.e), true);
+    opciones(area, wdActual.e, disponibles().map(p=>p.e), true);
   }
   else{
     $("wdPregunta").textContent="🔊";
@@ -2362,62 +2522,239 @@ function wdNueva(){
     inp.setAttribute("spellcheck","false");
     inp.placeholder="по-испански";
     area.appendChild(inp);
-
     const fila=document.createElement("div"); fila.className="row";
     fila.innerHTML='<button class="spk">🔊</button><button class="b pri">Проверить</button>';
     fila.querySelector(".spk").onclick=()=>di(wdActual.e);
-    fila.querySelector(".b").onclick=()=>wdRevisa(inp.value, true);
+    fila.querySelector(".b").onclick=()=>wdRevisa(inp.value,true);
     area.appendChild(fila);
     setTimeout(()=>inp.focus(),150);
   }
 }
 
 function opciones(area, correcta, todas, hablar){
-  const otras = mix(todas.filter(x=>x!==correcta)).slice(0,3);
+  const otras=mix(todas.filter(x=>x!==correcta)).slice(0,3);
   mix(otras.concat([correcta])).forEach(t=>{
     const b=document.createElement("button"); b.className="opt"; b.textContent=t;
     b.onclick=()=>{
       area.querySelectorAll(".opt").forEach(x=>x.classList.add("off"));
-      const bien = t===correcta;
+      const bien=t===correcta;
       b.classList.add(bien?"ok":"no");
-      if(!bien) area.querySelectorAll(".opt").forEach(x=>{ if(x.textContent===correcta) x.classList.add("ok"); });
-      wdRevisa(t, false, correcta);
+      if(!bien) area.querySelectorAll(".opt").forEach(x=>{
+        if(x.textContent===correcta) x.classList.add("ok"); });
+      wdRevisa(t,false,correcta);
     };
     area.appendChild(b);
   });
 }
 
+function aplicaNota(g){
+  const esNueva=!FS[wdActual.e];
+  FS[wdActual.e]=programar(FS[wdActual.e]||null, g, SRS.ret);
+  guardaFS();
+  if(esNueva) sumaNuevo();
+  if(g===1) wdCola.push(wdActual);     // «снова» — вернётся в конце сессии
+}
+
 function wdRevisa(dado, escrito, correcta){
   const esperado = escrito ? wdActual.e : correcta;
   const bien = escrito ? (pelar(dado)===pelar(esperado)) : (dado===esperado);
+  const rapido = (Date.now()-wdT0) < 3500;
 
   wdTot++;
-  const caja = CAJAS[wdActual.e]||0;
-  CAJAS[wdActual.e] = bien ? Math.min(caja+1,4) : 0;
-  guardaCajas();
+  const g = !bien ? 1 : (rapido ? 4 : 3);
+  aplicaNota(g);
 
   const r=$("wdRes");
+  const c=FS[wdActual.e];
+  const cuando = g===1 ? "вернётся сегодня"
+                : "следующий раз через "+Math.round((c.due-Date.now())/DIA)+" дн";
   if(bien){
     wdOk++;
     r.className="res good show";
-    r.innerHTML="Верно. <b>"+wdActual.e+"</b> — "+wdActual.r;
+    r.innerHTML="Верно. <b>"+wdActual.e+"</b> — "+wdActual.r+
+      "<br><span style='font-size:13px;opacity:.75'>"+cuando+"</span>";
   }else{
     r.className="res bad show";
     r.innerHTML="Не так. <b>"+wdActual.e+"</b> — "+wdActual.r+
-      (escrito?"<br><span style='font-size:14px'>вы написали: "+dado+"</span>":"");
+      (escrito?"<br><span style='font-size:14px'>вы написали: "+dado+"</span>":"")+
+      "<br><span style='font-size:13px;opacity:.75'>"+cuando+"</span>";
+  }
+  // кнопка понижения оценки — только когда ответ верный
+  const dif=$("wdDificil");
+  if(dif){
+    dif.hidden=!bien;
+    dif.onclick=()=>{
+      FS[wdActual.e]=programar(null,2,SRS.ret);   // пересобрать как «трудно»
+      guardaFS(); dif.hidden=true;
+      r.innerHTML+="<br><span style='font-size:13px'>отмечено как трудное — "+
+        "покажу через "+Math.round((FS[wdActual.e].due-Date.now())/DIA)+" дн</span>";
+    };
   }
   di(wdActual.e);
   wdMarcador();
 }
 
 function wdMarcador(){
-  const lista=disponibles();
-  const sabidas=lista.filter(p=>(CAJAS[p.e]||0)>=4).length;
-  $("wdScore").textContent="выучено "+sabidas+" из "+lista.length+
-    " · сессия "+wdOk+"/"+wdTot;
+  const lista=disponibles(), ahora=Date.now();
+  let nuevas=0, apr=0, sab=0, deb=0;
+  lista.forEach(p=>{
+    const c=FS[p.e];
+    if(!c){ nuevas++; return; }
+    if(c.due<=ahora) deb++;
+    if(c.s<21) apr++; else sab++;
+  });
+  $("wdScore").innerHTML =
+    "знаю <b>"+sab+"</b> · учу "+apr+" · новых "+nuevas+
+    "<br>к повтору сейчас "+deb+" · сегодня "+wdOk+"/"+wdTot;
 }
 
+/* ---------- поиск и свои слова ---------- */
+
+function wdBuscar(q){
+  const caja=$("wdHallaz");
+  q=pelar(q);
+  if(!q){ caja.innerHTML=""; return; }
+
+  const hits=PALABRAS.filter(p=>pelar(p.e).indexOf(q)>=0 || pelar(p.r).indexOf(q)>=0)
+                     .slice(0,12);
+  caja.innerHTML="";
+
+  if(!hits.length){
+    const d=document.createElement("div"); d.className="nota"; d.style.marginTop="12px";
+    d.innerHTML='<span>не найдено</span><p>Слова «'+q+'» нет в словаре. '+
+                'Можно добавить его в свою колоду — оно встанет в очередь повторений.</p>';
+    caja.appendChild(d);
+    caja.appendChild(formaAgregar(q));
+    return;
+  }
+
+  hits.forEach(p=>{
+    const c=FS[p.e], est=estadoPalabra(p);
+    const b=document.createElement("button");
+    b.className="opt"; b.style.marginTop="7px";
+    b.innerHTML='<b style="font-family:var(--ser)">'+p.e+'</b> — '+p.r+
+      '<br><span style="font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;'+
+      'text-transform:uppercase;color:var(--lap)">'+
+      (est==="nueva"?"новое":est==="aprendiendo"?"учу · "+Math.round(c.s)+" дн":"знаю · "+Math.round(c.s)+" дн")+
+      (p.mia?" · моё":"")+'</span>';
+    b.onclick=()=>di(p.e);
+    caja.appendChild(b);
+  });
+  const mas=document.createElement("button");
+  mas.className="more"; mas.textContent="+ добавить своё слово";
+  mas.onclick=()=>{ caja.appendChild(formaAgregar(q)); mas.remove(); };
+  caja.appendChild(mas);
+}
+
+function formaAgregar(pre){
+  const d=document.createElement("div"); d.className="muestra"; d.style.marginTop="12px";
+  d.innerHTML=
+    '<input class="free" id="agEs" placeholder="по-испански" '+
+      'autocapitalize="off" autocomplete="off" spellcheck="false" style="margin-top:0">'+
+    '<input class="free" id="agRu" placeholder="по-русски" style="margin-top:9px">'+
+    '<div class="row"><button class="b pri" id="agOk">Добавить</button></div>';
+  setTimeout(()=>{
+    const es=$("agEs"), ru=$("agRu");
+    if(pre && /^[a-zñáéíóúü\s]+$/i.test(pre)) es.value=pre;
+    $("agOk").onclick=()=>{
+      const e=(es.value||"").trim(), r=(ru.value||"").trim();
+      if(!e||!r) return;
+      if(PALABRAS.some(x=>pelar(x.e)===pelar(e))){
+        $("wdHallaz").innerHTML='<div class="res bad show">Такое слово уже есть.</div>';
+        return;
+      }
+      MIAS.push({e:e,r:r}); guardaMias();
+      PALABRAS.push({e:e,r:r,n:1,mia:1});
+      $("wdBusca").value="";
+      $("wdHallaz").innerHTML='<div class="res good show">Добавлено: <b>'+e+'</b> — '+r+
+        '<br><span style="font-size:13px">встало в очередь на сегодня</span></div>';
+      di(e); wdMarcador();
+    };
+  },30);
+  return d;
+}
+
+/* ---------- выгрузка колоды ---------- */
+
+function exportar(){
+  const lineas=["#separator:tab","#html:true"];
+  disponibles().forEach(p=>{
+    const c=FS[p.e];
+    const est = !c ? "новое" : (c.s<21 ? "учу" : "знаю");
+    lineas.push(p.e+"\t<b>"+p.r+"</b><br><small>"+est+
+      (c?" · "+Math.round(c.s)+" дн":"")+"</small>");
+  });
+  const texto=lineas.join("\n");
+  const nombre="Espanol_"+new Date().toISOString().slice(0,10)+".txt";
+
+  try{
+    if(window.Android && window.Android.guardar){
+      const ok=window.Android.guardar(nombre,texto);
+      $("ajExpRes").innerHTML = ok
+        ? '<div class="res good show">Сохранено в «Загрузки»: <b>'+nombre+'</b>'+
+          '<br><span style="font-size:13px">AnkiDroid → Импорт → этот файл</span></div>'
+        : '<div class="res bad show">Не удалось сохранить файл.</div>';
+      return;
+    }
+  }catch(e){}
+
+  // в браузере — просто отдаём текст
+  const ta=document.createElement("textarea");
+  ta.className="free"; ta.style.height="160px"; ta.style.fontSize="11px";
+  ta.value=texto;
+  const w=$("ajExpRes"); w.innerHTML="";
+  const p=document.createElement("p"); p.className="corto";
+  p.textContent="Выделите всё и скопируйте в текстовый файл:";
+  w.append(p,ta);
+}
+
+/* ---------- привязка ---------- */
+
 $("wdNext").onclick=wdNueva;
+
+(function(){
+  const inp=$("wdBusca");
+  let reloj=null;
+  inp.addEventListener("input",()=>{
+    clearTimeout(reloj);
+    reloj=setTimeout(()=>{
+      wdBuscar(inp.value);
+      $("wdEstudio").hidden = inp.value.trim().length>0;
+    },220);
+  });
+  $("wdLimpia").onclick=()=>{
+    inp.value=""; $("wdHallaz").innerHTML=""; $("wdEstudio").hidden=false; inp.blur();
+  };
+})();
+
+/* настройки повторений живут на вкладке с шестерёнкой */
+(function(){
+  function pintaRet(){
+    const t={0.85:"Длиннее интервалы, меньше повторов — но забывается чаще.",
+             0.9:"Золотая середина: девять слов из десяти вспоминаются.",
+             0.95:"Короткие интервалы, повторов вдвое больше, забывается редко."};
+    const e=$("ajRetTxt"); if(e) e.textContent=t[SRS.ret]||"";
+  }
+  document.querySelectorAll("#ajNuevos button").forEach(b=>{
+    b.classList.toggle("on", +b.dataset.v===SRS.nuevos);
+    b.onclick=()=>{
+      SRS.nuevos=+b.dataset.v; guardaSRS();
+      document.querySelectorAll("#ajNuevos button").forEach(x=>x.classList.toggle("on",x===b));
+      wdCola=[]; wdMarcador();
+    };
+  });
+  document.querySelectorAll("#ajRet button").forEach(b=>{
+    b.classList.toggle("on", Math.abs(+b.dataset.v-SRS.ret)<0.001);
+    b.onclick=()=>{
+      SRS.ret=+b.dataset.v; guardaSRS();
+      document.querySelectorAll("#ajRet button").forEach(x=>x.classList.toggle("on",x===b));
+      pintaRet();
+    };
+  });
+  pintaRet();
+  const ex=$("ajExp"); if(ex) ex.onclick=exportar;
+})();
+
 wdMarcador();
 
 
@@ -2651,7 +2988,30 @@ function pintaTexto(){
       sp.onclick=()=>{
         const k=limpiaTok(w);
         const tr=buscar(k);
-        $("txPop").innerHTML='<b>'+k+'</b> — '+(tr||"нет в словаре");
+        if(tr){
+          $("txPop").innerHTML='<b>'+k+'</b> — '+tr;
+        }else{
+          $("txPop").innerHTML='<b>'+k+'</b> — нет в словаре '+
+            '<button id="txAdd" style="margin-left:8px;border:1px solid var(--hi);'+
+            'background:transparent;color:var(--hi);font-family:var(--mono);'+
+            'font-size:10px;letter-spacing:.1em;text-transform:uppercase;'+
+            'padding:4px 9px;cursor:pointer">добавить</button>';
+          setTimeout(()=>{
+            const a=document.getElementById("txAdd");
+            if(a) a.onclick=(ev)=>{
+              ev.stopPropagation();
+              document.querySelectorAll("#modo button").forEach(x=>
+                x.classList.toggle("on", x.dataset.m==="wd"));
+              $("paneFr").hidden=true; $("paneCj").hidden=true;
+              $("paneTx").hidden=true; $("paneWd").hidden=false;
+              $("wdEstudio").hidden=true;
+              $("wdBusca").value=k;
+              $("wdHallaz").innerHTML="";
+              $("wdHallaz").appendChild(formaAgregar(k));
+              document.querySelector("main").scrollTop=0;
+            };
+          },20);
+        }
         $("txPop").classList.add("show");
         di(k);
       };
