@@ -17,8 +17,12 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.webkit.JavascriptInterface;
+import android.webkit.PermissionRequest;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import java.util.Locale;
 
@@ -51,6 +55,41 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         s.setDomStorageEnabled(true);
         s.setTextZoom(100);
         web.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
+        s.setMediaPlaybackRequiresUserGesture(false);
+
+        // микрофон внутри страницы — для записи своего голоса
+        web.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onPermissionRequest(final PermissionRequest req) {
+                runOnUiThread(new Runnable() {
+                    @Override public void run() {
+                        try {
+                            // разрешаем только микрофон, больше странице ничего не нужно
+                            java.util.List<String> ok = new java.util.ArrayList<String>();
+                            for (String r : req.getResources()) {
+                                if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(r)) ok.add(r);
+                            }
+                            if (ok.isEmpty()) req.deny();
+                            else req.grant(ok.toArray(new String[0]));
+                        } catch (Exception e) { req.deny(); }
+                    }
+                });
+            }
+        });
+
+        // ссылки на ютюб и прочее наружу — не внутрь приложения
+        web.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
+                return fuera(r.getUrl().toString());
+            }
+            @SuppressWarnings("deprecation")
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView v, String url) {
+                return fuera(url);
+            }
+        });
+
         web.addJavascriptInterface(new Puente(), "Android");
         web.loadUrl("file:///android_asset/app.html");
         setContentView(web);
@@ -203,6 +242,41 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         public boolean disponible() {
             return listo;
         }
+
+        /** Открыть ссылку в ютюбе или браузере. */
+        @JavascriptInterface
+        public void abrir(final String url) {
+            runOnUiThread(new Runnable() {
+                @Override public void run() { fuera(url); }
+            });
+        }
+
+        /** true — микрофон уже разрешён; иначе спрашиваем и возвращаем false. */
+        @JavascriptInterface
+        public boolean pedirMicro() {
+            if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                    == PackageManager.PERMISSION_GRANTED) return true;
+            runOnUiThread(new Runnable() {
+                @Override public void run() {
+                    requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, 2);
+                }
+            });
+            return false;
+        }
+    }
+
+    /** Внешняя ссылка уходит системе; file:// остаётся внутри. */
+    private boolean fuera(String url) {
+        if (url == null) return false;
+        if (url.startsWith("file://") || url.startsWith("about:")) return false;
+        try {
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+        } catch (Exception e) {
+            // некуда открыть — просто молчим, страница останется на месте
+        }
+        return true;
     }
 
     private void avisarFin() {

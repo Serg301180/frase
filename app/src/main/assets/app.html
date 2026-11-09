@@ -50,7 +50,73 @@ td.n{font-size:14px;color:var(--graf)}
 .verb .sub{font-family:var(--mono);font-size:10px;color:var(--carga);letter-spacing:.08em}
 .gh{font-family:var(--ser);font-size:calc(var(--h)*19px);line-height:1.25;color:var(--graf);flex:1;text-align:left}
 nav button.on{color:var(--graf);border-bottom-color:var(--carga);font-weight:700}
-nav button.eng{flex:none;padding-left:13px;padding-right:13px;font-size:15px;letter-spacing:0}
+nav button.eng{flex:none;padding-left:11px;padding-right:11px;font-size:15px;letter-spacing:0}
+nav button{letter-spacing:.04em}
+
+/* ---------- программа дня ---------- */
+.hoy{border:2px solid var(--carga);background:var(--hi);margin-bottom:22px}
+.hoy .cab{padding:14px 15px 12px;border-bottom:1.5px solid var(--grid)}
+.hoy .fecha{font-family:var(--ser);font-size:calc(var(--h)*21px);line-height:1.2;color:var(--graf)}
+.hoy .pie2{font-family:var(--mono);font-size:10px;letter-spacing:.07em;color:var(--lap);margin-top:6px}
+.hoy .pie2 b{color:var(--carga);font-weight:400}
+.hoy ul{list-style:none;margin:0;padding:0}
+.hoy li{display:flex;align-items:center;gap:11px;padding:12px 15px;
+  border-bottom:1px solid var(--grid);cursor:pointer}
+.hoy li:last-child{border-bottom:0}
+.hoy .mk{width:21px;height:21px;flex:none;border:1.5px solid var(--lap);
+  display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:transparent}
+.hoy li.ok .mk{border-color:var(--ok);color:var(--ok)}
+.hoy .nm{flex:1;font-size:15.5px;color:var(--graf)}
+.hoy li.ok .nm{color:var(--lap)}
+.hoy .ct{font-family:var(--mono);font-size:11px;color:var(--lap);white-space:nowrap}
+.hoy li.ok .ct{color:var(--ok)}
+.hoy .fin{padding:12px 15px 14px;border-top:1.5px solid var(--grid)}
+.hoy .fin .tira{height:5px;background:var(--grid)}
+.hoy .fin .tira i{display:block;height:100%;background:var(--carga)}
+.hoy .fin .tira i.todo{background:var(--ok)}
+.hoy .fin p{font-family:var(--mono);font-size:10px;letter-spacing:.07em;color:var(--lap);margin-top:8px}
+
+/* ---------- видео и слух ---------- */
+.reloj{border:2px solid var(--graf);background:var(--hi);margin-top:14px;padding:15px}
+.reloj .big{font-family:var(--ser);font-size:calc(var(--h)*34px);line-height:1;color:var(--graf)}
+.reloj .big.va{color:var(--carga)}
+.reloj .sub{font-family:var(--mono);font-size:10px;letter-spacing:.07em;color:var(--lap);margin-top:7px}
+.reloj .tira{height:5px;background:var(--grid);margin-top:11px}
+.reloj .tira i{display:block;height:100%;background:var(--carga)}
+.reloj .bo{display:flex;gap:8px;margin-top:13px}
+.reloj .bo button{flex:1;background:transparent;border:1.5px solid var(--graf);padding:11px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--graf);cursor:pointer}
+.reloj .bo button.va{border-color:var(--carga);color:var(--hi);background:var(--carga)}
+.reloj .bo button.flaco{flex:none;padding-left:14px;padding-right:14px;color:var(--lap);border-color:var(--grid)}
+
+.vNiv{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.vNiv button{background:transparent;border:1px solid var(--grid);padding:7px 11px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--lap);cursor:pointer}
+.vNiv button.on{border-color:var(--carga);color:var(--carga)}
+
+.vid{border:1.5px solid var(--graf);background:var(--hi);margin-top:12px;padding:13px 14px}
+.vid h5{font-family:var(--ser);font-size:calc(var(--h)*19px);line-height:1.2;color:var(--graf)}
+.vid .vmeta{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--lap);margin-top:6px;background:transparent;padding:0}
+.vid p{font-size:14.5px;line-height:1.5;color:var(--graf);margin-top:9px}
+.vid .ir{margin-top:12px;width:100%;background:transparent;border:1.5px solid var(--carga);
+  padding:10px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--carga);cursor:pointer}
+.vid.fondo{border-style:dashed}
+
+.voz{border:2px solid var(--graf);background:var(--hi);margin-top:26px;padding:15px}
+.voz .fr{font-family:var(--ser);font-size:calc(var(--h)*21px);line-height:1.3;color:var(--carga);text-align:left}
+.voz .ru{font-size:14px;color:var(--lap);margin-top:6px;text-align:left}
+.voz .bo button.flaco{color:var(--lap);border-color:var(--grid)}
+.voz .bo{display:flex;gap:8px;margin-top:14px}
+.voz .bo button{flex:1;background:transparent;border:1.5px solid var(--graf);padding:12px 6px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--graf);cursor:pointer}
+.voz .bo button:disabled{opacity:.35;cursor:default}
+.voz .bo button.rec{border-color:var(--carga);color:var(--hi);background:var(--carga)}
+.voz .nota{font-size:13.5px;line-height:1.5;color:var(--lap);margin-top:11px}
 .aj{margin-top:24px}
 .aj h4{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--lap);margin-bottom:9px}
@@ -145,9 +211,17 @@ button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
 .niv .no{width:52px;flex:none;display:grid;place-items:center;
   font-family:var(--ser);font-size:calc(var(--h)*23px);border-right:1.5px solid var(--graf);color:var(--graf)}
 .niv .mid{flex:1;padding:12px 13px}
-.niv .tt{font-family:var(--ser);font-size:calc(var(--h)*18px);line-height:1.2}
-.niv .ds{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;
+.niv .tt{display:block;font-family:var(--ser);font-size:calc(var(--h)*18px);line-height:1.2}
+.niv .ds{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;
   color:var(--lap);margin-top:5px;text-transform:uppercase}
+.banda{display:flex;align-items:baseline;gap:9px;margin-top:26px;padding-bottom:6px;
+  border-bottom:1.5px solid var(--graf)}
+.banda .k{font-family:var(--ser);font-size:calc(var(--h)*21px);color:var(--carga)}
+.banda .n{font-family:var(--cond);font-size:14px;color:var(--graf);flex:1}
+.banda .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--lap);white-space:nowrap}
+.banda.pas .k{color:var(--ok)}
+.banda+ .niv{margin-top:10px}
+.bandaD{font-size:13.5px;line-height:1.45;color:var(--lap);margin-top:7px}
 .niv .st{width:56px;flex:none;display:grid;place-items:center;
   font-family:var(--mono);font-size:10px;color:var(--lap);border-left:1px solid var(--grid)}
 .niv.hecho{border-color:var(--ok)}
@@ -201,6 +275,12 @@ button.b:focus-visible{outline:2px solid var(--carga);outline-offset:2px}
   opacity:0;transform:translateY(8px);transition:.16s;pointer-events:none}
 #txPop.show{opacity:1;transform:none}
 #txPop b{font-family:var(--ser);font-size:calc(var(--h)*19px);color:#E8B4A0}
+.meta{margin-top:16px;padding:10px 13px;background:var(--carga);color:var(--hi);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px}
+.meta b{font-family:var(--ser);font-size:19px;letter-spacing:0;line-height:1}
+.meta .tira{flex:1;height:3px;background:rgba(255,255,255,.3);position:relative}
+.meta .tira i{position:absolute;left:0;top:0;bottom:0;background:var(--hi)}
 .busca{display:flex;gap:0;margin-top:16px;border:1.5px solid var(--graf)}
 .busca input{flex:1;border:0;background:var(--hi);padding:12px 13px;
   font-family:var(--ser);font-size:17px;color:var(--graf)}
@@ -247,6 +327,23 @@ td.f{cursor:pointer}
 .verb.open .body{display:block}
 .verb.now{border-color:var(--carga);border-width:2px}
 .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--carga);border:1px solid var(--carga);padding:2px 5px}
+.verb.cerr{opacity:.5}
+.verb.cerr>.top{cursor:default}
+.verb .llave{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--lap);border:1px dashed var(--lap);padding:2px 5px;white-space:nowrap}
+.vFil{margin-top:14px}
+.vFil .caja{display:flex;gap:8px;align-items:center}
+.vFil input{flex:1;background:var(--hi);border:1.5px solid var(--graf);padding:10px 11px;font-family:var(--cond);font-size:15px;color:var(--graf)}
+.vFil input::placeholder{color:var(--lap)}
+.vFil .borrar{background:transparent;border:1.5px solid var(--grid);padding:10px 12px;font-family:var(--mono);font-size:13px;color:var(--lap);cursor:pointer}
+.vYar{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.vYar button{background:transparent;border:1px solid var(--grid);padding:6px 9px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lap);cursor:pointer}
+.vYar button.on{border-color:var(--carga);color:var(--carga)}
+.vYar button b{font-weight:400;opacity:.6;margin-left:4px}
+.vCnt{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--lap);margin-top:11px}
+.vSep{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--carga);border-bottom:1px solid var(--grid);padding-bottom:5px;margin-top:26px}
+.vSep span{color:var(--lap);float:right;text-transform:none;letter-spacing:.06em}
+.vVacio{font-size:14.5px;line-height:1.5;color:var(--lap);margin-top:20px}
+.mark{background:var(--carga);color:var(--hi)}
 
 table{width:100%;border-collapse:collapse;margin-top:12px}
 td{padding:7px 4px;border-bottom:1px solid var(--grid);font-size:15px;vertical-align:baseline}
@@ -304,6 +401,7 @@ input.free:focus{outline:none;border-color:var(--carga)}
   <button data-go="ficha">Фраза</button>
   <button data-go="gram">Правила</button>
   <button data-go="verbos">Глаголы</button>
+  <button data-go="video">Видео</button>
   <button data-go="taller">Практика</button>
   <button data-go="ajustes" class="eng">⚙</button>
 </nav>
@@ -313,6 +411,18 @@ input.free:focus{outline:none;border-color:var(--carga)}
 <!-- ============ ПУТЬ ============ -->
 <section id="ruta" class="on">
   <div id="rutaLista">
+    <div class="hoy" id="hoyCaja">
+      <div class="cab">
+        <div class="fecha" id="hFecha">—</div>
+        <div class="pie2" id="hPie">—</div>
+      </div>
+      <ul id="hLista"></ul>
+      <div class="fin">
+        <div class="tira"><i id="hBar" style="width:0%"></i></div>
+        <p id="hTxt"></p>
+      </div>
+    </div>
+
     <div class="hdr">
       <div class="big" id="rTit">—</div>
       <div class="small" id="rSub">—</div>
@@ -329,6 +439,16 @@ input.free:focus{outline:none;border-color:var(--carga)}
 <!-- ============ НАСТРОЙКИ ============ -->
 <section id="ajustes">
   <div class="eyebrow"><span>ajustes</span><span>как это выглядит</span></div>
+
+  <div class="aj">
+    <h4>Нагрузка в день</h4>
+    <div class="fila" id="ajRitmo">
+      <button data-v="lite">Лёгкая</button>
+      <button data-v="normal">Обычная</button>
+      <button data-v="denso">Плотная</button>
+    </div>
+    <p class="corto" id="ajRitmoTxt" style="margin-top:9px">—</p>
+  </div>
 
   <div class="aj">
     <h4>Тема</h4>
@@ -379,13 +499,16 @@ input.free:focus{outline:none;border-color:var(--carga)}
   </div>
 
   <div class="aj">
-    <h4>Новых слов в день</h4>
+    <h4>Норма новых слов в день</h4>
     <div class="fila" id="ajNuevos">
       <button data-v="5">5</button>
       <button data-v="10">10</button>
       <button data-v="20">20</button>
       <button data-v="30">30</button>
     </div>
+    <p class="corto" style="margin-top:9px">Это минимум, а не потолок.
+      Пока норма не взята, вверху горит красный отсчёт. Взяли — он гаснет,
+      а учить дальше можно сколько угодно.</p>
   </div>
 
   <div class="aj">
@@ -443,7 +566,50 @@ input.free:focus{outline:none;border-color:var(--carga)}
 <!-- ============ ГЛАГОЛЫ ============ -->
 <section id="verbos">
   <div class="eyebrow"><span>verbos</span><span>таблицы спряжения</span></div>
+
+  <div class="vFil">
+    <div class="caja">
+      <input id="vBusca" type="search" placeholder="искать: pagar, платить, бетон…" autocomplete="off">
+      <button class="borrar" id="vNada">×</button>
+    </div>
+    <div class="vYar" id="vYar"></div>
+    <p class="vCnt" id="vCnt"></p>
+  </div>
+
   <div id="verbList"></div>
+</section>
+
+<!-- ============ ВИДЕО ============ -->
+<section id="video">
+  <div class="eyebrow"><span>vídeo</span><span>слушать и смотреть</span></div>
+
+  <div class="reloj">
+    <div class="big" id="oTot">0 ч 00 мин</div>
+    <div class="sub" id="oSub"></div>
+    <div class="tira"><i id="oBar" style="width:0%"></i></div>
+    <div class="bo">
+      <button id="oGo">▶ включить счётчик</button>
+      <button id="oCero" class="flaco">сброс</button>
+    </div>
+  </div>
+
+  <div class="vNiv" id="vNiv"></div>
+  <div id="vLista"></div>
+
+  <div class="voz">
+    <div class="eyebrow" style="margin:0 0 12px"><span>voz</span><span>прочитать и услышать себя</span></div>
+    <div class="fr" id="zFr">—</div>
+    <div class="ru" id="zRu"></div>
+    <div class="bo">
+      <button id="zRec">● записать</button>
+      <button id="zYo" disabled>▶ я</button>
+      <button id="zMod">▶ образец</button>
+    </div>
+    <div class="bo" style="margin-top:8px">
+      <button id="zOtra" class="flaco">другая фраза</button>
+    </div>
+    <p class="nota" id="zNota">Прочтите вслух, потом сравните себя с образцом. Запись никуда не уходит и стирается при выходе.</p>
+  </div>
 </section>
 
 <!-- ============ СОБРАТЬ ============ -->
@@ -491,6 +657,8 @@ input.free:focus{outline:none;border-color:var(--carga)}
       <button id="wdLimpia">✕</button>
     </div>
     <div id="wdHallaz"></div>
+
+    <div class="meta" id="wdMeta" hidden></div>
 
     <div id="wdEstudio">
       <div class="exSub" id="wdCaja" style="margin-top:18px">—</div>
@@ -549,7 +717,7 @@ const FRASES=[
  {e:"👋",t:"прощание",w:[["Hasta luego","устойчивое выражение"]],ru:"До скорого.",say:"áста луэ́го",n:"Самое частое прощание в Испании. Говорят даже незнакомым."}
 ];
 
-const VERBOS=[
+const RICOS=[
 {inf:"ser",tr:"быть — по сути",now:1,
  f:[["yo — я","soy","сой"],["tú — ты","eres","э́рес"],["él / ella — он, она","es","эс"],
     ["nosotros — мы","somos","сóмос"],["vosotros — вы","sois","сойс"],["ellos — они","son","сон"]],
@@ -629,6 +797,19 @@ const VERBOS=[
   ["Живое",["¡Vamos! — Пошли! Давай!","¿Cómo te va? — Как оно?"],"¡Vamos! в Испании слышится постоянно."]
  ]}
 ];
+
+/* ───────── 137 глаголов: ярусы частотности и ступень открытия ───────── */
+const VERBOS=[{"inf":"ser","tr":"быть — по сути","t":1,"p":1,"sp":"се́р","g":"er","f":[["yo","soy","со́й"],["tú","eres","э́рес"],["él / ella","es","э́с"],["nosotros","somos","со́мос"],["vosotros","sois","со́йс"],["ellos","son","со́н"]],"corto":"Постоянная суть: профессия, национальность, родство, характер.","largo":[["Примеры",["Soy ingeniero. — Я инженер.","Mi mujer es profesora. — Моя жена учительница.","Somos de Ucrania. — Мы из Украины."],""]]},{"inf":"tener","tr":"иметь","t":1,"p":3,"sp":"тене́р","g":"er","f":[["yo","tengo","те́нго"],["tú","tienes","тье́нес"],["él / ella","tiene","тье́не"],["nosotros","tenemos","тене́мос"],["vosotros","tenéis","тене́йс"],["ellos","tienen","тье́нен"]],"corto":"Возраст, владение, состояния: tengo hambre, tengo prisa, tengo frío.","largo":[["Примеры",["Tengo cuarenta y cinco años. — Мне сорок пять лет.","¿Tienes hijos? — У тебя есть дети?","Tenemos que terminar hoy. — Нам надо закончить сегодня."],""]]},{"inf":"estar","tr":"быть — где и как","t":1,"p":5,"sp":"эста́р","g":"ar","f":[["yo","estoy","эсто́й"],["tú","estás","эста́с"],["él / ella","está","эста́"],["nosotros","estamos","эста́мос"],["vosotros","estáis","эста́йс"],["ellos","están","эста́н"]],"corto":"Место и временное состояние. Soy alto — всегда. Estoy cansado — сейчас.","largo":[["Примеры",["Estoy en la obra. — Я на стройке.","¿Dónde está el baño? — Где туалет?","La tienda está cerrada. — Магазин закрыт."],""]]},{"inf":"hacer","tr":"делать","t":1,"p":6,"sp":"асе́р","g":"er","f":[["yo","hago","а́го"],["tú","haces","а́сес"],["él / ella","hace","а́се"],["nosotros","hacemos","асе́мос"],["vosotros","hacéis","асе́йс"],["ellos","hacen","а́сен"]],"corto":"Ещё и про погоду: hace frío, hace calor, hace sol.","largo":[["Примеры",["¿Qué haces? — Что ты делаешь?","Hago el presupuesto. — Я делаю смету.","Hoy hace mucho calor. — Сегодня очень жарко."],""]]},{"inf":"ir","tr":"идти, ехать","t":1,"p":6,"sp":"и́р","g":"ir","f":[["yo","voy","бо́й"],["tú","vas","ба́с"],["él / ella","va","ба́"],["nosotros","vamos","ба́мос"],["vosotros","vais","ба́йс"],["ellos","van","ба́н"]],"corto":"От инфинитива в формах не осталось ничего. ir + a + глагол = будущее в разговоре.","largo":[["Примеры",["Voy a Valencia. — Еду в Валенсию.","Voy a comprar pan. — Я куплю хлеб.","¡Vamos a empezar! — Начнём!"],""]]},{"inf":"poder","tr":"мочь","t":1,"p":6,"sp":"поде́р","g":"er","f":[["yo","puedo","пуэ́до"],["tú","puedes","пуэ́дес"],["él / ella","puede","пуэ́де"],["nosotros","podemos","поде́мос"],["vosotros","podéis","поде́йс"],["ellos","pueden","пуэ́ден"]],"corto":"С инфинитивом: puedo pagar. ¿Puede repetir? — выучить наизусть.","largo":[["Примеры",["¿Puedo pagar con tarjeta? — Могу заплатить картой?","¿Puede repetir, por favor? — Можете повторить?","No puedo ahora. — Сейчас не могу."],""]]},{"inf":"dar","tr":"давать","t":1,"p":8,"sp":"да́р","g":"ar","f":[["yo","doy","до́й"],["tú","das","да́с"],["él / ella","da","да́"],["nosotros","damos","да́мос"],["vosotros","dais","да́йс"],["ellos","dan","да́н"]],"corto":"Da igual — «всё равно». Dar un paseo — прогуляться.","largo":[["Примеры",["Te doy los documentos. — Даю тебе документы.","Me da igual. — Мне всё равно.","La ventana da a la calle. — Окно выходит на улицу."],""]]},{"inf":"decir","tr":"говорить, сказать","t":1,"p":8,"sp":"деси́р","g":"ir","f":[["yo","digo","ди́го"],["tú","dices","ди́сес"],["él / ella","dice","ди́се"],["nosotros","decimos","деси́мос"],["vosotros","decís","деси́с"],["ellos","dicen","ди́сен"]],"corto":"Не путать с hablar: hablar — владеть речью, decir — сообщать содержание.","largo":[["Примеры",["¿Cómo se dice en español? — Как это по-испански?","Digo la verdad. — Я говорю правду.","Dice que llega tarde. — Он говорит, что опоздает."],""]]},{"inf":"ver","tr":"видеть, смотреть","t":1,"p":8,"sp":"бе́р","g":"er","f":[["yo","veo","бе́о"],["tú","ves","бе́с"],["él / ella","ve","бе́"],["nosotros","vemos","бе́мос"],["vosotros","veis","бе́йс"],["ellos","ven","бе́н"]],"corto":"A ver — «посмотрим, ну-ка». Звучит в разговоре постоянно.","largo":[["Примеры",["No veo nada. — Я ничего не вижу.","¿Ves el plano? — Видишь чертёж?","Nos vemos mañana. — Увидимся завтра."],""]]},{"inf":"haber","tr":"иметься; вспомогательный","t":1,"p":11,"sp":"абе́р","g":"er","f":[["yo","he","э́"],["tú","has","а́с"],["él / ella","ha","а́"],["nosotros","hemos","э́мос"],["vosotros","habéis","абе́йс"],["ellos","han","а́н"]],"corto":"Безличная форма hay — «есть, имеется». Сам глагол нужен для прошедшего: he trabajado.","largo":[["Примеры",["Hay mucha gente. — Много людей.","¿Hay algo para mí? — Есть что-нибудь для меня?","He terminado el informe. — Я закончил отчёт."],""]]},{"inf":"hablar","tr":"говорить","t":2,"p":4,"sp":"абла́р","g":"ar","f":[["yo","hablo","а́бло"],["tú","hablas","а́блас"],["él / ella","habla","а́бла"],["nosotros","hablamos","абла́мос"],["vosotros","habláis","абла́йс"],["ellos","hablan","а́блан"]],"corto":"Hablo un poco — и испанец сбавит темп.","largo":[["Примеры",["¿Hablas español? — Ты говоришь по-испански?","Hablo un poco. — Я немного говорю."],""]]},{"inf":"llamar","tr":"звать, звонить","t":2,"p":4,"sp":"йама́р","g":"ar","f":[["yo","llamo","йа́мо"],["tú","llamas","йа́мас"],["él / ella","llama","йа́ма"],["nosotros","llamamos","йама́мос"],["vosotros","llamáis","йама́йс"],["ellos","llaman","йа́ман"]],"corto":"Llamarse — называться: me llamo Serhii.","largo":[["Примеры",["Me llamo Serhii. — Меня зовут Сергей.","Te llamo mañana. — Позвоню тебе завтра."],""]]},{"inf":"querer","tr":"хотеть, любить","t":2,"p":6,"sp":"кере́р","g":"er","f":[["yo","quiero","кье́ро"],["tú","quieres","кье́рес"],["él / ella","quiere","кье́ре"],["nosotros","queremos","кере́мос"],["vosotros","queréis","кере́йс"],["ellos","quieren","кье́рен"]],"corto":"Quería вместо quiero звучит вежливее — так заказывают.","largo":[["Примеры",["Quiero hablar español. — Хочу говорить по-испански.","Te quiero. — Я тебя люблю."],""]]},{"inf":"llegar","tr":"приходить, прибывать","t":2,"p":7,"sp":"йега́р","g":"ar","f":[["yo","llego","йе́го"],["tú","llegas","йе́гас"],["él / ella","llega","йе́га"],["nosotros","llegamos","йега́мос"],["vosotros","llegáis","йега́йс"],["ellos","llegan","йе́ган"]],"corto":"Llegar tarde — опоздать. Llegar a — добраться до.","largo":[["Примеры",["El tren llega a las ocho. — Поезд приходит в восемь.","Llego tarde, perdón. — Я опаздываю, извините."],""]]},{"inf":"pasar","tr":"проходить, случаться","t":2,"p":7,"sp":"паса́р","g":"ar","f":[["yo","paso","па́со"],["tú","pasas","па́сас"],["él / ella","pasa","па́са"],["nosotros","pasamos","паса́мос"],["vosotros","pasáis","паса́йс"],["ellos","pasan","па́сан"]],"corto":"¿Qué pasa? — что происходит. Pasar по смыслу очень широкий.","largo":[["Примеры",["¿Qué pasa? — Что случилось?","Pase, por favor. — Проходите, пожалуйста."],""]]},{"inf":"saber","tr":"знать (факт), уметь","t":2,"p":8,"sp":"сабе́р","g":"er","f":[["yo","sé","се́"],["tú","sabes","са́бес"],["él / ella","sabe","са́бе"],["nosotros","sabemos","сабе́мос"],["vosotros","sabéis","сабе́йс"],["ellos","saben","са́бен"]],"corto":"Факты и умения. Знать человека или место — conocer.","largo":[["Примеры",["No sé dónde está. — Не знаю, где это.","¿Sabes conducir? — Умеешь водить?"],""]]},{"inf":"creer","tr":"верить, считать","t":2,"p":9,"sp":"крее́р","g":"er","f":[["yo","creo","кре́о"],["tú","crees","кре́ес"],["él / ella","cree","кре́е"],["nosotros","creemos","крее́мос"],["vosotros","creéis","крее́йс"],["ellos","creen","кре́ен"]],"corto":"Creo que — «думаю, что». Мягче, чем pienso que.","largo":[["Примеры",["Creo que sí. — Думаю, да.","No creo que sea difícil. — Не думаю, что это трудно."],""]]},{"inf":"deber","tr":"быть должным","t":2,"p":9,"sp":"дебе́р","g":"er","f":[["yo","debo","де́бо"],["tú","debes","де́бес"],["él / ella","debe","де́бе"],["nosotros","debemos","дебе́мос"],["vosotros","debéis","дебе́йс"],["ellos","deben","де́бен"]],"corto":"Debo + инфинитив — моральный долг. Tengo que — внешняя необходимость.","largo":[["Примеры",["Debo revisar las medidas. — Я должен проверить размеры.","Debes descansar. — Тебе надо отдохнуть."],""]]},{"inf":"encontrar","tr":"находить","t":2,"p":9,"sp":"энконтра́р","g":"ar","f":[["yo","encuentro","энкуэ́нтро"],["tú","encuentras","энкуэ́нтрас"],["él / ella","encuentra","энкуэ́нтра"],["nosotros","encontramos","энконтра́мос"],["vosotros","encontráis","энконтра́йс"],["ellos","encuentran","энкуэ́нтран"]],"corto":"Encontrarse — встречаться; а ещё «чувствовать себя».","largo":[["Примеры",["No encuentro las llaves. — Не нахожу ключи.","¿Dónde encuentro una farmacia? — Где найти аптеку?"],""]]},{"inf":"llevar","tr":"нести, везти; носить","t":2,"p":9,"sp":"йеба́р","g":"ar","f":[["yo","llevo","йе́бо"],["tú","llevas","йе́бас"],["él / ella","lleva","йе́ба"],["nosotros","llevamos","йеба́мос"],["vosotros","lleváis","йеба́йс"],["ellos","llevan","йе́бан"]],"corto":"Llevo tres meses aquí — «я здесь уже три месяца».","largo":[["Примеры",["Llevo las herramientas. — Я несу инструменты.","Llevo tres meses en España. — Я три месяца в Испании."],""]]},{"inf":"poner","tr":"класть, ставить","t":2,"p":9,"sp":"поне́р","g":"er","f":[["yo","pongo","по́нго"],["tú","pones","по́нес"],["él / ella","pone","по́не"],["nosotros","ponemos","поне́мос"],["vosotros","ponéis","поне́йс"],["ellos","ponen","по́нен"]],"corto":"Ponerse — надевать, становиться. Me pongo la chaqueta.","largo":[["Примеры",["Pongo la firma aquí. — Ставлю подпись здесь.","¿Dónde pongo esto? — Куда это положить?"],""]]},{"inf":"dejar","tr":"оставлять; позволять","t":2,"p":10,"sp":"деха́р","g":"ar","f":[["yo","dejo","де́хо"],["tú","dejas","де́хас"],["él / ella","deja","де́ха"],["nosotros","dejamos","деха́мос"],["vosotros","dejáis","деха́йс"],["ellos","dejan","де́хан"]],"corto":"Déjame — оставь меня, дай мне. Dejar de — перестать.","largo":[["Примеры",["Dejo el coche aquí. — Оставляю машину здесь.","Déjame ver. — Дай посмотреть."],""]]},{"inf":"parecer","tr":"казаться","t":2,"p":10,"sp":"паресе́р","g":"er","f":[["yo","parezco","паре́ско"],["tú","pareces","паре́сес"],["él / ella","parece","паре́се"],["nosotros","parecemos","паресе́мос"],["vosotros","parecéis","паресе́йс"],["ellos","parecen","паре́сен"]],"corto":"¿Qué te parece? — как тебе, что думаешь. Очень частый оборот.","largo":[["Примеры",["Me parece bien. — По-моему, хорошо.","¿Qué te parece el proyecto? — Как тебе проект?"],""]]},{"inf":"quedar","tr":"оставаться; договариваться","t":2,"p":10,"sp":"кеда́р","g":"ar","f":[["yo","quedo","ке́до"],["tú","quedas","ке́дас"],["él / ella","queda","ке́да"],["nosotros","quedamos","кеда́мос"],["vosotros","quedáis","кеда́йс"],["ellos","quedan","ке́дан"]],"corto":"Quedamos a las cinco — договорились на пять. Quedan dos días — осталось два дня.","largo":[["Примеры",["Quedan dos semanas. — Осталось две недели.","Quedamos mañana. — Договорились на завтра."],""]]},{"inf":"seguir","tr":"следовать, продолжать","t":2,"p":10,"sp":"сеги́р","g":"ir","f":[["yo","sigo","си́го"],["tú","sigues","си́гес"],["él / ella","sigue","си́ге"],["nosotros","seguimos","сеги́мос"],["vosotros","seguís","сеги́с"],["ellos","siguen","си́ген"]],"corto":"Sigue recto — иди прямо. Sigo trabajando — продолжаю работать.","largo":[["Примеры",["Siga recto, por favor. — Идите прямо, пожалуйста.","Sigo estudiando español. — Я продолжаю учить испанский."],""]]},{"inf":"escribir","tr":"писать","t":3,"p":4,"sp":"эскриби́р","g":"ir","f":[["yo","escribo","эскри́бо"],["tú","escribes","эскри́бес"],["él / ella","escribe","эскри́бе"],["nosotros","escribimos","эскриби́мос"],["vosotros","escribís","эскриби́с"],["ellos","escriben","эскри́бен"]],"corto":"Тот же хвост, что у vivir и abrir — группа -ir.","largo":[["Примеры",["Escribo el informe. — Я пишу отчёт.","¿Me escribes mañana? — Напишешь мне завтра?"],""]]},{"inf":"trabajar","tr":"работать","t":3,"p":4,"sp":"трабаха́р","g":"ar","f":[["yo","trabajo","траба́хо"],["tú","trabajas","траба́хас"],["él / ella","trabaja","траба́ха"],["nosotros","trabajamos","трабаха́мос"],["vosotros","trabajáis","трабаха́йс"],["ellos","trabajan","траба́хан"]],"corto":"Группа -ar — 80 % всех испанских глаголов. Выучили хвост — умеете тысячу.","largo":[["Примеры",["Trabajo en construcción. — Я работаю в строительстве.","¿Dónde trabajas? — Где ты работаешь?"],""]]},{"inf":"vivir","tr":"жить","t":3,"p":4,"sp":"биби́р","g":"ir","f":[["yo","vivo","би́бо"],["tú","vives","би́бес"],["él / ella","vive","би́бе"],["nosotros","vivimos","биби́мос"],["vosotros","vivís","биби́с"],["ellos","viven","би́бен"]],"corto":"V читается как Б: пишем vivo, говорим «бибо».","largo":[["Примеры",["Vivo en Meliana. — Я живу в Мельяне.","Vivimos aquí desde agosto. — Мы живём здесь с августа."],""]]},{"inf":"buscar","tr":"искать","t":3,"p":8,"sp":"буска́р","g":"ar","f":[["yo","busco","бу́ско"],["tú","buscas","бу́скас"],["él / ella","busca","бу́ска"],["nosotros","buscamos","буска́мос"],["vosotros","buscáis","буска́йс"],["ellos","buscan","бу́скан"]],"corto":"Предлог не нужен: busco trabajo, а не busco para trabajo.","largo":[["Примеры",["Busco trabajo. — Я ищу работу.","¿Qué buscas? — Что ты ищешь?"],""]]},{"inf":"entrar","tr":"входить","t":3,"p":8,"sp":"энтра́р","g":"ar","f":[["yo","entro","э́нтро"],["tú","entras","э́нтрас"],["él / ella","entra","э́нтра"],["nosotros","entramos","энтра́мос"],["vosotros","entráis","энтра́йс"],["ellos","entran","э́нтран"]],"corto":"Entrar en — войти во что-то. В Латинской Америке entrar a.","largo":[["Примеры",["Entro en la oficina. — Я вхожу в офис.","¿Puedo entrar? — Можно войти?"],""]]},{"inf":"esperar","tr":"ждать; надеяться","t":3,"p":8,"sp":"эспера́р","g":"ar","f":[["yo","espero","эспе́ро"],["tú","esperas","эспе́рас"],["él / ella","espera","эспе́ра"],["nosotros","esperamos","эспера́мос"],["vosotros","esperáis","эспера́йс"],["ellos","esperan","эспе́ран"]],"corto":"Два значения сразу: espero el autobús и espero que sí.","largo":[["Примеры",["Espere un momento. — Подождите минуту.","Espero que todo salga bien. — Надеюсь, всё получится."],""]]},{"inf":"mirar","tr":"смотреть","t":3,"p":8,"sp":"мира́р","g":"ar","f":[["yo","miro","ми́ро"],["tú","miras","ми́рас"],["él / ella","mira","ми́ра"],["nosotros","miramos","мира́мос"],["vosotros","miráis","мира́йс"],["ellos","miran","ми́ран"]],"corto":"Ver — видеть вообще, mirar — направленно смотреть.","largo":[["Примеры",["Mira este plano. — Посмотри на этот чертёж.","Miro los precios. — Я смотрю цены."],""]]},{"inf":"tomar","tr":"брать; пить","t":3,"p":8,"sp":"тома́р","g":"ar","f":[["yo","tomo","то́мо"],["tú","tomas","то́мас"],["él / ella","toma","то́ма"],["nosotros","tomamos","тома́мос"],["vosotros","tomáis","тома́йс"],["ellos","toman","то́ман"]],"corto":"В баре заказывают через tomar: ¿Qué vas a tomar?","largo":[["Примеры",["Tomo un café. — Я выпью кофе.","Toma, es tuyo. — Держи, это твоё."],""]]},{"inf":"empezar","tr":"начинать","t":3,"p":9,"sp":"эмпеса́р","g":"ar","f":[["yo","empiezo","эмпье́со"],["tú","empiezas","эмпье́сас"],["él / ella","empieza","эмпье́са"],["nosotros","empezamos","эмпеса́мос"],["vosotros","empezáis","эмпеса́йс"],["ellos","empiezan","эмпье́сан"]],"corto":"Empezar a + инфинитив: empiezo a entender.","largo":[["Примеры",["Empezamos a las ocho. — Начинаем в восемь.","Empiezo a entender. — Я начинаю понимать."],""]]},{"inf":"entender","tr":"понимать","t":3,"p":9,"sp":"энтенде́р","g":"er","f":[["yo","entiendo","энтье́ндо"],["tú","entiendes","энтье́ндес"],["él / ella","entiende","энтье́нде"],["nosotros","entendemos","энтенде́мос"],["vosotros","entendéis","энтенде́йс"],["ellos","entienden","энтье́нден"]],"corto":"No entiendo — первая фраза, которую надо знать наизусть.","largo":[["Примеры",["No entiendo nada. — Я ничего не понимаю.","¿Me entiendes? — Ты меня понимаешь?"],""]]},{"inf":"pensar","tr":"думать","t":3,"p":9,"sp":"пенса́р","g":"ar","f":[["yo","pienso","пье́нсо"],["tú","piensas","пье́нсас"],["él / ella","piensa","пье́нса"],["nosotros","pensamos","пенса́мос"],["vosotros","pensáis","пенса́йс"],["ellos","piensan","пье́нсан"]],"corto":"Pensar en — думать о. Pensar que — считать, что.","largo":[["Примеры",["Pienso que es buena idea. — Думаю, это хорошая мысль.","¿En qué piensas? — О чём думаешь?"],""]]},{"inf":"recibir","tr":"получать","t":3,"p":9,"sp":"ресиби́р","g":"ir","f":[["yo","recibo","реси́бо"],["tú","recibes","реси́бес"],["él / ella","recibe","реси́бе"],["nosotros","recibimos","ресиби́мос"],["vosotros","recibís","ресиби́с"],["ellos","reciben","реси́бен"]],"corto":"Recibo — не только «получаю», но и квитанция.","largo":[["Примеры",["Recibo el pago mañana. — Получу оплату завтра.","¿Has recibido mi mensaje? — Ты получил моё сообщение?"],""]]},{"inf":"salir","tr":"выходить","t":3,"p":9,"sp":"сали́р","g":"ir","f":[["yo","salgo","са́лго"],["tú","sales","са́лес"],["él / ella","sale","са́ле"],["nosotros","salimos","сали́мос"],["vosotros","salís","сали́с"],["ellos","salen","са́лен"]],"corto":"Salir con — встречаться с кем-то. Salir bien — удаться.","largo":[["Примеры",["Salgo a las seis. — Я выхожу в шесть.","La obra sale cara. — Стройка выходит дорогой."],""]]},{"inf":"venir","tr":"приходить","t":3,"p":9,"sp":"бени́р","g":"ir","f":[["yo","vengo","бе́нго"],["tú","vienes","бье́нес"],["él / ella","viene","бье́не"],["nosotros","venimos","бени́мос"],["vosotros","venís","бени́с"],["ellos","vienen","бье́нен"]],"corto":"Ir — отсюда туда, venir — оттуда сюда, к говорящему.","largo":[["Примеры",["Vengo de la obra. — Я иду со стройки.","¿Vienes conmigo? — Пойдёшь со мной?"],""]]},{"inf":"conocer","tr":"знать (человека, место)","t":3,"p":10,"sp":"коносе́р","g":"er","f":[["yo","conozco","коно́ско"],["tú","conoces","коно́сес"],["él / ella","conoce","коно́се"],["nosotros","conocemos","коносе́мос"],["vosotros","conocéis","коносе́йс"],["ellos","conocen","коно́сен"]],"corto":"Saber — факты, conocer — знакомство. Conozco Valencia.","largo":[["Примеры",["Conozco a tu jefe. — Я знаю твоего начальника.","No conozco esta zona. — Я не знаю этот район."],""]]},{"inf":"contar","tr":"считать; рассказывать","t":3,"p":10,"sp":"конта́р","g":"ar","f":[["yo","cuento","куэ́нто"],["tú","cuentas","куэ́нтас"],["él / ella","cuenta","куэ́нта"],["nosotros","contamos","конта́мос"],["vosotros","contáis","конта́йс"],["ellos","cuentan","куэ́нтан"]],"corto":"Contar con — рассчитывать на кого-то.","largo":[["Примеры",["Cuento las horas. — Я считаю часы.","Cuenta conmigo. — Рассчитывай на меня."],""]]},{"inf":"pedir","tr":"просить, заказывать","t":3,"p":10,"sp":"педи́р","g":"ir","f":[["yo","pido","пи́до"],["tú","pides","пи́дес"],["él / ella","pide","пи́де"],["nosotros","pedimos","педи́мос"],["vosotros","pedís","педи́с"],["ellos","piden","пи́ден"]],"corto":"Preguntar — задать вопрос, pedir — попросить вещь.","largo":[["Примеры",["Pido un café. — Я прошу кофе.","Te pido un favor. — Прошу тебя об одолжении."],""]]},{"inf":"perder","tr":"терять; проигрывать","t":3,"p":10,"sp":"перде́р","g":"er","f":[["yo","pierdo","пье́рдо"],["tú","pierdes","пье́рдес"],["él / ella","pierde","пье́рде"],["nosotros","perdemos","перде́мос"],["vosotros","perdéis","перде́йс"],["ellos","pierden","пье́рден"]],"corto":"Perder el tren — опоздать на поезд, а не потерять его.","largo":[["Примеры",["Pierdo mucho tiempo. — Я теряю много времени.","He perdido las llaves. — Я потерял ключи."],""]]},{"inf":"volver","tr":"возвращаться","t":3,"p":10,"sp":"болбе́р","g":"er","f":[["yo","vuelvo","буэ́лбо"],["tú","vuelves","буэ́лбес"],["él / ella","vuelve","буэ́лбе"],["nosotros","volvemos","болбе́мос"],["vosotros","volvéis","болбе́йс"],["ellos","vuelven","буэ́лбен"]],"corto":"Volver a + инфинитив — сделать что-то снова.","largo":[["Примеры",["Vuelvo en diez minutos. — Вернусь через десять минут.","Vuelvo a leer el plano. — Перечитываю чертёж."],""]]},{"inf":"existir","tr":"существовать","t":3,"p":11,"sp":"эксисти́р","g":"ir","f":[["yo","existo","экси́сто"],["tú","existes","экси́стес"],["él / ella","existe","экси́сте"],["nosotros","existimos","эксисти́мос"],["vosotros","existís","эксисти́с"],["ellos","existen","экси́стен"]],"corto":"Правильный -ir, без сюрпризов.","largo":[["Примеры",["Existe una norma para esto. — На это есть норма.","No existe tal palabra. — Такого слова не существует."],""]]},{"inf":"ocurrir","tr":"случаться","t":3,"p":11,"sp":"окурри́р","g":"ir","f":[["yo","ocurro","оку́рро"],["tú","ocurres","оку́ррес"],["él / ella","ocurre","оку́рре"],["nosotros","ocurrimos","окурри́мос"],["vosotros","ocurrís","окурри́с"],["ellos","ocurren","оку́ррен"]],"corto":"Обычно в третьем лице: ocurre algo, ¿qué ocurre?","largo":[["Примеры",["¿Qué ocurre? — Что происходит?","No ocurre nada. — Ничего не случилось."],""]]},{"inf":"recordar","tr":"помнить, напоминать","t":3,"p":11,"sp":"рекорда́р","g":"ar","f":[["yo","recuerdo","рекуэ́рдо"],["tú","recuerdas","рекуэ́рдас"],["él / ella","recuerda","рекуэ́рда"],["nosotros","recordamos","рекорда́мос"],["vosotros","recordáis","рекорда́йс"],["ellos","recuerdan","рекуэ́рдан"]],"corto":"Recordar — помнить. Acordarse de — вспоминать.","largo":[["Примеры",["No recuerdo su nombre. — Не помню его имени.","Te recuerdo la cita. — Напоминаю тебе о встрече."],""]]},{"inf":"sentir","tr":"чувствовать","t":3,"p":11,"sp":"сенти́р","g":"ir","f":[["yo","siento","сье́нто"],["tú","sientes","сье́нтес"],["él / ella","siente","сье́нте"],["nosotros","sentimos","сенти́мос"],["vosotros","sentís","сенти́с"],["ellos","sienten","сье́нтен"]],"corto":"Lo siento — «сожалею, извините». Самое частое применение.","largo":[["Примеры",["Lo siento mucho. — Мне очень жаль.","Me siento bien. — Я чувствую себя хорошо."],""]]},{"inf":"tratar","tr":"обращаться; пытаться","t":3,"p":11,"sp":"трата́р","g":"ar","f":[["yo","trato","тра́то"],["tú","tratas","тра́тас"],["él / ella","trata","тра́та"],["nosotros","tratamos","трата́мос"],["vosotros","tratáis","трата́йс"],["ellos","tratan","тра́тан"]],"corto":"Tratar de + инфинитив — пытаться. Se trata de — речь идёт о.","largo":[["Примеры",["Trato de entender. — Я пытаюсь понять.","Se trata del presupuesto. — Речь о смете."],""]]},{"inf":"producir","tr":"производить, вызывать","t":3,"p":12,"sp":"продуси́р","g":"ir","f":[["yo","produzco","проду́ско"],["tú","produces","проду́сес"],["él / ella","produce","проду́се"],["nosotros","producimos","продуси́мос"],["vosotros","producís","продуси́с"],["ellos","producen","проду́сен"]],"corto":"Yo produzco — вставная z, как у conocer.","largo":[["Примеры",["La obra produce mucho ruido. — Стройка производит много шума.","Producimos los planos aquí. — Мы делаем чертежи здесь."],""]]},{"inf":"abrir","tr":"открывать","t":4,"p":12,"sp":"абри́р","g":"ir","f":[["yo","abro","а́бро"],["tú","abres","а́брес"],["él / ella","abre","а́бре"],["nosotros","abrimos","абри́мос"],["vosotros","abrís","абри́с"],["ellos","abren","а́брен"]],"corto":"Причастие неправильное: abierto, а не abrido.","largo":[["Примеры",["¿A qué hora abren? — Во сколько открываете?","Abro la puerta. — Открываю дверь."],""]]},{"inf":"aprender","tr":"учить, осваивать","t":4,"p":12,"sp":"апренде́р","g":"er","f":[["yo","aprendo","апре́ндо"],["tú","aprendes","апре́ндес"],["él / ella","aprende","апре́нде"],["nosotros","aprendemos","апренде́мос"],["vosotros","aprendéis","апренде́йс"],["ellos","aprenden","апре́нден"]],"corto":"Aprender a + инфинитив — научиться что-то делать.","largo":[["Примеры",["Aprendo despacio pero aprendo. — Учусь медленно, но учусь.","Quiero aprender a conducir aquí. — Хочу научиться водить здесь."],""]]},{"inf":"cambiar","tr":"менять","t":4,"p":12,"sp":"камбья́р","g":"ar","f":[["yo","cambio","ка́мбьо"],["tú","cambias","ка́мбьяс"],["él / ella","cambia","ка́мбья"],["nosotros","cambiamos","камбья́мос"],["vosotros","cambiáis","камбья́йс"],["ellos","cambian","ка́мбьян"]],"corto":"Cambiar de — сменить что-то: cambio de trabajo.","largo":[["Примеры",["Cambio el material. — Меняю материал.","Han cambiado el plazo. — Срок изменили."],""]]},{"inf":"comenzar","tr":"начинать","t":4,"p":12,"sp":"коменса́р","g":"ar","f":[["yo","comienzo","комье́нсо"],["tú","comienzas","комье́нсас"],["él / ella","comienza","комье́нса"],["nosotros","comenzamos","коменса́мос"],["vosotros","comenzáis","коменса́йс"],["ellos","comienzan","комье́нсан"]],"corto":"Книжнее, чем empezar, но устроен так же.","largo":[["Примеры",["Comienza la reunión. — Начинается совещание.","Comenzamos el lunes. — Начинаем в понедельник."],""]]},{"inf":"estudiar","tr":"учиться, изучать","t":4,"p":12,"sp":"эстудья́р","g":"ar","f":[["yo","estudio","эсту́дьо"],["tú","estudias","эсту́дьяс"],["él / ella","estudia","эсту́дья"],["nosotros","estudiamos","эстудья́мос"],["vosotros","estudiáis","эстудья́йс"],["ellos","estudian","эсту́дьян"]],"corto":"Estudiar español — учить испанский. Aprender — осваивать.","largo":[["Примеры",["Estudio español cada día. — Я учу испанский каждый день.","Mi hija estudia aquí. — Моя дочь учится здесь."],""]]},{"inf":"leer","tr":"читать","t":4,"p":12,"sp":"лее́р","g":"er","f":[["yo","leo","ле́о"],["tú","lees","ле́ес"],["él / ella","lee","ле́е"],["nosotros","leemos","лее́мос"],["vosotros","leéis","лее́йс"],["ellos","leen","ле́ен"]],"corto":"Правильный -er, но в прошедшем даёт leyó — с буквой y.","largo":[["Примеры",["Leo los planos. — Я читаю чертежи.","¿Lees en español? — Ты читаешь по-испански?"],""]]},{"inf":"necesitar","tr":"нуждаться","t":4,"p":12,"sp":"несесита́р","g":"ar","f":[["yo","necesito","несеси́то"],["tú","necesitas","несеси́тас"],["él / ella","necesita","несеси́та"],["nosotros","necesitamos","несесита́мос"],["vosotros","necesitáis","несесита́йс"],["ellos","necesitan","несеси́тан"]],"corto":"Necesito + существительное или инфинитив, без предлога.","largo":[["Примеры",["Necesito el certificado. — Мне нужна справка.","Necesito hablar con el jefe. — Мне надо поговорить с начальником."],""]]},{"inf":"preguntar","tr":"спрашивать","t":4,"p":12,"sp":"прегунта́р","g":"ar","f":[["yo","pregunto","прегу́нто"],["tú","preguntas","прегу́нтас"],["él / ella","pregunta","прегу́нта"],["nosotros","preguntamos","прегунта́мос"],["vosotros","preguntáis","прегунта́йс"],["ellos","preguntan","прегу́нтан"]],"corto":"Preguntar — задать вопрос. Pedir — попросить вещь.","largo":[["Примеры",["Pregunto al administrador. — Спрошу у управляющего.","¿Puedo preguntar algo? — Можно спросить?"],""]]},{"inf":"terminar","tr":"заканчивать","t":4,"p":12,"sp":"термина́р","g":"ar","f":[["yo","termino","терми́но"],["tú","terminas","терми́нас"],["él / ella","termina","терми́на"],["nosotros","terminamos","термина́мос"],["vosotros","termináis","термина́йс"],["ellos","terminan","терми́нан"]],"corto":"Terminar de + инфинитив — закончить делать что-то.","largo":[["Примеры",["Terminamos en junio. — Заканчиваем в июне.","¿Has terminado? — Ты закончил?"],""]]},{"inf":"acabar","tr":"заканчивать","t":4,"p":13,"sp":"акаба́р","g":"ar","f":[["yo","acabo","ака́бо"],["tú","acabas","ака́бас"],["él / ella","acaba","ака́ба"],["nosotros","acabamos","акаба́мос"],["vosotros","acabáis","акаба́йс"],["ellos","acaban","ака́бан"]],"corto":"Acabar de + инфинитив — только что сделать: acabo de llegar.","largo":[["Примеры",["Acabo de llegar. — Я только что приехал.","Acabamos la obra en mayo. — Заканчиваем стройку в мае."],""]]},{"inf":"aceptar","tr":"принимать, соглашаться","t":4,"p":13,"sp":"асепта́р","g":"ar","f":[["yo","acepto","асе́пто"],["tú","aceptas","асе́птас"],["él / ella","acepta","асе́пта"],["nosotros","aceptamos","асепта́мос"],["vosotros","aceptáis","асепта́йс"],["ellos","aceptan","асе́птан"]],"corto":"¿Aceptan tarjeta? — самый ходовой вопрос на кассе.","largo":[["Примеры",["¿Aceptan tarjeta? — Карты принимаете?","Acepto las condiciones. — Принимаю условия."],""]]},{"inf":"aparecer","tr":"появляться","t":4,"p":13,"sp":"апаресе́р","g":"er","f":[["yo","aparezco","апаре́ско"],["tú","apareces","апаре́сес"],["él / ella","aparece","апаре́се"],["nosotros","aparecemos","апаресе́мос"],["vosotros","aparecéis","апаресе́йс"],["ellos","aparecen","апаре́сен"]],"corto":"Yo aparezco — та же вставная z.","largo":[["Примеры",["Aparece en el plano. — Это есть на чертеже.","No aparece en la lista. — В списке его нет."],""]]},{"inf":"comprender","tr":"понимать","t":4,"p":13,"sp":"компренде́р","g":"er","f":[["yo","comprendo","компре́ндо"],["tú","comprendes","компре́ндес"],["él / ella","comprende","компре́нде"],["nosotros","comprendemos","компренде́мос"],["vosotros","comprendéis","компренде́йс"],["ellos","comprenden","компре́нден"]],"corto":"Книжнее, чем entender, но правильный и без смены корня.","largo":[["Примеры",["No comprendo la norma. — Я не понимаю норму.","¿Comprendes? — Понимаешь?"],""]]},{"inf":"conseguir","tr":"добиваться, доставать","t":4,"p":13,"sp":"консеги́р","g":"ir","f":[["yo","consigo","конси́го"],["tú","consigues","конси́гес"],["él / ella","consigue","конси́ге"],["nosotros","conseguimos","консеги́мос"],["vosotros","conseguís","консеги́с"],["ellos","consiguen","конси́ген"]],"corto":"Conseguir + инфинитив — суметь что-то сделать.","largo":[["Примеры",["Consigo el permiso mañana. — Завтра получу разрешение.","No consigo entenderlo. — Не могу этого понять."],""]]},{"inf":"explicar","tr":"объяснять","t":4,"p":13,"sp":"эксплика́р","g":"ar","f":[["yo","explico","экспли́ко"],["tú","explicas","экспли́кас"],["él / ella","explica","экспли́ка"],["nosotros","explicamos","эксплика́мос"],["vosotros","explicáis","эксплика́йс"],["ellos","explican","экспли́кан"]],"corto":"¿Me lo explica otra vez? — «объясните ещё раз».","largo":[["Примеры",["Te explico el plano. — Объясняю тебе чертёж.","¿Me lo explica otra vez? — Объясните ещё раз?"],""]]},{"inf":"ganar","tr":"выигрывать, зарабатывать","t":4,"p":13,"sp":"гана́р","g":"ar","f":[["yo","gano","га́но"],["tú","ganas","га́нас"],["él / ella","gana","га́на"],["nosotros","ganamos","гана́мос"],["vosotros","ganáis","гана́йс"],["ellos","ganan","га́нан"]],"corto":"Ganar tiempo — выиграть время. Ganarse la vida — зарабатывать на жизнь.","largo":[["Примеры",["Ganamos tiempo así. — Так мы выигрываем время.","¿Cuánto gana un albañil? — Сколько зарабатывает каменщик?"],""]]},{"inf":"permitir","tr":"разрешать","t":4,"p":13,"sp":"пермити́р","g":"ir","f":[["yo","permito","перми́то"],["tú","permites","перми́тес"],["él / ella","permite","перми́те"],["nosotros","permitimos","пермити́мос"],["vosotros","permitís","пермити́с"],["ellos","permiten","перми́тен"]],"corto":"¿Me permite? — «разрешите?» в вежливой ситуации.","largo":[["Примеры",["No permiten entrar sin casco. — Без каски не пускают.","¿Me permite pasar? — Разрешите пройти?"],""]]},{"inf":"presentar","tr":"представлять, подавать","t":4,"p":13,"sp":"пресента́р","g":"ar","f":[["yo","presento","пресе́нто"],["tú","presentas","пресе́нтас"],["él / ella","presenta","пресе́нта"],["nosotros","presentamos","пресента́мос"],["vosotros","presentáis","пресента́йс"],["ellos","presentan","пресе́нтан"]],"corto":"Presentar documentos — подать документы. Нужное слово в мэрии.","largo":[["Примеры",["Presento los documentos hoy. — Сегодня подаю документы.","Te presento a mi mujer. — Знакомься, моя жена."],""]]},{"inf":"sacar","tr":"доставать, вынимать","t":4,"p":13,"sp":"сака́р","g":"ar","f":[["yo","saco","са́ко"],["tú","sacas","са́кас"],["él / ella","saca","са́ка"],["nosotros","sacamos","сака́мос"],["vosotros","sacáis","сака́йс"],["ellos","sacan","са́кан"]],"corto":"Sacar fotos — фотографировать. Sacar cita — записаться на приём.","largo":[["Примеры",["Saco cita en el médico. — Записываюсь к врачу.","Saca las herramientas. — Доставай инструменты."],""]]},{"inf":"servir","tr":"служить, годиться","t":4,"p":13,"sp":"серби́р","g":"ir","f":[["yo","sirvo","си́рбо"],["tú","sirves","си́рбес"],["él / ella","sirve","си́рбе"],["nosotros","servimos","серби́мос"],["vosotros","servís","серби́с"],["ellos","sirven","си́рбен"]],"corto":"¿Para qué sirve? — «для чего это?». Частый вопрос на стройке.","largo":[["Примеры",["¿Para qué sirve esto? — Для чего это?","No sirve, está roto. — Не годится, сломано."],""]]},{"inf":"caer","tr":"падать","t":4,"p":14,"sp":"кае́р","g":"er","f":[["yo","caigo","ка́йго"],["tú","caes","ка́ес"],["él / ella","cae","ка́е"],["nosotros","caemos","кае́мос"],["vosotros","caéis","кае́йс"],["ellos","caen","ка́ен"]],"corto":"Caerse — свалиться. Me caigo — я падаю.","largo":[["Примеры",["Cuidado, se cae. — Осторожно, падает.","Me cae bien tu jefe. — Твой начальник мне симпатичен."],""]]},{"inf":"crear","tr":"создавать","t":4,"p":14,"sp":"креа́р","g":"ar","f":[["yo","creo","кре́о"],["tú","creas","кре́ас"],["él / ella","crea","кре́а"],["nosotros","creamos","креа́мос"],["vosotros","creáis","креа́йс"],["ellos","crean","кре́ан"]],"corto":"Правильный -ar, ударение на последний слог инфинитива.","largo":[["Примеры",["Creamos una empresa. — Мы создаём фирму.","Esto crea problemas. — Это создаёт проблемы."],""]]},{"inf":"mantener","tr":"поддерживать, содержать","t":4,"p":14,"sp":"мантене́р","g":"er","f":[["yo","mantengo","манте́нго"],["tú","mantienes","мантье́нес"],["él / ella","mantiene","мантье́не"],["nosotros","mantenemos","мантене́мос"],["vosotros","mantenéis","мантене́йс"],["ellos","mantienen","мантье́нен"]],"corto":"Устроен как tener — он от него и происходит.","largo":[["Примеры",["Mantengo la distancia. — Соблюдаю дистанцию.","Hay que mantener el edificio. — Здание надо содержать."],""]]},{"inf":"oír","tr":"слышать","t":4,"p":14,"sp":"ои́р","g":"ir","f":[["yo","oigo","о́йго"],["tú","oyes","о́йес"],["él / ella","oye","о́йе"],["nosotros","oímos","ои́мос"],["vosotros","oís","ои́с"],["ellos","oyen","о́йен"]],"corto":"Oye — «слушай», способ окликнуть. Oír — слышать, escuchar — слушать.","largo":[["Примеры",["No oigo nada. — Я ничего не слышу.","Oye, ¿tienes un momento? — Слушай, есть минутка?"],""]]},{"inf":"resultar","tr":"оказываться, выходить","t":4,"p":14,"sp":"ресулта́р","g":"ar","f":[["yo","resulto","ресу́лто"],["tú","resultas","ресу́лтас"],["él / ella","resulta","ресу́лта"],["nosotros","resultamos","ресулта́мос"],["vosotros","resultáis","ресулта́йс"],["ellos","resultan","ресу́лтан"]],"corto":"Resulta que — «оказывается, что».","largo":[["Примеры",["Resulta más caro. — Выходит дороже.","Resulta que no hay permiso. — Оказывается, разрешения нет."],""]]},{"inf":"tocar","tr":"трогать; играть","t":4,"p":14,"sp":"тока́р","g":"ar","f":[["yo","toco","то́ко"],["tú","tocas","то́кас"],["él / ella","toca","то́ка"],["nosotros","tocamos","тока́мос"],["vosotros","tocáis","тока́йс"],["ellos","tocan","то́кан"]],"corto":"Me toca a mí — «моя очередь». Tocar la guitarra — играть на гитаре.","largo":[["Примеры",["No toques eso. — Не трогай это.","Ahora me toca a mí. — Теперь моя очередь."],""]]},{"inf":"traer","tr":"приносить","t":4,"p":14,"sp":"трае́р","g":"er","f":[["yo","traigo","тра́йго"],["tú","traes","тра́ес"],["él / ella","trae","тра́е"],["nosotros","traemos","трае́мос"],["vosotros","traéis","трае́йс"],["ellos","traen","тра́ен"]],"corto":"Llevar — унести отсюда, traer — принести сюда.","largo":[["Примеры",["Traigo los papeles. — Я принёс бумаги.","¿Me traes un café? — Принесёшь мне кофе?"],""]]},{"inf":"considerar","tr":"считать, рассматривать","t":4,"p":15,"sp":"консидера́р","g":"ar","f":[["yo","considero","консиде́ро"],["tú","consideras","консиде́рас"],["él / ella","considera","консиде́ра"],["nosotros","consideramos","консидера́мос"],["vosotros","consideráis","консидера́йс"],["ellos","consideran","консиде́ран"]],"corto":"Книжный оттенок — уместен в письмах и отчётах.","largo":[["Примеры",["Considero que es correcto. — Считаю, что это верно.","Vamos a considerar la oferta. — Рассмотрим предложение."],""]]},{"inf":"convertir","tr":"превращать","t":4,"p":15,"sp":"конберти́р","g":"ir","f":[["yo","convierto","конбье́рто"],["tú","conviertes","конбье́ртес"],["él / ella","convierte","конбье́рте"],["nosotros","convertimos","конберти́мос"],["vosotros","convertís","конберти́с"],["ellos","convierten","конбье́ртен"]],"corto":"Convertirse en — превратиться во что-то.","largo":[["Примеры",["Convertimos el local en oficina. — Превращаем помещение в офис.","Se convierte en problema. — Это превращается в проблему."],""]]},{"inf":"lograr","tr":"достигать, суметь","t":4,"p":15,"sp":"логра́р","g":"ar","f":[["yo","logro","ло́гро"],["tú","logras","ло́грас"],["él / ella","logra","ло́гра"],["nosotros","logramos","логра́мос"],["vosotros","lográis","логра́йс"],["ellos","logran","ло́гран"]],"corto":"Lograr + инфинитив — суметь сделать.","largo":[["Примеры",["Logramos terminar a tiempo. — Нам удалось закончить вовремя.","No logro entenderlo. — Никак не пойму."],""]]},{"inf":"morir","tr":"умирать","t":4,"p":15,"sp":"мори́р","g":"ir","f":[["yo","muero","муэ́ро"],["tú","mueres","муэ́рес"],["él / ella","muere","муэ́ре"],["nosotros","morimos","мори́мос"],["vosotros","morís","мори́с"],["ellos","mueren","муэ́рен"]],"corto":"Me muero de hambre — «умираю с голоду», обычное преувеличение.","largo":[["Примеры",["Me muero de hambre. — Умираю с голоду.","La planta se muere. — Растение гибнет."],""]]},{"inf":"realizar","tr":"выполнять, осуществлять","t":4,"p":15,"sp":"реалиса́р","g":"ar","f":[["yo","realizo","реали́со"],["tú","realizas","реали́сас"],["él / ella","realiza","реали́са"],["nosotros","realizamos","реалиса́мос"],["vosotros","realizáis","реалиса́йс"],["ellos","realizan","реали́сан"]],"corto":"Не «реализовать» в смысле «осознать» — это ложный друг.","largo":[["Примеры",["Realizamos los trabajos. — Мы выполняем работы.","Se realiza en dos fases. — Выполняется в два этапа."],""]]},{"inf":"reconocer","tr":"узнавать, признавать","t":4,"p":15,"sp":"реконосе́р","g":"er","f":[["yo","reconozco","реконо́ско"],["tú","reconoces","реконо́сес"],["él / ella","reconoce","реконо́се"],["nosotros","reconocemos","реконосе́мос"],["vosotros","reconocéis","реконосе́йс"],["ellos","reconocen","реконо́сен"]],"corto":"Reconocer el título — признать диплом. Ваше слово при гомологации.","largo":[["Примеры",["No te reconocí. — Я тебя не узнал.","Reconocen mi título. — Мой диплом признают."],""]]},{"inf":"suponer","tr":"предполагать","t":4,"p":15,"sp":"супоне́р","g":"er","f":[["yo","supongo","супо́нго"],["tú","supones","супо́нес"],["él / ella","supone","супо́не"],["nosotros","suponemos","супоне́мос"],["vosotros","suponéis","супоне́йс"],["ellos","suponen","супо́нен"]],"corto":"Supongo que sí — «думаю, да». Устроен как poner.","largo":[["Примеры",["Supongo que sí. — Полагаю, да.","Supone un gasto grande. — Это предполагает большие расходы."],""]]},{"inf":"dirigir","tr":"руководить, направлять","t":4,"p":16,"sp":"дирихи́р","g":"ir","f":[["yo","dirijo","дири́хо"],["tú","diriges","дири́хес"],["él / ella","dirige","дири́хе"],["nosotros","dirigimos","дирихи́мос"],["vosotros","dirigís","дирихи́с"],["ellos","dirigen","дири́хен"]],"corto":"Yo dirijo — g меняется на j перед o.","largo":[["Примеры",["Dirijo la obra. — Я руковожу стройкой.","Dirige la empresa. — Он руководит фирмой."],""]]},{"inf":"beber","tr":"пить","t":5,"p":7,"sp":"бебе́р","g":"er","f":[["yo","bebo","бе́бо"],["tú","bebes","бе́бес"],["él / ella","bebe","бе́бе"],["nosotros","bebemos","бебе́мос"],["vosotros","bebéis","бебе́йс"],["ellos","beben","бе́бен"]],"corto":"В баре чаще скажут tomar: voy a tomar algo.","largo":[["Примеры",["Bebo mucha agua. — Я пью много воды.","¿Qué bebes? — Что ты пьёшь?"],""]]},{"inf":"cerrar","tr":"закрывать","t":5,"p":7,"sp":"серра́р","g":"ar","f":[["yo","cierro","сье́рро"],["tú","cierras","сье́ррас"],["él / ella","cierra","сье́рра"],["nosotros","cerramos","серра́мос"],["vosotros","cerráis","серра́йс"],["ellos","cierran","сье́рран"]],"corto":"¿A qué hora cierran? — спасает от сиесты.","largo":[["Примеры",["¿A qué hora cierran? — Во сколько закрываете?","Cierro la puerta. — Закрываю дверь."],""]]},{"inf":"comer","tr":"есть","t":5,"p":7,"sp":"коме́р","g":"er","f":[["yo","como","ко́мо"],["tú","comes","ко́мес"],["él / ella","come","ко́ме"],["nosotros","comemos","коме́мос"],["vosotros","coméis","коме́йс"],["ellos","comen","ко́мен"]],"corto":"В Испании la comida — это обед, около двух часов дня.","largo":[["Примеры",["Comemos a las dos. — Мы обедаем в два.","¿Comes carne? — Ты ешь мясо?"],""]]},{"inf":"comprar","tr":"покупать","t":5,"p":7,"sp":"компра́р","g":"ar","f":[["yo","compro","ко́мпро"],["tú","compras","ко́мпрас"],["él / ella","compra","ко́мпра"],["nosotros","compramos","компра́мос"],["vosotros","compráis","компра́йс"],["ellos","compran","ко́мпран"]],"corto":"Правильный -ar. Compra — покупка, la compra — покупки в магазине.","largo":[["Примеры",["Compro pan cada día. — Я покупаю хлеб каждый день.","¿Dónde compras la fruta? — Где ты покупаешь фрукты?"],""]]},{"inf":"pagar","tr":"платить","t":5,"p":7,"sp":"пага́р","g":"ar","f":[["yo","pago","па́го"],["tú","pagas","па́гас"],["él / ella","paga","па́га"],["nosotros","pagamos","пага́мос"],["vosotros","pagáis","пага́йс"],["ellos","pagan","па́ган"]],"corto":"Предлог не нужен: pago el billete, а не pago por el billete.","largo":[["Примеры",["Pago con tarjeta. — Плачу картой.","¿Quién paga? — Кто платит?"],""]]},{"inf":"gustar","tr":"нравиться","t":5,"p":10,"sp":"густа́р","g":"ar","f":[["yo","gusto","гу́сто"],["tú","gustas","гу́стас"],["él / ella","gusta","гу́ста"],["nosotros","gustamos","густа́мос"],["vosotros","gustáis","густа́йс"],["ellos","gustan","гу́стан"]],"corto":"Работает наоборот: не «я люблю кофе», а «мне нравится кофе» — me gusta el café.","largo":[["Примеры",["Me gusta Valencia. — Мне нравится Валенсия.","Nos gustan las fallas. — Нам нравятся фальяс."],""]]},{"inf":"ayudar","tr":"помогать","t":5,"p":12,"sp":"айуда́р","g":"ar","f":[["yo","ayudo","айу́до"],["tú","ayudas","айу́дас"],["él / ella","ayuda","айу́да"],["nosotros","ayudamos","айуда́мос"],["vosotros","ayudáis","айуда́йс"],["ellos","ayudan","айу́дан"]],"corto":"Ayudar a + человек: te ayudo, ayudo a mi hijo.","largo":[["Примеры",["¿Te ayudo? — Помочь тебе?","Ayudo a mi vecino. — Помогаю соседу."],""]]},{"inf":"usar","tr":"использовать","t":5,"p":12,"sp":"уса́р","g":"ar","f":[["yo","uso","у́со"],["tú","usas","у́сас"],["él / ella","usa","у́са"],["nosotros","usamos","уса́мос"],["vosotros","usáis","уса́йс"],["ellos","usan","у́сан"]],"corto":"Usar и utilizar — одно и то же, второе книжнее.","largo":[["Примеры",["Uso este programa. — Я пользуюсь этой программой.","¿Puedo usar tu teléfono? — Можно твой телефон?"],""]]},{"inf":"repetir","tr":"повторять","t":5,"p":13,"sp":"репети́р","g":"ir","f":[["yo","repito","репи́то"],["tú","repites","репи́тес"],["él / ella","repite","репи́те"],["nosotros","repetimos","репети́мос"],["vosotros","repetís","репети́с"],["ellos","repiten","репи́тен"]],"corto":"¿Puede repetir? — вежливее, чем «no entiendo».","largo":[["Примеры",["¿Puede repetir? — Можете повторить?","Repito la pregunta. — Повторяю вопрос."],""]]},{"inf":"vender","tr":"продавать","t":5,"p":13,"sp":"бенде́р","g":"er","f":[["yo","vendo","бе́ндо"],["tú","vendes","бе́ндес"],["él / ella","vende","бе́нде"],["nosotros","vendemos","бенде́мос"],["vosotros","vendéis","бенде́йс"],["ellos","venden","бе́нден"]],"corto":"Se vende — «продаётся», надпись на объявлениях.","largo":[["Примеры",["Vendo el coche. — Продаю машину.","Se vende piso. — Продаётся квартира."],""]]},{"inf":"cocinar","tr":"готовить еду","t":5,"p":14,"sp":"косина́р","g":"ar","f":[["yo","cocino","коси́но"],["tú","cocinas","коси́нас"],["él / ella","cocina","коси́на"],["nosotros","cocinamos","косина́мос"],["vosotros","cocináis","косина́йс"],["ellos","cocinan","коси́нан"]],"corto":"Cocina — и кухня, и готовка.","largo":[["Примеры",["Mi mujer cocina muy bien. — Моя жена отлично готовит.","Hoy cocino yo. — Сегодня готовлю я."],""]]},{"inf":"correr","tr":"бегать","t":5,"p":14,"sp":"корре́р","g":"er","f":[["yo","corro","ко́рро"],["tú","corres","ко́ррес"],["él / ella","corre","ко́рре"],["nosotros","corremos","корре́мос"],["vosotros","corréis","корре́йс"],["ellos","corren","ко́ррен"]],"corto":"Corre prisa — «срочно». Правильный -er.","largo":[["Примеры",["Corro por la mañana. — Я бегаю по утрам.","No corre prisa. — Не к спеху."],""]]},{"inf":"dormir","tr":"спать","t":5,"p":14,"sp":"дорми́р","g":"ir","f":[["yo","duermo","дуэ́рмо"],["tú","duermes","дуэ́рмес"],["él / ella","duerme","дуэ́рме"],["nosotros","dormimos","дорми́мос"],["vosotros","dormís","дорми́с"],["ellos","duermen","дуэ́рмен"]],"corto":"Dormirse — засыпать. Me duermo — я засыпаю.","largo":[["Примеры",["Duermo poco. — Я мало сплю.","Los niños duermen ya. — Дети уже спят."],""]]},{"inf":"jugar","tr":"играть","t":5,"p":14,"sp":"хуга́р","g":"ar","f":[["yo","juego","хуэ́го"],["tú","juegas","хуэ́гас"],["él / ella","juega","хуэ́га"],["nosotros","jugamos","хуга́мос"],["vosotros","jugáis","хуга́йс"],["ellos","juegan","хуэ́ган"]],"corto":"Единственный глагол со сменой u → ue.","largo":[["Примеры",["Mi hijo juega al fútbol. — Мой сын играет в футбол.","Jugamos los domingos. — Мы играем по воскресеньям."],""]]},{"inf":"limpiar","tr":"убирать, чистить","t":5,"p":14,"sp":"лимпья́р","g":"ar","f":[["yo","limpio","ли́мпьо"],["tú","limpias","ли́мпьяс"],["él / ella","limpia","ли́мпья"],["nosotros","limpiamos","лимпья́мос"],["vosotros","limpiáis","лимпья́йс"],["ellos","limpian","ли́мпьян"]],"corto":"Limpieza — уборка; limpio — чистый.","largo":[["Примеры",["Limpio la casa los sábados. — Убираю дом по субботам.","Hay que limpiar la obra. — Стройку надо убрать."],""]]},{"inf":"doler","tr":"болеть (о части тела)","t":5,"p":16,"sp":"доле́р","g":"er","f":[["yo","duelo","дуэ́ло"],["tú","dueles","дуэ́лес"],["él / ella","duele","дуэ́ле"],["nosotros","dolemos","доле́мос"],["vosotros","doléis","доле́йс"],["ellos","duelen","дуэ́лен"]],"corto":"Работает как gustar: me duele la cabeza — «мне болит голова».","largo":[["Примеры",["Me duele la espalda. — У меня болит спина.","¿Qué te duele? — Что у тебя болит?"],""]]},{"inf":"faltar","tr":"не хватать, отсутствовать","t":5,"p":16,"sp":"фалта́р","g":"ar","f":[["yo","falto","фа́лто"],["tú","faltas","фа́лтас"],["él / ella","falta","фа́лта"],["nosotros","faltamos","фалта́мос"],["vosotros","faltáis","фалта́йс"],["ellos","faltan","фа́лтан"]],"corto":"Falta una semana — остаётся неделя. Falta material — не хватает материала.","largo":[["Примеры",["Falta material. — Не хватает материала.","Faltan dos días. — Осталось два дня."],""]]},{"inf":"importar","tr":"иметь значение","t":5,"p":16,"sp":"импорта́р","g":"ar","f":[["yo","importo","импо́рто"],["tú","importas","импо́ртас"],["él / ella","importa","импо́рта"],["nosotros","importamos","импорта́мос"],["vosotros","importáis","импорта́йс"],["ellos","importan","импо́ртан"]],"corto":"No importa — «неважно». ¿Te importa? — «ты не против?»","largo":[["Примеры",["No importa. — Неважно.","¿Te importa si abro? — Не против, если открою?"],""]]},{"inf":"llover","tr":"идти (о дожде)","t":5,"p":16,"sp":"йобе́р","g":"er","f":[["yo","lluevo","йуэ́бо"],["tú","llueves","йуэ́бес"],["él / ella","llueve","йуэ́бе"],["nosotros","llovemos","йобе́мос"],["vosotros","llovéis","йобе́йс"],["ellos","llueven","йуэ́бен"]],"corto":"Только в третьем лице: llueve. Как и nieva — идёт снег.","largo":[["Примеры",["Llueve mucho hoy. — Сегодня сильный дождь.","Si llueve, no trabajamos. — Если дождь, не работаем."],""]]},{"inf":"valer","tr":"стоить, годиться","t":5,"p":16,"sp":"бале́р","g":"er","f":[["yo","valgo","ба́лго"],["tú","vales","ба́лес"],["él / ella","vale","ба́ле"],["nosotros","valemos","бале́мос"],["vosotros","valéis","бале́йс"],["ellos","valen","ба́лен"]],"corto":"Отсюда и знаменитое vale — «ладно, годится».","largo":[["Примеры",["¿Cuánto vale? — Сколько стоит?","No vale la pena. — Не стоит того."],""]]},{"inf":"vestir","tr":"одевать","t":5,"p":16,"sp":"бести́р","g":"ir","f":[["yo","visto","би́сто"],["tú","vistes","би́стес"],["él / ella","viste","би́сте"],["nosotros","vestimos","бести́мос"],["vosotros","vestís","бести́с"],["ellos","visten","би́стен"]],"corto":"Vestirse — одеваться: me visto rápido.","largo":[["Примеры",["Me visto en cinco minutos. — Одеваюсь за пять минут.","Viste de negro. — Он одевается в чёрное."],""]]},{"inf":"alcanzar","tr":"достигать, хватать","t":5,"p":17,"sp":"алканса́р","g":"ar","f":[["yo","alcanzo","алка́нсо"],["tú","alcanzas","алка́нсас"],["él / ella","alcanza","алка́нса"],["nosotros","alcanzamos","алканса́мос"],["vosotros","alcanzáis","алканса́йс"],["ellos","alcanzan","алка́нсан"]],"corto":"No alcanza — «не хватает», о деньгах или времени.","largo":[["Примеры",["No alcanza el dinero. — Денег не хватает.","Alcanzamos el objetivo. — Мы достигли цели."],""]]},{"inf":"caber","tr":"помещаться","t":5,"p":17,"sp":"кабе́р","g":"er","f":[["yo","quepo","ке́по"],["tú","cabes","ка́бес"],["él / ella","cabe","ка́бе"],["nosotros","cabemos","кабе́мос"],["vosotros","cabéis","кабе́йс"],["ellos","caben","ка́бен"]],"corto":"Yo quepo — форма, которую не угадать, её просто заучивают.","largo":[["Примеры",["No cabe en el coche. — Не влезает в машину.","¿Cabemos todos? — Мы все поместимся?"],""]]},{"inf":"elegir","tr":"выбирать","t":5,"p":17,"sp":"элехи́р","g":"ir","f":[["yo","elejo","эле́хо"],["tú","eliges","эли́хес"],["él / ella","elige","эли́хе"],["nosotros","elegimos","элехи́мос"],["vosotros","elegís","элехи́с"],["ellos","eligen","эли́хен"]],"corto":"Yo elijo — g переходит в j, как у dirigir.","largo":[["Примеры",["Elijo el material. — Выбираю материал.","¿Qué eliges? — Что выбираешь?"],""]]},{"inf":"nacer","tr":"рождаться","t":5,"p":17,"sp":"насе́р","g":"er","f":[["yo","nazco","на́ско"],["tú","naces","на́сес"],["él / ella","nace","на́се"],["nosotros","nacemos","насе́мос"],["vosotros","nacéis","насе́йс"],["ellos","nacen","на́сен"]],"corto":"Yo nazco — вставная z, как у conocer.","largo":[["Примеры",["Nací en Járkov. — Я родился в Харькове.","Mi hija nació aquí. — Моя дочь родилась здесь."],""]]},{"inf":"soler","tr":"иметь обыкновение","t":5,"p":17,"sp":"соле́р","g":"er","f":[["yo","suelo","суэ́ло"],["tú","sueles","суэ́лес"],["él / ella","suele","суэ́ле"],["nosotros","solemos","соле́мос"],["vosotros","soléis","соле́йс"],["ellos","suelen","суэ́лен"]],"corto":"Suelo + инфинитив — «обычно я делаю». Нет точного русского аналога.","largo":[["Примеры",["Suelo levantarme a las seis. — Обычно я встаю в шесть.","Aquí suele llover en otoño. — Здесь осенью обычно дождливо."],""]]},{"inf":"atreverse","tr":"осмеливаться","t":5,"p":18,"sp":"атребе́рсе","g":"er","f":[["yo","me atrevo","ме атре́бо"],["tú","te atreves","те атре́бес"],["él / ella","se atreve","се атре́бе"],["nosotros","nos atrevemos","нос атребе́мос"],["vosotros","os atrevéis","ос атребе́йс"],["ellos","se atreven","се атре́бен"]],"corto":"Только с se: atreverse a + инфинитив. No me atrevo — не решаюсь.","largo":[["Примеры",["No me atrevo a hablar. — Я не решаюсь говорить.","¿Te atreves? — Решишься?"],""]]},{"inf":"quejarse","tr":"жаловаться","t":5,"p":18,"sp":"кеха́рсе","g":"ar","f":[["yo","me quejo","ме ке́хо"],["tú","te quejas","те ке́хас"],["él / ella","se queja","се ке́ха"],["nosotros","nos quejamos","нос кеха́мос"],["vosotros","os quejáis","ос кеха́йс"],["ellos","se quejan","се ке́хан"]],"corto":"Только с se: quejarse de. Hoja de reclamaciones — книга жалоб, по закону есть в каждом заведении.","largo":[["Примеры",["Me quejo del ruido. — Жалуюсь на шум.","Se queja del vecino. — Он жалуется на соседа."],""]]},{"inf":"acordar","tr":"договариваться; помнить","t":5,"p":19,"sp":"акорда́р","g":"ar","f":[["yo","acuerdo","акуэ́рдо"],["tú","acuerdas","акуэ́рдас"],["él / ella","acuerda","акуэ́рда"],["nosotros","acordamos","акорда́мос"],["vosotros","acordáis","акорда́йс"],["ellos","acuerdan","акуэ́рдан"]],"corto":"Acordar — договориться. Acordarse de — помнить о чём-то: no me acuerdo.","largo":[["Примеры",["No me acuerdo del nombre. — Не помню имени.","Acordamos el precio. — Мы договорились о цене."],""]]},{"inf":"atender","tr":"обслуживать, заниматься","t":5,"p":19,"sp":"атенде́р","g":"er","f":[["yo","atiendo","атье́ндо"],["tú","atiendes","атье́ндес"],["él / ella","atiende","атье́нде"],["nosotros","atendemos","атенде́мос"],["vosotros","atendéis","атенде́йс"],["ellos","atienden","атье́нден"]],"corto":"¿Quién atiende? — «кто обслуживает?». В конторе и в баре одинаково.","largo":[["Примеры",["Ahora le atiendo. — Сейчас вами займусь.","Atiende a los clientes. — Он обслуживает клиентов."],""]]},{"inf":"advertir","tr":"предупреждать","t":5,"p":20,"sp":"адберти́р","g":"ir","f":[["yo","advierto","адбье́рто"],["tú","adviertes","адбье́ртес"],["él / ella","advierte","адбье́рте"],["nosotros","advertimos","адберти́мос"],["vosotros","advertís","адберти́с"],["ellos","advierten","адбье́ртен"]],"corto":"Te advierto — предупреждаю. В документах: se advierte que.","largo":[["Примеры",["Te advierto del riesgo. — Предупреждаю о риске.","Ya se lo advertí. — Я его уже предупредил."],""]]},{"inf":"exigir","tr":"требовать","t":5,"p":20,"sp":"эксихи́р","g":"ir","f":[["yo","exijo","экси́хо"],["tú","exiges","экси́хес"],["él / ella","exige","экси́хе"],["nosotros","exigimos","эксихи́мос"],["vosotros","exigís","эксихи́с"],["ellos","exigen","экси́хен"]],"corto":"Yo exijo — g переходит в j. La norma exige — норма требует.","largo":[["Примеры",["La norma exige dos salidas. — Норма требует два выхода.","Exijo una respuesta. — Я требую ответа."],""]]},{"inf":"construir","tr":"строить","t":6,"p":6,"sp":"конструи́р","g":"ir","f":[["yo","construyo","констру́йо"],["tú","construyes","констру́йес"],["él / ella","construye","констру́йе"],["nosotros","construimos","конструи́мос"],["vosotros","construís","конструи́с"],["ellos","construyen","констру́йен"]],"corto":"Глаголы на -uir вставляют y: construyo, incluyo, destruyo.","largo":[["Примеры",["Construimos un edificio nuevo. — Мы строим новое здание.","¿Quién construye aquí? — Кто здесь строит?"],""]]},{"inf":"ejecutar","tr":"выполнять (работы)","t":6,"p":6,"sp":"эхекута́р","g":"ar","f":[["yo","ejecuto","эхеку́то"],["tú","ejecutas","эхеку́тас"],["él / ella","ejecuta","эхеку́та"],["nosotros","ejecutamos","эхекута́мос"],["vosotros","ejecutáis","эхекута́йс"],["ellos","ejecutan","эхеку́тан"]],"corto":"Ejecución de obra — производство работ. Ключевой термин договора.","largo":[["Примеры",["Ejecutamos la obra en dos fases. — Выполняем работы в два этапа.","La empresa ejecuta el proyecto. — Фирма выполняет проект."],""]]},{"inf":"firmar","tr":"подписывать","t":6,"p":7,"sp":"фирма́р","g":"ar","f":[["yo","firmo","фи́рмо"],["tú","firmas","фи́рмас"],["él / ella","firma","фи́рма"],["nosotros","firmamos","фирма́мос"],["vosotros","firmáis","фирма́йс"],["ellos","firman","фи́рман"]],"corto":"Firma — подпись. Firmar el acta — подписать акт.","largo":[["Примеры",["Firmo el acta hoy. — Сегодня подписываю акт.","¿Quién firma el contrato? — Кто подписывает договор?"],""]]},{"inf":"revisar","tr":"проверять","t":6,"p":7,"sp":"ребиса́р","g":"ar","f":[["yo","reviso","реби́со"],["tú","revisas","реби́сас"],["él / ella","revisa","реби́са"],["nosotros","revisamos","ребиса́мос"],["vosotros","revisáis","ребиса́йс"],["ellos","revisan","реби́сан"]],"corto":"Revisión — проверка, осмотр, также техосмотр машины.","largo":[["Примеры",["Reviso las medidas. — Проверяю размеры.","Hay que revisar el plano. — Чертёж надо проверить."],""]]},{"inf":"medir","tr":"измерять","t":6,"p":8,"sp":"меди́р","g":"ir","f":[["yo","mido","ми́до"],["tú","mides","ми́дес"],["él / ella","mide","ми́де"],["nosotros","medimos","меди́мос"],["vosotros","medís","меди́с"],["ellos","miden","ми́ден"]],"corto":"Medición — обмер. Mediciones y presupuesto — обмеры и смета.","largo":[["Примеры",["Mido la pared. — Я измеряю стену.","¿Cuánto mide el local? — Какая площадь помещения?"],""]]},{"inf":"instalar","tr":"устанавливать","t":6,"p":9,"sp":"инстала́р","g":"ar","f":[["yo","instalo","инста́ло"],["tú","instalas","инста́лас"],["él / ella","instala","инста́ла"],["nosotros","instalamos","инстала́мос"],["vosotros","instaláis","инстала́йс"],["ellos","instalan","инста́лан"]],"corto":"Instalación — и установка, и инженерная система здания.","largo":[["Примеры",["Instalamos la climatización. — Монтируем климатику.","Instalo un filtro en la cocina. — Ставлю фильтр на кухне."],""]]},{"inf":"montar","tr":"монтировать, собирать","t":6,"p":9,"sp":"монта́р","g":"ar","f":[["yo","monto","мо́нто"],["tú","montas","мо́нтас"],["él / ella","monta","мо́нта"],["nosotros","montamos","монта́мос"],["vosotros","montáis","монта́йс"],["ellos","montan","мо́нтан"]],"corto":"Montaje — монтаж. Montar un andamio — собрать леса.","largo":[["Примеры",["Montamos el andamio mañana. — Завтра ставим леса.","¿Sabes montar esto? — Умеешь это собирать?"],""]]},{"inf":"pintar","tr":"красить","t":6,"p":9,"sp":"пинта́р","g":"ar","f":[["yo","pinto","пи́нто"],["tú","pintas","пи́нтас"],["él / ella","pinta","пи́нта"],["nosotros","pintamos","пинта́мос"],["vosotros","pintáis","пинта́йс"],["ellos","pintan","пи́нтан"]],"corto":"Pintura — и краска, и живопись. Pintor — маляр.","largo":[["Примеры",["Pintamos la fachada. — Красим фасад.","¿De qué color pintas? — В какой цвет красишь?"],""]]},{"inf":"reparar","tr":"ремонтировать","t":6,"p":9,"sp":"репара́р","g":"ar","f":[["yo","reparo","репа́ро"],["tú","reparas","репа́рас"],["él / ella","repara","репа́ра"],["nosotros","reparamos","репара́мос"],["vosotros","reparáis","репара́йс"],["ellos","reparan","репа́ран"]],"corto":"Reparación — ремонт. Reforma — перепланировка, более крупная работа.","largo":[["Примеры",["Reparo la tubería. — Чиню трубу.","Hay que reparar el tejado. — Крышу надо отремонтировать."],""]]},{"inf":"excavar","tr":"вести земляные работы","t":6,"p":12,"sp":"экскаба́р","g":"ar","f":[["yo","excavo","экска́бо"],["tú","excavas","экска́бас"],["él / ella","excava","экска́ба"],["nosotros","excavamos","экскаба́мос"],["vosotros","excaváis","экскаба́йс"],["ellos","excavan","экска́бан"]],"corto":"Excavadora — экскаватор; excavación — выемка грунта.","largo":[["Примеры",["Excavamos hasta dos metros. — Копаем до двух метров.","Mañana empiezan a excavar. — Завтра начинают копать."],""]]},{"inf":"reformar","tr":"перестраивать, делать ремонт","t":6,"p":12,"sp":"реформа́р","g":"ar","f":[["yo","reformo","рефо́рмо"],["tú","reformas","рефо́рмас"],["él / ella","reforma","рефо́рма"],["nosotros","reformamos","реформа́мос"],["vosotros","reformáis","реформа́йс"],["ellos","reforman","рефо́рман"]],"corto":"Reforma integral — капитальный ремонт под ключ. Частое слово в объявлениях.","largo":[["Примеры",["Reformamos el piso entero. — Делаем ремонт всей квартиры.","La reforma dura tres meses. — Ремонт длится три месяца."],""]]},{"inf":"demoler","tr":"сносить","t":6,"p":13,"sp":"демоле́р","g":"er","f":[["yo","demuelo","демуэ́ло"],["tú","demueles","демуэ́лес"],["él / ella","demuele","демуэ́ле"],["nosotros","demolemos","демоле́мос"],["vosotros","demoléis","демоле́йс"],["ellos","demuelen","демуэ́лен"]],"corto":"Demolición — снос. Derribo — то же самое, чаще в документах.","largo":[["Примеры",["Demolemos el muro interior. — Сносим внутреннюю стену.","El edificio se demuele en mayo. — Здание сносят в мае."],""]]},{"inf":"soldar","tr":"сваривать","t":6,"p":13,"sp":"солда́р","g":"ar","f":[["yo","sueldo","суэ́лдо"],["tú","sueldas","суэ́лдас"],["él / ella","suelda","суэ́лда"],["nosotros","soldamos","солда́мос"],["vosotros","soldáis","солда́йс"],["ellos","sueldan","суэ́лдан"]],"corto":"Soldadura — сварка, сварной шов. Корень меняется: suelda.","largo":[["Примеры",["Suelda bien las uniones. — Хорошо провари стыки.","Soldamos la estructura. — Варим конструкцию."],""]]},{"inf":"aislar","tr":"изолировать, утеплять","t":6,"p":14,"sp":"айсла́р","g":"ar","f":[["yo","aíslo","аи́сло"],["tú","aíslas","аи́слас"],["él / ella","aísla","аи́сла"],["nosotros","aislamos","айсла́мос"],["vosotros","aisláis","айсла́йс"],["ellos","aíslan","аи́слан"]],"corto":"Aislamiento térmico — теплоизоляция. Ударение переезжает на í.","largo":[["Примеры",["Aislamos la cubierta. — Утепляем покрытие.","Hay que aislar las tuberías. — Трубы надо изолировать."],""]]},{"inf":"presupuestar","tr":"составлять смету","t":6,"p":14,"sp":"пресупуэста́р","g":"ar","f":[["yo","presupuesto","пресупуэ́сто"],["tú","presupuestas","пресупуэ́стас"],["él / ella","presupuesta","пресупуэ́ста"],["nosotros","presupuestamos","пресупуэста́мос"],["vosotros","presupuestáis","пресупуэста́йс"],["ellos","presupuestan","пресупуэ́стан"]],"corto":"Presupuesto — смета и бюджет одновременно. Главное слово в договоре.","largo":[["Примеры",["Presupuesto la reforma mañana. — Завтра посчитаю смету на ремонт.","Hay que presupuestar todo. — Надо всё просчитать."],""]]},{"inf":"certificar","tr":"удостоверять, актировать","t":6,"p":15,"sp":"сертифика́р","g":"ar","f":[["yo","certifico","сертифи́ко"],["tú","certificas","сертифи́кас"],["él / ella","certifica","сертифи́ка"],["nosotros","certificamos","сертифика́мос"],["vosotros","certificáis","сертифика́йс"],["ellos","certifican","сертифи́кан"]],"corto":"Certificación de obra — акт выполненных работ, по нему платят.","largo":[["Примеры",["Certificamos la obra cada mes. — Актируем работы каждый месяц.","El técnico certifica los trabajos. — Техник подписывает акт."],""]]},{"inf":"encofrar","tr":"ставить опалубку","t":6,"p":15,"sp":"энкофра́р","g":"ar","f":[["yo","encofro","энко́фро"],["tú","encofras","энко́фрас"],["él / ella","encofra","энко́фра"],["nosotros","encoframos","энкофра́мос"],["vosotros","encofráis","энкофра́йс"],["ellos","encofran","энко́фран"]],"corto":"Encofrado — опалубка. Desencofrar — снимать опалубку.","largo":[["Примеры",["Encoframos el pilar. — Ставим опалубку на колонну.","Mañana desencofran la losa. — Завтра снимают опалубку с плиты."],""]]},{"inf":"hormigonar","tr":"бетонировать","t":6,"p":15,"sp":"ормигона́р","g":"ar","f":[["yo","hormigono","ормиго́но"],["tú","hormigonas","ормиго́нас"],["él / ella","hormigona","ормиго́на"],["nosotros","hormigonamos","ормигона́мос"],["vosotros","hormigonáis","ормигона́йс"],["ellos","hormigonan","ормиго́нан"]],"corto":"Hormigón armado — железобетон. Hormigonera — бетономешалка.","largo":[["Примеры",["Hormigonamos el lunes. — Бетонируем в понедельник.","No se hormigona con lluvia. — В дождь не бетонируют."],""]]},{"inf":"replantear","tr":"выносить оси в натуру","t":6,"p":15,"sp":"реплантеа́р","g":"ar","f":[["yo","replanteo","репланте́о"],["tú","replanteas","репланте́ас"],["él / ella","replantea","репланте́а"],["nosotros","replanteamos","реплантеа́мос"],["vosotros","replanteáis","реплантеа́йс"],["ellos","replantean","репланте́ан"]],"corto":"Replanteo — разбивка осей. Acta de replanteo — акт разбивки.","largo":[["Примеры",["Replanteamos los ejes hoy. — Сегодня выносим оси.","El replanteo está firmado. — Акт разбивки подписан."],""]]},{"inf":"cimentar","tr":"возводить фундамент","t":6,"p":16,"sp":"симента́р","g":"ar","f":[["yo","cimiento","симье́нто"],["tú","cimientas","симье́нтас"],["él / ella","cimienta","симье́нта"],["nosotros","cimentamos","симента́мос"],["vosotros","cimentáis","симента́йс"],["ellos","cimientan","симье́нтан"]],"corto":"Cimentación — фундамент. Cimiento — его отдельная часть.","largo":[["Примеры",["Cimentamos con zapatas. — Делаем фундамент на подошвах.","La cimentación está terminada. — Фундамент готов."],""]]}];
+const YARUS={"1":"Костяк","2":"Основа","3":"Расширение","4":"Свободная речь","5":"Оттенки","6":"Стройка"};
+
+/* богатые разборы, написанные вручную, накладываются поверх */
+RICOS.forEach(r=>{
+  const v = VERBOS.find(x=>x.inf===r.inf);
+  if(v){ v.corto=r.corto; v.largo=r.largo; if(r.now) v.now=1; }
+  else { r.t=r.t||1; r.p=r.p||1; r.sp=r.sp||""; VERBOS.push(r); }
+});
+VERBOS.sort((a,b)=> a.t-b.t || a.p-b.p || a.inf.localeCompare(b.inf,"es"));
+
 
 const EJER=[
  {ru:"Я инженер.",es:["Soy","ingeniero"],k:0,x:["Eres","es"]},
@@ -727,7 +908,7 @@ function di(txt){
   }catch(e){}
 }
 
-const HOJAS=["ruta","ficha","gram","verbos","taller","ajustes"];
+const HOJAS=["ruta","ficha","gram","verbos","video","taller","ajustes"];
 
 function vaA(id, lado){
   document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x.dataset.go===id));
@@ -739,6 +920,7 @@ function vaA(id, lado){
   });
   corta();
   document.querySelector("main").scrollTop=0;
+  if(id==="ruta" && typeof pintaHoy==="function") pintaHoy();
 }
 
 function hojaActual(){
@@ -902,56 +1084,169 @@ ponVel(VEL);
 pintaFicha();
 
 /* ================= ГЛАГОЛЫ ================= */
-(function(){
-  const L=$("verbList");
-  VERBOS.forEach(v=>{
-    const card=document.createElement("div");
-    card.className="verb"+(v.now?" now":"");
+let vFiltro = 0, vTexto = "";
 
-    const top=document.createElement("button"); top.className="top";
-    top.innerHTML='<span class="inf"></span><span class="tr"></span>'+
-                  (v.now?'<span class="tag">учим сейчас</span>':'')+
-                  '<span class="arrow">+</span>';
-    top.querySelector(".inf").textContent=v.inf;
-    top.querySelector(".tr").textContent=v.tr;
+function pasoAbierto(){
+  try{
+    const p = JSON.parse(localStorage.getItem("frase_progreso")||"{}");
+    return Math.max(1, p.max||1);
+  }catch(e){ return 1; }
+}
 
-    const body=document.createElement("div"); body.className="body";
-    const tb=document.createElement("table");
-    v.f.forEach(([q,f,p])=>{
-      const tr=document.createElement("tr");
-      const a=document.createElement("td"); a.className="q"; a.textContent=q;
-      const b=document.createElement("td"); b.className="f"; b.textContent=f;
-      b.onclick=()=>di(f);
-      const c=document.createElement("td"); c.className="p"; c.textContent=p;
-      tr.append(a,b,c); tb.appendChild(tr);
-    });
-    const corto=document.createElement("p"); corto.className="corto"; corto.textContent=v.corto;
-    const more=document.createElement("button"); more.className="more"; more.textContent="↓ Подробно, с примерами";
-    const largo=document.createElement("div"); largo.className="largo";
+function resalta(txt, q){
+  if(!q) return txt;
+  const i = txt.toLowerCase().indexOf(q);
+  if(i < 0) return txt;
+  const s = document.createElement("span");
+  s.append(txt.slice(0,i));
+  const m = document.createElement("span"); m.className="mark"; m.textContent=txt.slice(i,i+q.length);
+  s.append(m, txt.slice(i+q.length));
+  return s;
+}
 
-    v.largo.forEach(([h,ex,cm])=>{
-      const blk=document.createElement("div"); blk.className="blk";
-      const t=document.createElement("h4"); t.textContent=h; blk.appendChild(t);
-      const ul=document.createElement("ul");
-      ex.forEach(s=>{const li=document.createElement("li");li.textContent=s;ul.appendChild(li);});
+function tarjetaVerbo(v, abierto, q){
+  /* если глагол искали по имени — он нужен сейчас, замок снимаем */
+  const cerrado = v.p > abierto && !q;
+  const card = document.createElement("div");
+  card.className = "verb" + (v.now?" now":"") + (cerrado?" cerr":"");
+
+  const top = document.createElement("button"); top.className="top";
+  const inf = document.createElement("span"); inf.className="inf";
+  inf.append(resalta(v.inf, q));
+  const tr = document.createElement("span"); tr.className="tr";
+  tr.append(resalta(v.tr, q));
+  top.append(inf, tr);
+  if(v.now){ const t=document.createElement("span"); t.className="tag"; t.textContent="учим сейчас"; top.append(t); }
+  if(cerrado){ const t=document.createElement("span"); t.className="llave"; t.textContent="ступень "+v.p; top.append(t); }
+  const ar = document.createElement("span"); ar.className="arrow"; ar.textContent = cerrado?"·":"+";
+  top.append(ar);
+
+  const body = document.createElement("div"); body.className="body";
+
+  if(cerrado){
+    const p = document.createElement("p"); p.className="corto";
+    p.textContent = "Откроется на ступени "+v.p+". Сейчас открыта "+abierto+
+      " — не распыляйтесь, доучите то, что уже доступно.";
+    body.append(p);
+    card.append(top, body);
+    return card;
+  }
+
+  const tb = document.createElement("table");
+  v.f.forEach(fila=>{
+    const [qq, ff, pp] = fila;
+    const tr2 = document.createElement("tr");
+    const a = document.createElement("td"); a.className="q"; a.textContent=qq;
+    const b = document.createElement("td"); b.className="f"; b.textContent=ff;
+    b.onclick = ()=>di(ff);
+    const c = document.createElement("td"); c.className="p"; c.textContent=pp;
+    tr2.append(a,b,c); tb.appendChild(tr2);
+  });
+
+  const corto = document.createElement("p"); corto.className="corto"; corto.textContent=v.corto||"";
+  body.append(tb, corto);
+
+  if(v.largo && v.largo.length){
+    const more = document.createElement("button"); more.className="more";
+    more.textContent = "↓ Подробно, с примерами";
+    const largo = document.createElement("div"); largo.className="largo";
+    v.largo.forEach(bloque=>{
+      const [h, ex, cm] = bloque;
+      const blk = document.createElement("div"); blk.className="blk";
+      const t = document.createElement("h4"); t.textContent=h; blk.appendChild(t);
+      const ul = document.createElement("ul");
+      ex.forEach(s=>{
+        const li = document.createElement("li"); li.textContent=s;
+        li.onclick = ()=>di(s.split("—")[0].trim());
+        ul.appendChild(li);
+      });
       blk.appendChild(ul);
-      if(cm){const p=document.createElement("p");p.className="cm";p.textContent=cm;blk.appendChild(p);}
+      if(cm){ const p=document.createElement("p"); p.className="cm"; p.textContent=cm; blk.appendChild(p); }
       largo.appendChild(blk);
     });
-
-    body.append(tb,corto,more,largo);
-    card.append(top,body);
-    L.appendChild(card);
-
-    top.onclick=()=>{
-      card.classList.toggle("open");
-      top.querySelector(".arrow").textContent=card.classList.contains("open")?"−":"+";
-    };
-    more.onclick=()=>{
+    body.append(more, largo);
+    more.onclick = ()=>{
       card.classList.toggle("full");
-      more.textContent=card.classList.contains("full")?"↑ Свернуть подробности":"↓ Подробно, с примерами";
+      more.textContent = card.classList.contains("full") ? "↑ Свернуть подробности" : "↓ Подробно, с примерами";
     };
+  }
+
+  card.append(top, body);
+  top.onclick = ()=>{
+    card.classList.toggle("open");
+    ar.textContent = card.classList.contains("open") ? "−" : "+";
+  };
+  return card;
+}
+
+function pintaYarus(){
+  const C = $("vYar"); if(!C) return;
+  const abierto = pasoAbierto();
+  C.innerHTML = "";
+  const filas = [[0,"все"]].concat(Object.keys(YARUS).map(k=>[+k, YARUS[k]]));
+  filas.forEach(([k, nombre])=>{
+    const b = document.createElement("button");
+    const total = k ? VERBOS.filter(v=>v.t===k).length : VERBOS.length;
+    const libres = k ? VERBOS.filter(v=>v.t===k && v.p<=abierto).length
+                     : VERBOS.filter(v=>v.p<=abierto).length;
+    b.innerHTML = nombre + "<b>" + libres + "/" + total + "</b>";
+    b.classList.toggle("on", vFiltro===k);
+    b.onclick = ()=>{ vFiltro = k; pintaVerbos(); };
+    C.appendChild(b);
   });
+}
+
+function pintaVerbos(){
+  const L = $("verbList"); if(!L) return;
+  const abierto = pasoAbierto();
+  const q = vTexto.trim().toLowerCase();
+
+  let lista = VERBOS.filter(v=>{
+    if(vFiltro && v.t!==vFiltro) return false;
+    if(!q) return true;
+    if(v.inf.toLowerCase().indexOf(q)>=0) return true;
+    if(v.tr.toLowerCase().indexOf(q)>=0) return true;
+    if((v.corto||"").toLowerCase().indexOf(q)>=0) return true;
+    return v.f.some(f=>f[1].toLowerCase().indexOf(q)>=0);
+  });
+
+  const libres = lista.filter(v=>v.p<=abierto).length;
+  $("vCnt").textContent = q
+    ? ("найдено " + lista.length + " · поиск снимает замок")
+    : ("открыто " + libres + " из " + lista.length + " · вы на ступени " + abierto);
+
+  L.innerHTML = "";
+  if(!lista.length){
+    const p = document.createElement("p"); p.className="vVacio";
+    p.textContent = "Ничего не нашлось. Если слово нужное — запишите его во вкладке «Собрать → Слова», там есть добавление своих.";
+    L.appendChild(p);
+    pintaYarus();
+    return;
+  }
+
+  let yarActual = null;
+  lista.forEach(v=>{
+    if(!vFiltro && !q && v.t!==yarActual){
+      yarActual = v.t;
+      const s = document.createElement("div"); s.className="vSep";
+      const cuantos = VERBOS.filter(x=>x.t===v.t).length;
+      s.innerHTML = "Ярус " + v.t + " · " + YARUS[v.t] + "<span>" + cuantos + "</span>";
+      L.appendChild(s);
+    }
+    L.appendChild(tarjetaVerbo(v, abierto, q));
+  });
+  pintaYarus();
+}
+
+(function(){
+  const inp = $("vBusca");
+  if(!inp) return;
+  let t = null;
+  inp.oninput = ()=>{
+    clearTimeout(t);
+    t = setTimeout(()=>{ vTexto = inp.value; pintaVerbos(); }, 180);
+  };
+  $("vNada").onclick = ()=>{ inp.value=""; vTexto=""; vFiltro=0; pintaVerbos(); inp.focus(); };
 })();
 
 /* ================= ПРАВИЛА ================= */
@@ -1274,7 +1569,7 @@ $("bCheck").onclick=()=>{
   total++;
   const r=$("res");
   if(limpia(mio)===limpia(correcto)){
-    bien++;
+    bien++; sumaHoy("fra");
     r.className="res good show";
     r.innerHTML="Верно. <b>"+correcto+"</b>";
   }else{
@@ -1304,7 +1599,7 @@ $("bSkip").onclick=()=>{
   total++;
   const r=$("res");
   if(mio && limpia(mio)===limpia(correcto)){
-    bien++;
+    bien++; sumaHoy("fra");
     r.className="res good show";
     r.innerHTML="Верно. <b>"+correcto+"</b>";
   }else{
@@ -1347,12 +1642,15 @@ function cjNuevo(){
   const i = Math.floor(Math.random()*6);
 
   if(irr){
-    const v = VERBOS[Math.floor(Math.random()*VERBOS.length)];
+    /* спрашиваем только то, что уже открыто по ступеням */
+    const libres = VERBOS.filter(x=>x.p<=pasoAbierto());
+    const banco = libres.length ? libres : VERBOS.slice(0,10);
+    const v = banco[Math.floor(Math.random()*banco.length)];
     const correcta = v.f[i][1];
     cjResp = correcta;
     $("cjStem").innerHTML = '<span style="color:var(--lap)">'+v.inf+'</span> → <u>?</u>';
     $("cjWho").textContent = QUIEN[i];
-    $("cjHint").textContent = "неправильный глагол · "+v.tr;
+    $("cjHint").textContent = "ярус "+v.t+" · "+v.tr;
     ponAyuda(tablaVerbo(v));
     pintaChips(mix(v.f.map(x=>x[1])), true);
   }else{
@@ -1463,6 +1761,15 @@ cjNuevo();
 
 /* ================= ПУТЬ: УРОВНИ И ЭКЗАМЕНЫ ================= */
 
+const CEFR=[
+ {k:"A1",t:"Выживание",p:[1,5],h:95,d:"понимаю простые фразы о себе и быте, говорю заученными блоками"},
+ {k:"A2",t:"Быт",p:[6,10],h:95,d:"справляюсь в магазине, у врача, в конторе; рассказываю о прошлом"},
+ {k:"B1",t:"Самостоятельность",p:[11,15],h:180,d:"объясняюсь без подготовки, веду переписку, рассказываю связно"},
+ {k:"B2",t:"Работа",p:[16,20],h:180,d:"работаю на языке: совещание, отчёт, спор с подрядчиком, нормы"}
+];
+
+function nivelDe(n){ return CEFR.find(c=>n>=c.p[0] && n<=c.p[1]) || CEFR[0]; }
+
 const NIVELES=[
  {n:1,t:"Знакомство",d:"ser · чтение букв · вопрос и отрицание",
   ver:"Правила → Чтение, Глагол обязателен, Отрицание и вопрос. Глаголы → ser."},
@@ -1480,7 +1787,17 @@ const NIVELES=[
   ver:"Правила → Числительные (цены, время). Фраза → бытовые карточки."},
  {n:8,t:"Прошлое I",d:"indefinido — trabajé, comí, viví",pronto:1},
  {n:9,t:"Прошлое II",d:"imperfecto — trabajaba, era, tenía",pronto:1},
- {n:10,t:"Будущее",d:"futuro · condicional · вежливые формы",pronto:1}
+ {n:10,t:"Местоимения",d:"me · te · lo · le · gustar и его родня",pronto:1},
+ {n:11,t:"Будущее",d:"futuro · condicional · вежливые формы",pronto:1},
+ {n:12,t:"Совершённое",d:"he hecho · причастия · ya и todavía",pronto:1},
+ {n:13,t:"Повеление",d:"imperativo · просьбы, запреты, инструкции",pronto:1},
+ {n:14,t:"Связная речь",d:"porque · aunque · mientras · sin embargo",pronto:1},
+ {n:15,t:"Пересказ",d:"dice que · согласование времён · косвенная речь",pronto:1},
+ {n:16,t:"Subjuntivo I",d:"quiero que · es necesario que · воля и оценка",pronto:1},
+ {n:17,t:"Subjuntivo II",d:"сомнение · чувство · цель · ojalá",pronto:1},
+ {n:18,t:"Условия",d:"si tengo · si tuviera · si hubiera — три типа",pronto:1},
+ {n:19,t:"Безличность",d:"se hace · пассив · официальный стиль",pronto:1},
+ {n:20,t:"Профессия",d:"совещание · отчёт · письмо · нормы и акты",pronto:1}
 ];
 
 const BANCO={
@@ -1644,11 +1961,28 @@ function pintaRuta(){
   const act=NIVELES.find(x=>x.n===abierto)||NIVELES[0];
 
   $("rTit").textContent="Ступень "+abierto+" — "+act.t;
-  $("rSub").textContent="пройдено "+hechos+" из "+NIVELES.length;
+  const niv = nivelDe(abierto);
+  const hNiv = CEFR.filter(c=>c.p[1]<=niv.p[1]).reduce((s,c)=>s+c.h,0);
+  $("rSub").textContent = niv.k+" · "+niv.t+" · "+hechos+" из "+NIVELES.length+
+    " ступеней · до конца "+niv.k+" ≈"+hNiv+" ч";
   $("rBar").style.width=Math.round(hechos/NIVELES.length*100)+"%";
 
   const L=$("rNiv"); L.innerHTML="";
+  let bandaAct=null;
   NIVELES.forEach(v=>{
+    const c=nivelDe(v.n);
+    if(c!==bandaAct){
+      bandaAct=c;
+      const hechosAqui=NIVELES.filter(x=>x.n>=c.p[0]&&x.n<=c.p[1]&&PROG.res[x.n]!==undefined).length;
+      const cuantos=c.p[1]-c.p[0]+1;
+      const hd=document.createElement("div");
+      hd.className="banda"+(hechosAqui===cuantos?" pas":"");
+      hd.innerHTML='<span class="k">'+c.k+'</span><span class="n">'+c.t+
+        '</span><span class="h">'+hechosAqui+'/'+cuantos+' · ≈'+c.h+' ч</span>';
+      L.appendChild(hd);
+      const ds=document.createElement("p"); ds.className="bandaD"; ds.textContent=c.d;
+      L.appendChild(ds);
+    }
     const pasado=PROG.res[v.n]!==undefined;
     const libre=v.n<=PROG.max && !v.pronto;
     const b=document.createElement("button");
@@ -1810,6 +2144,7 @@ function pintaFinal(){
     if(antes===undefined||pct>antes) PROG.res[EX.niv.n]=pct;
     if(PROG.max===EX.niv.n && EX.niv.n<NIVELES.length) PROG.max=EX.niv.n+1;
     guardarProg(PROG);
+    pintaVerbos();
     alimentarWidget();
   }
 
@@ -1877,6 +2212,505 @@ function alimentarWidget(){
 }
 
 pintaRuta();
+pintaVerbos();
+
+/* ================= ВИДЕО, СЛУХ И ГОЛОС ================= */
+
+const VIDEOS=[
+/* ---------- A1 ---------- */
+{n:"A1",t:"Dreaming Spanish",d:"Испания · без перевода",
+ q:"Dreaming Spanish superbeginner",
+ s:"Самый мягкий вход. Человек рисует на доске и рассказывает жестами — вы понимаете, не зная слов. Начните с плейлиста Super Beginner и не переключайтесь, пока не станет скучно легко."},
+{n:"A1",t:"Spanish After Hours",d:"медленно · с картинками",
+ q:"Spanish After Hours beginner Spanish",
+ s:"Короткие истории с рисунками, речь заметно медленнее обычной. Хорошо идёт после Dreaming Spanish."},
+{n:"A1",t:"Español con Pocoyó",d:"мультфильм · очень медленно",
+ q:"Pocoyó español capítulos completos",
+ s:"Детский мультик: простые фразы, много повторов, картинка объясняет всё. Можно ставить фоном, когда голова уже не варит."},
+{n:"A1",t:"Peppa Pig en español",d:"мультфильм · быт",
+ q:"Peppa Pig español capítulos completos",
+ s:"Семья, дом, магазин, врач — ровно та лексика, что нужна в первый год. Серии по пять минут."},
+
+/* ---------- A2 ---------- */
+{n:"A2",t:"Easy Spanish",d:"улица · двойные субтитры",
+ q:"Easy Spanish street interviews España",
+ s:"Уличные интервью с субтитрами на испанском и английском сразу. Живая речь, но по кускам — ровно столько, сколько можно переварить."},
+{n:"A2",t:"Tu escuela de español",d:"Испания · грамматика",
+ q:"Tu escuela de español",
+ s:"Испанка объясняет грамматику по-испански, медленно и с примерами. Полезно, когда правило уже прочитали, но не уложилось."},
+{n:"A2",t:"Spring Spanish",d:"короткие ситуации",
+ q:"Spring Spanish español",
+ s:"Ролики по три-четыре минуты на одну ситуацию: заказать, спросить, отказаться. Удобно смотреть перед выходом из дома."},
+{n:"A2",t:"Butterfly Spanish",d:"Мексика · лексика",
+ q:"Butterfly Spanish lessons",
+ s:"Мексиканский вариант, но объясняет очень внятно. Произношение отличается от валенсийского — слушайте ради слов, не ради акцента."},
+
+/* ---------- B1 ---------- */
+{n:"B1",t:"Español con Juan",d:"Испания · монологи",
+ q:"Español con Juan podcast",
+ s:"Испанец болтает сам с собой на бытовые темы, с юмором и без упрощений в грамматике — но медленно и с повторами. Лучший мост от учебного к настоящему."},
+{n:"B1",t:"Español Automático",d:"Испания · подкаст",
+ q:"Español Automático podcast",
+ s:"Длинные выпуски про жизнь в Испании. Хорошо для фона: даже если ловите половину, уши привыкают к ритму."},
+{n:"B1",t:"ProfeDeELE",d:"Испания · ELE",
+ q:"ProfeDeELE español",
+ s:"Материалы для тех, кто готовится к экзаменам DELE. Если соберётесь сдавать на уровень — отсюда понятно, чего ждут."},
+{n:"B1",t:"Erre que ELE",d:"Испания · разговорное",
+ q:"Erre que ELE español coloquial",
+ s:"Разговорные обороты, которые в учебниках не пишут, а в Валенсии слышно каждый день."},
+
+/* ---------- B2 ---------- */
+{n:"B2",t:"Linguriosa",d:"Испания · про сам язык",
+ q:"Linguriosa",
+ s:"Откуда взялись слова, почему так говорят, чем Испания отличается от Латинской Америки. Быстрая речь, но тема помогает держаться."},
+{n:"B2",t:"Academia Play",d:"Испания · история",
+ q:"Academia Play historia",
+ s:"Анимированная история и политика. Картинка несёт смысл, поэтому понимается легче, чем кажется по скорости."},
+{n:"B2",t:"Enrique Álex",d:"Испания · документальное",
+ q:"Enrique Alex documental",
+ s:"Путешествия и репортажи испанца. Живая речь в кадре, много разных собеседников и акцентов."},
+{n:"B2",t:"Новости RTVE",d:"Испания · телевидение",
+ q:"RTVE telediario completo",
+ s:"Государственное телевидение Испании. Дикторская речь чистая и быстрая — честная проверка уровня."},
+
+/* ---------- Стройка ---------- */
+{n:"Pro",t:"Стройплощадка изнутри",d:"обучающее видео · Испания",
+ q:"obra construcción España encofrado forjado hormigonado",
+ s:"Съёмки реальных работ: опалубка, перекрытие, бетонирование. Слова, которыми говорит бригада, а не учебник."},
+{n:"Pro",t:"CTE — испанские нормы",d:"нормативная база",
+ q:"Código Técnico de la Edificación CTE explicación",
+ s:"Código Técnico de la Edificación — испанский аналог ДБН. Ваша профессия начинается с этих букв: без CTE подпись не поставить."},
+{n:"Pro",t:"Сметы и обмеры",d:"presupuesto · mediciones",
+ q:"presupuesto de obra mediciones Presto Arquimedes",
+ s:"Как в Испании считают смету: mediciones, precios descompuestos, certificación. Ваша зона — смотрите с блокнотом."},
+{n:"Pro",t:"Железобетон",d:"расчёт и исполнение",
+ q:"estructura hormigón armado armado zapatas pilares explicación",
+ s:"Конструктивная часть по-испански: zapata, pilar, forjado, armado. Теорию вы знаете — здесь набираете на неё слова."},
+{n:"Pro",t:"Ремонт под ключ",d:"reforma integral",
+ q:"reforma integral piso paso a paso España",
+ s:"Самый ходовой заказ в Испании. Лексика ремонта и порядок работ — пригодится и для своего жилья, и для подработки."},
+{n:"Pro",t:"Охрана труда",d:"PRL · обязательно",
+ q:"prevención de riesgos laborales construcción curso",
+ s:"Prevención de Riesgos Laborales. Без карточки PRL на испанскую стройку не пускают — начните хотя бы со слов."},
+
+/* ---------- Фон ---------- */
+{n:"Фон",t:"Радио Испании",d:"речь · 24 часа",
+ q:"Cadena SER directo radio España en vivo",
+ s:"Поставить и не слушать. Мозг сам вытаскивает ритм и границы слов — это работает, даже когда вы заняты другим."},
+{n:"Фон",t:"Детские песни",d:"для дома · повторы",
+ q:"canciones infantiles en español para niños",
+ s:"Для ребёнка и для фона. Повторяющиеся куплеты вбиваются сами, и не только ребёнку."},
+{n:"Фон",t:"Мультики с котами",d:"для Алины · спокойное",
+ q:"dibujos animados en español gatitos para bebés",
+ s:"Спокойные мультики на испанском — чтобы дома звучал язык, пока руки заняты."},
+{n:"Фон",t:"Испанская музыка",d:"плейлист · часами",
+ q:"música española actual lista de reproducción",
+ s:"Песни со словами, которые застревают. Полезнее, чем кажется: припев запоминается целиком и вместе с грамматикой."}
+];
+
+const NIVS=["A1","A2","B1","B2","Pro","Фон"];
+const NIVT={A1:"Понимание без перевода",A2:"Быт и улица",B1:"Связная речь",
+            B2:"Настоящий язык",Pro:"Профессия",Фон:"Фоном, без усилия"};
+let vNivel="A1";
+
+/* ---------- счётчик слушания ---------- */
+const OIDO_LLAVE="frase_oido";
+const TOPE_SES=4*3600000;          // больше 4 ч за раз не засчитываем
+
+function leerOido(){
+  try{
+    const o=JSON.parse(localStorage.getItem(OIDO_LLAVE)||"{}");
+    return {tot:o.tot||0, dia:o.dia||"", hoy:o.hoy||0, ini:o.ini||0};
+  }catch(e){ return {tot:0,dia:"",hoy:0,ini:0}; }
+}
+let OIDO=leerOido();
+
+function guardaOido(){
+  try{ localStorage.setItem(OIDO_LLAVE, JSON.stringify(OIDO)); }catch(e){}
+}
+
+function hoyStr(){ const d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
+
+function cierraSesion(){
+  if(!OIDO.ini) return;
+  const pasa=Math.min(Date.now()-OIDO.ini, TOPE_SES);
+  if(pasa>5000){
+    if(OIDO.dia!==hoyStr()){ OIDO.dia=hoyStr(); OIDO.hoy=0; }
+    OIDO.tot+=pasa; OIDO.hoy+=pasa;
+  }
+  OIDO.ini=0; guardaOido();
+}
+
+function reloj(ms){
+  const m=Math.floor(ms/60000);
+  return Math.floor(m/60)+" ч "+String(m%60).padStart(2,"0")+" мин";
+}
+
+function pintaReloj(){
+  const b=$("oTot"); if(!b) return;
+  const corre=!!OIDO.ini;
+  const extra=corre?Math.min(Date.now()-OIDO.ini,TOPE_SES):0;
+  const tot=OIDO.tot+extra;
+  const hoy=(OIDO.dia===hoyStr()?OIDO.hoy:0)+extra;
+
+  b.textContent=reloj(tot);
+  b.classList.toggle("va",corre);
+
+  const niv=(typeof nivelDe==="function" && typeof PROG!=="undefined")
+            ? nivelDe(Math.min(PROG.max,20)) : {k:"A1",h:95};
+  const meta=niv.h*3600000;
+  $("oSub").textContent="сегодня "+reloj(hoy)+" · норма "+niv.k+" ≈"+niv.h+" ч"+
+                        (corre?" · идёт":"");
+  $("oBar").style.width=Math.min(100,Math.round(tot/meta*100))+"%";
+
+  const g=$("oGo");
+  g.textContent=corre?"■ остановить":"▶ включить счётчик";
+  g.classList.toggle("va",corre);
+}
+
+(function(){
+  const g=$("oGo"); if(!g) return;
+  g.onclick=()=>{
+    if(OIDO.ini) cierraSesion();
+    else { OIDO.ini=Date.now(); guardaOido(); }
+    pintaReloj();
+  };
+  let armado=null;
+  $("oCero").onclick=()=>{
+    const c=$("oCero");
+    if(!armado){                               // первое нажатие — переспрос
+      c.textContent="точно?"; c.style.color="var(--carga)";
+      armado=setTimeout(()=>{ armado=null; c.textContent="сброс"; c.style.color=""; },4000);
+      return;
+    }
+    clearTimeout(armado); armado=null;
+    c.textContent="сброс"; c.style.color="";
+    cierraSesion();
+    OIDO={tot:0,dia:hoyStr(),hoy:0,ini:0}; guardaOido(); pintaReloj();
+  };
+  setInterval(()=>{ if(OIDO.ini) pintaReloj(); }, 20000);
+  window.addEventListener("pagehide",()=>{ if(OIDO.ini) guardaOido(); });
+  document.addEventListener("visibilitychange",()=>{ if(!document.hidden) pintaReloj(); });
+})();
+
+/* ---------- список роликов ---------- */
+function abrirFuera(url){
+  try{
+    if(window.Android && window.Android.abrir){ window.Android.abrir(url); return; }
+  }catch(e){}
+  window.open(url,"_blank");
+}
+
+function pintaVideos(){
+  const C=$("vNiv"), L=$("vLista");
+  if(!C||!L) return;
+
+  C.innerHTML="";
+  NIVS.forEach(k=>{
+    const b=document.createElement("button");
+    b.textContent=k;
+    b.classList.toggle("on", vNivel===k);
+    b.onclick=()=>{ vNivel=k; pintaVideos(); };
+    C.appendChild(b);
+  });
+
+  L.innerHTML="";
+  const t=document.createElement("div"); t.className="vSep";
+  t.innerHTML=vNivel+" · "+NIVT[vNivel];
+  L.appendChild(t);
+
+  VIDEOS.filter(v=>v.n===vNivel).forEach(v=>{
+    const c=document.createElement("div");
+    c.className="vid"+(v.n==="Фон"?" fondo":"");
+    const h=document.createElement("h5"); h.textContent=v.t;
+    const m=document.createElement("div"); m.className="vmeta"; m.textContent=v.d;
+    const p=document.createElement("p"); p.textContent=v.s;
+    const b=document.createElement("button"); b.className="ir";
+    b.textContent="открыть на youtube ▸";
+    b.onclick=()=>abrirFuera("https://www.youtube.com/results?search_query="+encodeURIComponent(v.q));
+    c.append(h,m,p,b);
+    L.appendChild(c);
+  });
+}
+
+/* ---------- запись голоса ---------- */
+let zMedia=null, zTrozos=[], zUrl=null, zAudio=null, zFrase=null;
+
+function zNueva(){
+  const lista=(typeof FRASES!=="undefined" && FRASES.length) ? FRASES : null;
+  if(lista){
+    const f=lista[Math.floor(Math.random()*lista.length)];
+    zFrase={es:f.w.map(x=>x[0]).join(" "), ru:f.ru||""};
+  }else{
+    zFrase={es:"Soy ingeniero de Ucrania.",ru:"Я инженер из Украины."};
+  }
+  $("zFr").textContent=zFrase.es;
+  $("zRu").textContent=zFrase.ru;
+}
+
+function zLimpia(){
+  if(zUrl){ try{URL.revokeObjectURL(zUrl);}catch(e){} zUrl=null; }
+  $("zYo").disabled=true;
+}
+
+async function zEmpieza(){
+  const bo=$("zRec");
+  if(zMedia && zMedia.state==="recording"){ zMedia.stop(); return; }
+
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    $("zNota").textContent="Микрофон недоступен в этой сборке. Нужна версия приложения с разрешением на запись.";
+    return;
+  }
+  try{
+    if(window.Android && window.Android.pedirMicro && !window.Android.pedirMicro()){
+      $("zNota").textContent="Android спрашивает разрешение на микрофон. Разрешите и нажмите «записать» ещё раз.";
+      return;
+    }
+  }catch(e){}
+
+  try{
+    const flujo=await navigator.mediaDevices.getUserMedia({audio:true});
+    zLimpia(); zTrozos=[];
+    zMedia=new MediaRecorder(flujo);
+    zMedia.ondataavailable=e=>{ if(e.data.size) zTrozos.push(e.data); };
+    zMedia.onstop=()=>{
+      flujo.getTracks().forEach(t=>t.stop());
+      const b=new Blob(zTrozos,{type:zTrozos[0]?zTrozos[0].type:"audio/webm"});
+      zUrl=URL.createObjectURL(b);
+      sumaHoy("voz");
+      $("zYo").disabled=false;
+      bo.classList.remove("rec"); bo.textContent="● записать";
+      $("zNota").textContent="Записано. Нажмите «я», потом «образец» — и услышите разницу.";
+    };
+    zMedia.start();
+    bo.classList.add("rec"); bo.textContent="■ стоп";
+    $("zNota").textContent="Идёт запись. Прочитайте фразу вслух и нажмите «стоп».";
+  }catch(e){
+    $("zNota").textContent="Не удалось включить микрофон. Разрешите доступ в настройках Android → Приложения → Frase → Разрешения.";
+  }
+}
+
+(function(){
+  if(!$("zRec")) return;
+  zNueva();
+  $("zRec").onclick=zEmpieza;
+  $("zOtra").onclick=()=>{ zLimpia(); zNueva(); $("zNota").textContent="Прочтите вслух, потом сравните себя с образцом."; };
+  $("zMod").onclick=()=>{ if(zFrase) di(zFrase.es); };
+  $("zYo").onclick=()=>{
+    if(!zUrl) return;
+    if(!zAudio) zAudio=new Audio();
+    zAudio.src=zUrl; zAudio.play().catch(()=>{});
+  };
+})();
+
+pintaVideos();
+pintaReloj();
+
+/* ================= ПРОГРАММА ДНЯ ================= */
+
+const RITMOS={
+  lite  :{t:"Лёгкая",  cuanto:"≈30 минут", pal:10, min:10, voz:1, fra:5,  man:3},
+  normal:{t:"Обычная", cuanto:"≈1 час",    pal:20, min:20, voz:2, fra:10, man:5},
+  denso :{t:"Плотная", cuanto:"≈3 часа",   pal:30, min:45, voz:4, fra:20, man:10}
+};
+
+function leeJSON(llave, porDefecto){
+  try{ const g=localStorage.getItem(llave); return g?JSON.parse(g):porDefecto; }
+  catch(e){ return porDefecto; }
+}
+function escribe(llave, val){
+  try{ localStorage.setItem(llave, JSON.stringify(val)); }catch(e){}
+}
+
+/* --- какой режим выбран --- */
+let RITMO = localStorage.getItem("frase_ritmo") || "normal";
+if(RITMO!=="propio" && !RITMOS[RITMO]) RITMO="normal";
+function meta(){
+  const m=RITMOS[RITMO];
+  if(m) return m;
+  let n=20; try{ n=SRS.nuevos; }catch(e){}
+  const b=RITMOS.normal;                   // свой режим: слова свои, остальное обычное
+  return {t:"Свой", cuanto:"свой набор", pal:n, min:b.min, voz:b.voz, fra:b.fra, man:b.man};
+}
+
+function ponRitmo(k){
+  if(!RITMOS[k]) return;
+  RITMO=k;
+  try{ localStorage.setItem("frase_ritmo",k); }catch(e){}
+  try{ SRS.nuevos=RITMOS[k].pal; guardaSRS(); wdCola=[]; wdMarcador(); }catch(e){}
+  try{ pintaMeta(); }catch(e){}
+  pintaRitmo(); pintaNuevosBotones(); pintaHoy();
+}
+
+/* кнопки «слов в день» и режим нагрузки показывают одно и то же число */
+function pintaNuevosBotones(){
+  let n=null;
+  try{ n=SRS.nuevos; }catch(e){ return; }
+  document.querySelectorAll("#ajNuevos button").forEach(b=>{
+    b.classList.toggle("on", +b.dataset.v===n);
+  });
+}
+
+/** какой режим соответствует текущему числу слов, или null */
+function ritmoDe(n){
+  for(const k in RITMOS) if(RITMOS[k].pal===n) return k;
+  return null;
+}
+
+function pintaRitmo(){
+  const C=$("ajRitmo"); if(!C) return;
+  const propio = !RITMOS[RITMO];
+  C.querySelectorAll("button").forEach(b=>{
+    b.classList.toggle("on", !propio && b.dataset.v===RITMO);
+    b.onclick=()=>ponRitmo(b.dataset.v);
+  });
+  if(propio){
+    let n=0; try{ n=SRS.nuevos; }catch(e){}
+    $("ajRitmoTxt").textContent="Свой режим: "+n+" "+forma(n,"слово","слова","слов")+
+      " в день, выставлено вручную ниже. Нажмите любой режим, чтобы вернуться к готовому набору.";
+    return;
+  }
+  const m=meta();
+  $("ajRitmoTxt").textContent = m.cuanto+" в день: "+m.pal+" новых слов, "+m.min+
+    " минут слушания, "+m.voz+" "+forma(m.voz,"запись","записи","записей")+" вслух, "+
+    m.fra+" "+forma(m.fra,"фраза","фразы","фраз")+" собрать, "+
+    m.man+" от руки.";
+}
+
+/* --- счётчики за сегодня --- */
+let HOY = leeJSON("frase_hoy", null);
+if(!HOY || HOY.d!==hoyClave()) HOY={d:hoyClave(), fra:0, voz:0, man:0};
+
+function sumaHoy(que, cuanto){
+  if(HOY.d!==hoyClave()) HOY={d:hoyClave(), fra:0, voz:0, man:0};
+  if(que!=="pal") HOY[que]=(HOY[que]||0)+(cuanto===undefined?1:cuanto);
+  escribe("frase_hoy",HOY);
+  marcaDia();
+  pintaHoy();
+}
+
+/* --- время в программе и серия дней --- */
+let TIEMPO = leeJSON("frase_tiempo", null) || {d:"", seg:0, tot:0, serie:0, ultimo:""};
+if(TIEMPO.d!==hoyClave()){ TIEMPO.d=hoyClave(); TIEMPO.seg=0; }
+
+function ayerClave(){
+  const d=new Date(); d.setDate(d.getDate()-1);
+  return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+}
+
+function marcaDia(){
+  const h=hoyClave();
+  if(TIEMPO.ultimo===h) return;
+  TIEMPO.serie = (TIEMPO.ultimo===ayerClave()) ? (TIEMPO.serie||0)+1 : 1;
+  TIEMPO.ultimo=h;
+  escribe("frase_tiempo",TIEMPO);
+}
+
+(function(){
+  let vivo=Date.now();
+  ["touchstart","mousedown","keydown","scroll"].forEach(ev=>{
+    document.addEventListener(ev, ()=>{ vivo=Date.now(); }, {passive:true});
+  });
+  setInterval(()=>{
+    if(document.hidden) return;
+    if(Date.now()-vivo > 300000) return;          // пять минут без касаний — пауза
+    if(TIEMPO.d!==hoyClave()){ TIEMPO.d=hoyClave(); TIEMPO.seg=0; }
+    TIEMPO.seg+=10; TIEMPO.tot+=10;
+    if(TIEMPO.seg%60===0){ marcaDia(); escribe("frase_tiempo",TIEMPO); pintaHoy(); }
+  }, 10000);
+  window.addEventListener("pagehide", ()=>escribe("frase_tiempo",TIEMPO));
+})();
+
+/* --- сколько карточек ждёт повторения --- */
+function vencidas(){
+  try{
+    if(typeof FS==="undefined" || typeof disponibles!=="function") return 0;
+    const ahora=Date.now();
+    return disponibles().filter(p=>FS[p.e] && FS[p.e].due<=ahora).length;
+  }catch(e){ return 0; }
+}
+
+/* --- минуты слушания за сегодня --- */
+function minutosHoy(){
+  try{
+    const o=leeJSON("frase_oido",{});
+    let ms=(o.dia===hoyClave()?(o.hoy||0):0);
+    if(o.ini) ms+=Math.min(Date.now()-o.ini, 4*3600000);
+    return Math.floor(ms/60000);
+  }catch(e){ return 0; }
+}
+
+/* --- новых слов за сегодня --- */
+function palabrasHoy(){
+  const n=leeJSON("frase_nuevos",{});
+  return (n.dia===hoyClave()) ? (n.n||0) : 0;
+}
+
+const MESES=["января","февраля","марта","апреля","мая","июня",
+             "июля","августа","сентября","октября","ноября","декабря"];
+const DIAS=["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];
+
+function pintaHoy(){
+  const L=$("hLista"); if(!L) return;
+  if(HOY.d!==hoyClave()) HOY={d:hoyClave(), fra:0, voz:0, man:0};
+  const m=meta(), d=new Date();
+
+  $("hFecha").textContent = DIAS[d.getDay()]+", "+d.getDate()+" "+MESES[d.getMonth()];
+
+  const min=Math.floor((TIEMPO.seg||0)/60);
+  const ser=TIEMPO.serie||0;
+  $("hPie").innerHTML = "в программе <b>"+min+"</b> мин · серия <b>"+ser+"</b> "+
+    forma(ser,"день","дня","дней")+" · режим: "+m.t.toLowerCase();
+
+  const esp=vencidas();
+  const filas=[
+    {k:"pal", n:"Новые слова",  hay:palabrasHoy(), hace:m.pal, u:"",     ir:["taller","wd"]},
+    {k:"rep", n:"Повторение",   hay:esp?0:1,       hace:1,     u:"",     ir:["taller","wd"],
+     txt: esp? (esp+" "+forma(esp,"ждёт","ждут","ждут")) : "чисто"},
+    {k:"min", n:"Слушать",      hay:minutosHoy(),  hace:m.min, u:" мин", ir:["video"]},
+    {k:"voz", n:"Читать вслух", hay:HOY.voz||0,    hace:m.voz, u:"",     ir:["video"]},
+    {k:"fra", n:"Собрать фразы",hay:HOY.fra||0,    hace:m.fra, u:"",     ir:["taller","fr"]},
+    {k:"man", n:"Написать от руки", hay:HOY.man||0, hace:m.man, u:"",    mano:1}
+  ];
+
+  L.innerHTML="";
+  let listos=0;
+  filas.forEach(f=>{
+    const ok = f.hay>=f.hace;
+    if(ok) listos++;
+    const li=document.createElement("li");
+    li.className = ok?"ok":"";
+    const mk=document.createElement("span"); mk.className="mk"; mk.textContent="✓";
+    const nm=document.createElement("span"); nm.className="nm"; nm.textContent=f.n;
+    const ct=document.createElement("span"); ct.className="ct";
+    ct.textContent = f.txt ? f.txt : (f.hay+" / "+f.hace+f.u);
+    li.append(mk,nm,ct);
+    li.onclick=()=>{
+      if(f.mano){                                   // от руки отмечаем сами
+        HOY.man = (HOY.man||0) >= f.hace ? 0 : f.hace;
+        escribe("frase_hoy",HOY); marcaDia(); pintaHoy();
+        return;
+      }
+      vaA(f.ir[0], "der");
+      if(f.ir[1]){
+        const b=document.querySelector('#modo button[data-m="'+f.ir[1]+'"]');
+        if(b) b.click();
+      }
+    };
+    L.appendChild(li);
+  });
+
+  const pct=Math.round(listos/filas.length*100);
+  const bar=$("hBar");
+  bar.style.width=pct+"%";
+  bar.classList.toggle("todo", listos===filas.length);
+  $("hTxt").textContent = listos===filas.length
+    ? "день закрыт — всё сделано"
+    : (listos+" из "+filas.length+" · осталось "+(filas.length-listos));
+}
+
+pintaRitmo();
+pintaHoy();
 
 
 /* ================= СЛОВАРЬ ПО СТУПЕНЯМ =================
@@ -2437,7 +3271,7 @@ function hoyClave(){ const d=new Date(); return d.getFullYear()+"-"+(d.getMonth(
 let NUEVOS={dia:"",n:0};
 try{ const g=localStorage.getItem("frase_nuevos"); if(g) NUEVOS=JSON.parse(g); }catch(e){}
 if(NUEVOS.dia!==hoyClave()) NUEVOS={dia:hoyClave(),n:0};
-function sumaNuevo(){ NUEVOS.n++; try{ localStorage.setItem("frase_nuevos",JSON.stringify(NUEVOS)); }catch(e){} }
+function sumaNuevo(){ NUEVOS.n++; try{ localStorage.setItem("frase_nuevos",JSON.stringify(NUEVOS)); }catch(e){} sumaHoy("pal",0); }
 
 function pelar(t){
   return String(t).toLowerCase().trim()
@@ -2453,18 +3287,43 @@ function disponibles(){
   return PALABRAS.filter(p=>p.n<=t||p.mia);
 }
 
-/** очередь: сначала просроченные, потом новые по дневному лимиту */
+/** Очередь: сначала просроченные, потом новые.
+ *  Норма — это минимум на день, а не потолок: после неё новые
+ *  продолжают подаваться, просто плашка с отсчётом гаснет.        */
 function armaCola(){
   const lista=disponibles(), ahora=Date.now();
   const vencidas=lista.filter(p=>FS[p.e] && FS[p.e].due<=ahora)
                       .sort((a,b)=>FS[a.e].due-FS[b.e].due);
   let cola=vencidas.slice();
-  if(NUEVOS.n < SRS.nuevos){
-    const nuevas=mix(lista.filter(p=>!FS[p.e])).slice(0, SRS.nuevos-NUEVOS.n);
-    // новые вперемешку со старыми, чтобы не шли подряд
-    nuevas.forEach((p,i)=>cola.splice(Math.min((i+1)*3,cola.length),0,p));
-  }
+
+  const faltan=Math.max(0, SRS.nuevos-NUEVOS.n);
+  const cuantas=faltan+15;                 // норма плюс запас на «ещё поучу»
+  const nuevas=mix(lista.filter(p=>!FS[p.e])).slice(0,cuantas);
+  // вперемешку со старыми, чтобы новые не шли подряд
+  nuevas.forEach((p,i)=>cola.splice(Math.min((i+1)*3,cola.length),0,p));
   return cola;
+}
+
+/** 1 слово · 2 слова · 5 слов */
+function forma(n,a,b,c){
+  const d=n%100, e=n%10;
+  if(d>=11&&d<=14) return c;
+  if(e===1) return a;
+  if(e>=2&&e<=4) return b;
+  return c;
+}
+
+/** Красная плашка с обратным отсчётом до нормы; после — гаснет. */
+function pintaMeta(){
+  const m=$("wdMeta"); if(!m) return;
+  const faltan=Math.max(0, SRS.nuevos-NUEVOS.n);
+  if(faltan<=0){ m.hidden=true; return; }
+  const hecho=SRS.nuevos-faltan;
+  m.hidden=false;
+  m.innerHTML='<b>'+faltan+'</b><span>'+forma(faltan,"слово","слова","слов")+
+    ' до нормы дня</span>'+
+    '<span class="tira"><i style="width:'+
+    Math.round(hecho/SRS.nuevos*100)+'%"></i></span>';
 }
 
 function estadoPalabra(p){
@@ -2476,6 +3335,7 @@ function estadoPalabra(p){
 
 function wdNueva(){
   $("wdRes").className="res";
+  pintaMeta();
   const caja=$("wdDificil"); if(caja) caja.hidden=true;
 
   if(!wdCola.length) wdCola=armaCola();
@@ -2603,9 +3463,12 @@ function wdMarcador(){
     if(c.due<=ahora) deb++;
     if(c.s<21) apr++; else sab++;
   });
+  const faltan=Math.max(0, SRS.nuevos-NUEVOS.n);
   $("wdScore").innerHTML =
-    "знаю <b>"+sab+"</b> · учу "+apr+" · новых "+nuevas+
-    "<br>к повтору сейчас "+deb+" · сегодня "+wdOk+"/"+wdTot;
+    "знаю <b>"+sab+"</b> · учу "+apr+" · впереди "+nuevas+
+    "<br>к повтору сейчас "+deb+" · сегодня "+wdOk+"/"+wdTot+
+    " · новых за день "+NUEVOS.n+(faltan?"":" ✓");
+  pintaMeta();
 }
 
 /* ---------- поиск и свои слова ---------- */
@@ -2727,6 +3590,16 @@ $("wdNext").onclick=wdNueva;
   };
 })();
 
+/* число слов в день задаётся режимом нагрузки — подравниваем при запуске */
+(function(){
+  if(RITMOS[RITMO]){                       // выбран готовый режим — он и задаёт норму
+    if(SRS.nuevos!==RITMOS[RITMO].pal){ SRS.nuevos=RITMOS[RITMO].pal; guardaSRS(); }
+  }else{                                   // «свой»: число слов выставлено вручную
+    RITMO="propio";
+  }
+  pintaRitmo(); pintaNuevosBotones(); pintaHoy();
+})();
+
 /* настройки повторений живут на вкладке с шестерёнкой */
 (function(){
   function pintaRet(){
@@ -2741,6 +3614,9 @@ $("wdNext").onclick=wdNueva;
       SRS.nuevos=+b.dataset.v; guardaSRS();
       document.querySelectorAll("#ajNuevos button").forEach(x=>x.classList.toggle("on",x===b));
       wdCola=[]; wdMarcador();
+      RITMO = ritmoDe(SRS.nuevos) || "propio";
+      try{ localStorage.setItem("frase_ritmo",RITMO); }catch(e){}
+      pintaRitmo(); pintaHoy();
     };
   });
   document.querySelectorAll("#ajRet button").forEach(b=>{
